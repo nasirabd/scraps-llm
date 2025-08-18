@@ -134,7 +134,7 @@ cython_debug/
 
 # Scraps-LLM project-specific
 data/
-model/
+model/*
 *.pt
 *.pth
 *.ckpt
