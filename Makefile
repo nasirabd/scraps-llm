@@ -1,5 +1,5 @@
 preprocess:
-	python src/preprocess.py
+	python -m src.preprocess --raw data/raw/dev_samples.jsonl --format jsonl 
 
 tokenize:
 	python src/tokenization/build_tokenizer.py
