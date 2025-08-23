@@ -6,7 +6,7 @@ from typing import Dict, Iterable, List, Tuple
 from src.utils.io import read_jsonl, write_jsonl
 from src.utils.text import clean
 
-print(">>> Preprocess starting...")
+
 #Create parser arguments for modfiying command line
 def parse_args():
     p = argparse.ArgumentParser(description="Scraps-LLM preprocessing")
@@ -88,5 +88,6 @@ def main():
     print("✅ Wrote:", *(p.name for p in (args.outdir / "train.jsonl", args.outdir / "val.jsonl", args.outdir / "test.jsonl")))
 
 if __name__ == "__main__":
+    print(">>> Preprocess starting...")
     main()
-print(">>> Done, wrote train/val/test JSONL files")
+    
