@@ -1,0 +1,398 @@
+{
+  "version": "1.0",
+  "truncation": null,
+  "padding": null,
+  "added_tokens": [
+    {
+      "id": 0,
+      "content": "[PAD]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 1,
+      "content": "[BOS]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 2,
+      "content": "[EOS]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 3,
+      "content": "[UNK]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 4,
+      "content": "<ING>",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 5,
+      "content": "<REC>",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 6,
+      "content": "<TITLE>",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 7,
+      "content": "<STEP>",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    }
+  ],
+  "normalizer": null,
+  "pre_tokenizer": {
+    "type": "ByteLevel",
+    "add_prefix_space": true,
+    "trim_offsets": true,
+    "use_regex": true
+  },
+  "post_processor": {
+    "type": "ByteLevel",
+    "add_prefix_space": true,
+    "trim_offsets": false,
+    "use_regex": true
+  },
+  "decoder": null,
+  "model": {
+    "type": "BPE",
+    "dropout": null,
+    "unk_token": "[UNK]",
+    "continuing_subword_prefix": null,
+    "end_of_word_suffix": null,
+    "fuse_unk": false,
+    "byte_fallback": false,
+    "ignore_merges": false,
+    "vocab": {
+      "[PAD]": 0,
+      "[BOS]": 1,
+      "[EOS]": 2,
+      "[UNK]": 3,
+      "<ING>": 4,
+      "<REC>": 5,
+      "<TITLE>": 6,
+      "<STEP>": 7,
+      ",": 8,
+      ".": 9,
+      "1": 10,
+      "2": 11,
+      ":": 12,
+      "A": 13,
+      "B": 14,
+      "C": 15,
+      "G": 16,
+      "H": 17,
+      "P": 18,
+      "S": 19,
+      "T": 20,
+      "a": 21,
+      "b": 22,
+      "c": 23,
+      "d": 24,
+      "e": 25,
+      "g": 26,
+      "h": 27,
+      "i": 28,
+      "k": 29,
+      "l": 30,
+      "m": 31,
+      "n": 32,
+      "o": 33,
+      "p": 34,
+      "r": 35,
+      "s": 36,
+      "t": 37,
+      "u": 38,
+      "y": 39,
+      "Ġ": 40,
+      "..": 41,
+      "as": 42,
+      "to": 43,
+      "te": 44,
+      "ĠS": 45,
+      "il": 46,
+      "ato": 47,
+      "mato": 48,
+      "ta": 49,
+      "...": 50,
+      "asta": 51,
+      "tep": 52,
+      "ĠStep": 53,
+      "ic": 54,
+      "ĠT": 55,
+      "pasta": 56,
+      "ĠB": 57,
+      "Ġto": 58,
+      "Ġpasta": 59,
+      "asil": 60,
+      "ick": 61,
+      "Ġtomato": 62,
+      "en": 63,
+      "hick": 64,
+      "it": 65,
+      "le": 66,
+      "oil": 67,
+      "Ġ1": 68,
+      "Ġ2": 69,
+      "ĠTit": 70,
+      "hicken": 71,
+      "ĠTitle": 72,
+      "Pasta": 73,
+      "ar": 74,
+      "au": 75,
+      "basil": 76,
+      "chicken": 77,
+      "es": 78,
+      "on": 79,
+      "omato": 80,
+      "ĠPasta": 81,
+      "Ġbasil": 82,
+      "Ġchicken": 83,
+      "ĠSau": 84,
+      "ĠTomato": 85,
+      "ĠBasil": 86,
+      "ĠBoil": 87,
+      "Ġtomatoes": 88,
+      "arl": 89,
+      "ĠSaute": 90
+    },
+    "merges": [
+      [
+        ".",
+        "."
+      ],
+      [
+        "a",
+        "s"
+      ],
+      [
+        "t",
+        "o"
+      ],
+      [
+        "t",
+        "e"
+      ],
+      [
+        "Ġ",
+        "S"
+      ],
+      [
+        "i",
+        "l"
+      ],
+      [
+        "a",
+        "to"
+      ],
+      [
+        "m",
+        "ato"
+      ],
+      [
+        "t",
+        "a"
+      ],
+      [
+        "..",
+        "."
+      ],
+      [
+        "as",
+        "ta"
+      ],
+      [
+        "te",
+        "p"
+      ],
+      [
+        "ĠS",
+        "tep"
+      ],
+      [
+        "i",
+        "c"
+      ],
+      [
+        "Ġ",
+        "T"
+      ],
+      [
+        "p",
+        "asta"
+      ],
+      [
+        "Ġ",
+        "B"
+      ],
+      [
+        "Ġ",
+        "to"
+      ],
+      [
+        "Ġ",
+        "pasta"
+      ],
+      [
+        "as",
+        "il"
+      ],
+      [
+        "ic",
+        "k"
+      ],
+      [
+        "Ġto",
+        "mato"
+      ],
+      [
+        "e",
+        "n"
+      ],
+      [
+        "h",
+        "ick"
+      ],
+      [
+        "i",
+        "t"
+      ],
+      [
+        "l",
+        "e"
+      ],
+      [
+        "o",
+        "il"
+      ],
+      [
+        "Ġ",
+        "1"
+      ],
+      [
+        "Ġ",
+        "2"
+      ],
+      [
+        "ĠT",
+        "it"
+      ],
+      [
+        "hick",
+        "en"
+      ],
+      [
+        "ĠTit",
+        "le"
+      ],
+      [
+        "P",
+        "asta"
+      ],
+      [
+        "a",
+        "r"
+      ],
+      [
+        "a",
+        "u"
+      ],
+      [
+        "b",
+        "asil"
+      ],
+      [
+        "c",
+        "hicken"
+      ],
+      [
+        "e",
+        "s"
+      ],
+      [
+        "o",
+        "n"
+      ],
+      [
+        "o",
+        "mato"
+      ],
+      [
+        "Ġ",
+        "Pasta"
+      ],
+      [
+        "Ġ",
+        "basil"
+      ],
+      [
+        "Ġ",
+        "chicken"
+      ],
+      [
+        "ĠS",
+        "au"
+      ],
+      [
+        "ĠT",
+        "omato"
+      ],
+      [
+        "ĠB",
+        "asil"
+      ],
+      [
+        "ĠB",
+        "oil"
+      ],
+      [
+        "Ġtomato",
+        "es"
+      ],
+      [
+        "ar",
+        "l"
+      ],
+      [
+        "ĠSau",
+        "te"
+      ]
+    ]
+  }
+}
