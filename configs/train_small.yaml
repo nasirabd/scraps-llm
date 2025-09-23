@@ -1,0 +1,34 @@
+# ===========================
+# Scraps-LLM: small debug run
+# ===========================
+
+seed: 42
+device: auto              # "cuda", "cpu", or "auto"
+
+vocab_path: tokenizer/bpe.json
+
+data:
+  processed_dir: data/processed
+  max_len: 128            # shorter for fast debug
+  train_batch_size: 8
+  val_batch_size: 8
+  num_workers: 0          # safe on Windows, bump later
+
+model:
+  d_model: 128            # small hidden size
+  n_layers: 2             # only 2 blocks
+  n_heads: 4
+  max_len: 128
+  dropout: 0.1
+  tie_weights: true
+
+optim:
+  lr: 0.0003
+  weight_decay: 0.01
+  betas: [0.9, 0.95]
+  grad_clip: 1.0
+  epochs: 10               # tiny run
+  warmup_steps: 50
+  scheduler: cosine       # or "linear"
+  mixed_precision: true
+  grad_accum_steps: 1
