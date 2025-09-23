@@ -34,9 +34,9 @@ class RecipesJSONL(Dataset):
         self.rows = list(read_jsonl(self.path))
         if tok is None:
             raise ValueError("Tokenizer `tok` is required (e.g., BPETok('tokenizer/bpe.json')).")
-            self.tok = tok
-            self.max_len = max_len
-            self.keep_raw = keep_raw
+        self.tok = tok
+        self.max_len = max_len
+        self.keep_raw = keep_raw
 
     def __len__(self):
         return len(self.rows)
@@ -46,7 +46,7 @@ class RecipesJSONL(Dataset):
         return f"Ingredients: {ingredients}\nRecipe: {recipe}"
 
     def __getitem__(self, idx: int):
-        r = self.row[idx]
+        r = self.rows[idx]
         text = self._to_text(r["ingredients"], r["recipe"])
 
         ids = self.tok.encode(text, add_special=True)
