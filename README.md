@@ -48,6 +48,17 @@ make preprocess
 ```bash
 python src/training/train.py
 ```
+### 5. 🧪 Evaluation
+
+Run ROUGE-L F1 and BLEU on val/test:
+
+```bash
+# quick val pass (first 200 examples)
+make eval-val
+
+# full test set + save predictions CSV
+make eval-test EVAL_LIMIT=0
+
 ### 5. Serve locally(Fast-API):
 Launch the API server:
 ```bash
