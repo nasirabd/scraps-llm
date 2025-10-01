@@ -133,7 +133,7 @@ cython_debug/
 .vscode/
 
 # Scraps-LLM project-specific
-data/
+data/*
 model/*
 *.pt
 *.pth
