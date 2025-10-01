@@ -7,7 +7,9 @@ from src.utils.io import read_jsonl, write_jsonl
 from src.utils.text import clean
 
 
-#Create parser arguments for modfiying command line
+# -----------------------------
+# CLI
+# -----------------------------
 def parse_args():
     p = argparse.ArgumentParser(description="Scraps-LLM preprocessing")
     p.add_argument("--raw", type=Path, required=True, help="Path to raw file (jsonl or csv)")
