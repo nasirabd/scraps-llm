@@ -105,3 +105,39 @@ eval-all:
 
 tb:
 	tensorboard --logdir runs --port 6006
+
+
+# arguments for gradio app
+
+# Defaults (override on the command line: make app APP_PORT=7861 SHARE=1)
+APP_PORT ?= 7860
+# Set SHARE to 1 / true / yes to add --share
+SHARE    ?= 0
+
+# Extra args you might want to pass through to src/app.py (optional)
+APP_ARGS ?=
+
+
+SHARE_FLAG = $(if $(filter 1 true TRUE yes YES,$(SHARE)),--share,)
+
+.PHONY: app app-auto app-share app-port
+
+# Main target: run with an explicit port (default 7860)
+app:
+	python -m src.app --port $(APP_PORT) $(SHARE_FLAG) $(APP_ARGS)
+
+# Try the app's internal auto-pick/backup list (omit --port so app tries 7860/7861/7862/auto)
+app-auto:
+	python -m src.app $(SHARE_FLAG) $(APP_ARGS)
+
+# Convenience: force sharing (public gradio.live tunnel) on default port
+app-share:
+	$(MAKE) app SHARE=1
+
+# Convenience: pick a specific port quickly
+# Usage: make app-port PORT=7862
+app-port:
+	$(MAKE) app APP_PORT=$(PORT)
+
+
+
