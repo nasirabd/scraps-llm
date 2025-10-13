@@ -19,6 +19,43 @@ import sacrebleu, random
 # -------------------------
 # Helpers
 # -------------------------
+# --- simple k=v overrides: "optim.lr=1e-3,model.d_model=256,model.n_heads=8" ---
+def _cast_scalar(s: str):
+    # try bool
+    if s.lower() in ("true", "false"):
+        return s.lower() == "true"
+    # try int
+    try:
+        return int(s)
+    except ValueError:
+        pass
+    # try float
+    try:
+        return float(s)
+    except ValueError:
+        pass
+    # fallback string
+    return s
+
+def apply_overrides(cfg: dict, overrides: str | None):
+    if not overrides:
+        return cfg
+    pairs = [p.strip() for p in overrides.split(",") if p.strip()]
+    for pair in pairs:
+        if "=" not in pair:
+            continue
+        key, val = pair.split("=", 1)
+        val = _cast_scalar(val.strip())
+        # walk nested dict by dots
+        cur = cfg
+        parts = key.strip().split(".")
+        for k in parts[:-1]:
+            if k not in cur or not isinstance(cur[k], dict):
+                cur[k] = {}
+            cur = cur[k]
+        cur[parts[-1]] = val
+    return cfg
+
 class EarlyStopping:
     def __init__(self, patience=3, delta=0.0, ckpt_dir=Path("model/checkpoints")):
         self.patience = patience
@@ -306,6 +343,14 @@ def train(cfg):
 
 
 if __name__ == "__main__":
-    with open("configs/train_small.yaml") as f:
+    import argparse, yaml
+    p = argparse.ArgumentParser()
+    p.add_argument("--config", type=str, default="configs/train_small.yaml")
+    p.add_argument("--override", type=str, default=None, help='comma list like "optim.lr=1e-3,model.d_model=256"')
+    args = p.parse_args()
+
+    with open(args.config) as f:
         cfg = yaml.safe_load(f)
+    cfg = apply_overrides(cfg, args.override)
     train(cfg)
+
