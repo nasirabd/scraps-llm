@@ -1,0 +1,16 @@
+# Git & editors
+.git
+.gitignore
+**/__pycache__/
+*.pyc
+.vscode
+.idea
+
+# Training artifacts & data (adjust as you like)
+data/
+runs/
+model/checkpoints/*.pt
+!model/checkpoints/.gitkeep
+
+# Large local assets
+**/*.ipynb_checkpoints
