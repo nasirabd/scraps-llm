@@ -1,20 +1,59 @@
 # =========================
 # Scraps-LLM Makefile
 # =========================
+ifeq ($(OS),Windows_NT)
+DOCKER := docker.exe
+PATH := C:\Program Files\Docker\Docker\resources\bin;$(PATH)
+else
+DOCKER := docker
+endif
 
 # ---------- Preprocess ----------
-RAW            ?= data/raw/dev_samples.jsonl
-FORMAT         ?= jsonl
+RAW            ?= data/raw/recipenlg.csv 
+FORMAT         ?= csv
 OUTDIR         ?= data/processed
 SEED           ?= 42
 TRAIN          ?= 0.9
 VAL            ?= 0.05
 TEST           ?= 0.05
+
+# CSV column names (RecipeNLG default)
 ING_COL        ?= ingredients
-REC_COL        ?= recipe
-# Use 1 to enable, 0 to disable (portable flag handling)
+REC_COL        ?= directions
+TITLE_COL      ?= title
+NER_COL        ?= NER
+
+# --- Behavior flags ---
+# Default: lowercase ingredients, strip quantities, merge with NER (union mode)
 LOWER_INGREDIENTS ?= 1
-LOWER_FLAG := $(if $(filter 1 true TRUE yes YES,$(LOWER_INGREDIENTS)),--lower-ingredients,)
+KEEP_QUANTITIES   ?= 0             # default: strip quantities (no numbers/units)
+NER_MODE          ?= union         # recommended for good recall coverage
+
+# Portable flag expansions
+LOWER_FLAG  := $(if $(filter 1 true TRUE yes YES,$(LOWER_INGREDIENTS)),--lower-ingredients,)
+KEEPQ_FLAG  := $(if $(filter 1 true TRUE yes YES,$(KEEP_QUANTITIES)),--keep-quantities,--no-keep-quantities)
+
+# CSV-only flags (auto applied when FORMAT=csv)
+CSV_FLAGS := $(if $(filter csv,$(FORMAT)), \
+	--ing-col $(ING_COL) \
+	--rec-col $(REC_COL) \
+	--title-col $(TITLE_COL) \
+	--ner-col $(NER_COL) \
+	--ner-mode $(NER_MODE),)
+
+# --- Tokenizer params ---
+TOK_DATA_DIR     ?= data/processed
+TOK_SPLITS       ?= train val test
+TOK_FIELDS       ?= ingredients recipe title
+TOK_OUT_DIR      ?= tokenizer
+TOK_VOCAB_SIZE   ?= 32000
+TOK_MIN_FREQ     ?= 2
+TOK_LOWER        ?= 1
+TOK_NFKC         ?= 1
+TOK_SAMPLE_LIMIT ?= 0
+
+TOK_LOWER_FLAG := $(if $(filter 1 true TRUE yes YES,$(TOK_LOWER)),--lower,)
+TOK_NFKC_FLAG  := $(if $(filter 1 true TRUE yes YES,$(TOK_NFKC)),--nfkc,)
 
 # ---------- Training / Config ----------
 CONFIG     ?= configs/train_small.yaml
@@ -51,10 +90,13 @@ APP_ARGS ?=
 SHARE_FLAG = $(if $(filter 1 true TRUE yes YES,$(SHARE)),--share,)
 
 # ---------- Docker (API) ----------
+PORT ?= 8080
+CONTAINER_PORT ?= 8080
+CKPT_HOST ?= "C:\Users\seruc\OneDrive\Desktop\Scraps\scraps-llm\model\checkpoints"
 DOCKER_IMAGE ?= scraps/infer
-SCRAPS_CONFIG   ?= $(CONFIG)
-SCRAPS_VOCAB    ?= tokenizer/bpe.json
-SCRAPS_CKPT_DIR ?= model/checkpoints
+SCRAPS_CONFIG   ?= /app/configs/train_small.yaml
+SCRAPS_VOCAB    ?= /app/tokenizer/bpe.json
+SCRAPS_CKPT_DIR ?= /app/model/checkpoints
 SCRAPS_QUANTIZE ?= 0
 
 # ---------- Sweeps ----------
@@ -80,12 +122,21 @@ preprocess:
 		--train $(TRAIN) \
 		--val $(VAL) \
 		--test $(TEST) \
-		--ing-col $(ING_COL) \
-		--rec-col $(REC_COL) \
-		$(LOWER_FLAG)
+		$(CSV_FLAGS) \
+		$(LOWER_FLAG) \
+		$(KEEPQ_FLAG)
 
 tokenize:
-	python -m src.tokenization.build_tokenizer
+	python -m src.tokenization.build_tokenizer \
+	  --data_dir $(TOK_DATA_DIR) \
+	  --splits $(TOK_SPLITS) \
+	  --fields $(TOK_FIELDS) \
+	  --out_dir $(TOK_OUT_DIR) \
+	  --vocab_size $(TOK_VOCAB_SIZE) \
+	  --min_frequency $(TOK_MIN_FREQ) \
+	  $(TOK_LOWER_FLAG) \
+	  $(TOK_NFKC_FLAG) \
+	  --sample_limit $(TOK_SAMPLE_LIMIT)
 
 test:
 	python -m src.model.test
@@ -180,14 +231,15 @@ app-port:
 # Docker FastAPI (CPU)
 # =========================
 build-infer:
-	docker build -f docker/Dockerfile.infer -t $(DOCKER_IMAGE) .
+	$(DOCKER) build -f docker/Dockerfile.infer -t $(DOCKER_IMAGE) .
 
 run-infer:
-	docker run --rm -p 8080:8080 \
+	$(DOCKER) run --rm -p $(PORT):$(CONTAINER_PORT) \
 		-e SCRAPS_CONFIG=$(SCRAPS_CONFIG) \
 		-e SCRAPS_VOCAB=$(SCRAPS_VOCAB) \
 		-e SCRAPS_CKPT_DIR=$(SCRAPS_CKPT_DIR) \
 		-e SCRAPS_QUANTIZE=$(SCRAPS_QUANTIZE) \
+		-v "$(CKPT_HOST):$(SCRAPS_CKPT_DIR)" \
 		$(DOCKER_IMAGE)
 
 # Quick health & sample curl (requires run-infer running)
