@@ -45,3 +45,8 @@ def post_generate(req: GenRequest):
     )
     cont = cont.replace("Ġ"," ").replace("  "," ").strip()
     return {"ingredients": req.ingredients, "recipe": cont}
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.getenv("SCRAPS_PORT", "5000"))
+    uvicorn.run("main:APP", host="0.0.0.0", port=port, reload=False)
