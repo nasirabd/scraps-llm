@@ -1,0 +1,8 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.4.1
+fastapi
+uvicorn[standard]
+pyyaml
+tokenizers
+huggingface_hub>=0.25
+numpy
