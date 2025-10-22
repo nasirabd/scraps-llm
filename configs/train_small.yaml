@@ -1,25 +1,23 @@
-# ===========================
-# Scraps-LLM: small debug run
-# ===========================
-
+# configs/train_rope_small.yaml
 seed: 42
-device: auto              # "cuda", "cpu", or "auto"
+device: auto
 
-vocab_path: tokenizer/bpe.json
+vocab_path: tokenizer/bpe.json   # must match the tokenizer used for training
 
 data:
   processed_dir: data/processed
-  max_len: 128            # shorter for fast debug
-  train_batch_size: 8
-  val_batch_size: 8
-  num_workers: 0          # safe on Windows, bump later
+  max_len: 256           
+  train_batch_size: 16
+  val_batch_size: 16
+  num_workers: 2
 
 model:
-  d_model: 128            # small hidden size
-  n_layers: 2             # only 2 blocks
+  d_model: 256            
+  n_layers: 6
   n_heads: 4
-  max_len: 128
-  dropout: 0.1
+  max_len: 256           
+  dropout: 0.1               
+  use_rope: true          
   tie_weights: true
 
 optim:
@@ -27,8 +25,8 @@ optim:
   weight_decay: 0.01
   betas: [0.9, 0.95]
   grad_clip: 1.0
-  epochs: 10               # tiny run
-  warmup_steps: 50
-  scheduler: cosine       # or "linear"
+  epochs: 3
+  warmup_steps: 500
+  scheduler: cosine
   mixed_precision: true
   grad_accum_steps: 1
