@@ -134,6 +134,9 @@ cython_debug/
 
 # Scraps-LLM project-specific
 data/*
+!data/.gitkeep
+!data/raw/.gitkeep
+!data/processed/.gitkeep
 model/*
 *.pt
 *.pth
