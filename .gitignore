@@ -132,15 +132,9 @@ cython_debug/
 # VS Code
 .vscode/
 
-# Scraps-LLM project-specific
-data/*
-!data/.gitkeep
-!data/raw/.gitkeep
-!data/processed/.gitkeep
-model/*
-*.pt
-*.pth
-*.ckpt
-*.bin
-*.h5
-logs/
+# Scraps-LLM project-specific 
+# Ignore all data, but keep placeholders
+data/processed/*
+data/raw/*
+model/checkpoints/*
+
