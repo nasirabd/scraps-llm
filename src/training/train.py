@@ -212,17 +212,19 @@ def train(cfg):
                           collate_fn=collate, pin_memory=torch.cuda.is_available())
 
     # --- Model ---
+    mcfg = cfg["model"]
     model = RecipeTransformer(
         vocab_size=tok.vocab_size(),
-        d_model=cfg["model"]["d_model"],
-        n_layers=cfg["model"]["n_layers"],
-        n_heads=cfg["model"]["n_heads"],
-        max_len=cfg["model"]["max_len"],
-        p=cfg["model"]["dropout"],
-        tie_weights=cfg["model"]["tie_weights"],
+        d_model=mcfg["d_model"],
+        n_layers=mcfg["n_layers"],
+        n_heads=mcfg["n_heads"],
+        max_len=mcfg["max_len"],
+        p=mcfg["dropout"],                # keep using 'dropout' from YAML
+        use_rope=mcfg.get("use_rope", True),  # add this line
+        tie_weights=mcfg.get("tie_weights", True),
     ).to(device)
 
-    # --- Optimizer / AMP / Loss ---
+    # --- Optimizer / AMP / Loss / Accum ---
     opt = torch.optim.AdamW(
         model.parameters(),
         lr=cfg["optim"]["lr"],
@@ -244,42 +246,63 @@ def train(cfg):
     ckpt_dir = Path("model/checkpoints")
     ckpt_dir.mkdir(parents=True, exist_ok=True)
     csv_f, csv_writer = init_csv_logger(ckpt_dir / "training_log.csv")
+    
+    # --- accumulation + schedule ---
+    accum = int(cfg["optim"].get("grad_accum_steps", 1))
+    assert accum >= 1
+
+    steps_per_epoch = len(train_dl)
+    opt_steps_per_epoch = (steps_per_epoch + accum - 1) // accum  
+    total_opt_steps = opt_steps_per_epoch * int(cfg["optim"]["epochs"])
+
+    warmup_steps = int(cfg["optim"]["warmup_steps"])
+    base_lr = float(cfg["optim"]["lr"])
+
+    optimizer_step = 0   
+    global_step = 0      
 
     early = EarlyStopping(patience=3, delta=0.0, ckpt_dir=ckpt_dir)
 
-    steps_per_epoch = len(train_dl)
-    total_steps = steps_per_epoch * cfg["optim"]["epochs"]
-    warmup_steps = cfg["optim"]["warmup_steps"]
-    base_lr = cfg["optim"]["lr"]
-
-    global_step = 0
     for epoch in range(cfg["optim"]["epochs"]):
         epoch_start = time.time()
         model.train()
         running = 0.0
+        last_lr = None
 
-        for x, y in train_dl:
+        opt.zero_grad(set_to_none=True) 
+
+        for batch_idx, (x, y) in enumerate(train_dl):
             global_step += 1
-            # update LR manually
-            lr = cosine_schedule(global_step, warmup_steps, total_steps, base_lr)
-            for g in opt.param_groups:
-                g["lr"] = lr
 
             x, y = x.to(device, non_blocking=True), y.to(device, non_blocking=True)
-            opt.zero_grad(set_to_none=True)
 
             with autocast(enabled=cfg["optim"]["mixed_precision"]):
                 logits = model(x)
                 loss = loss_fn(logits.view(-1, logits.size(-1)), y.reshape(-1))
+                loss = loss / accum  # normalize for accumulation
 
             scaler.scale(loss).backward()
-            torch.nn.utils.clip_grad_norm_(model.parameters(), cfg["optim"]["grad_clip"])
-            scaler.step(opt)
-            scaler.update()
+            running += loss.item() * accum  # track true (un-divided) batch loss
 
-            running += loss.item()
+            # step every `accum` micro-batches OR at end of dataloader
+            do_step = (global_step % accum == 0) or (batch_idx == steps_per_epoch - 1)
+            if do_step:
+                # LR schedule per OPTIMIZER step 
+                step_index = optimizer_step + 1  # 1-based for warmup math clarity
+                lr = cosine_schedule(step_index, warmup_steps, total_opt_steps, base_lr)
+                for g in opt.param_groups:
+                    g["lr"] = lr
+                last_lr = lr
 
-        avg_train = running / len(train_dl)
+                scaler.unscale_(opt)
+                torch.nn.utils.clip_grad_norm_(model.parameters(), cfg["optim"]["grad_clip"])
+                scaler.step(opt)
+                scaler.update()
+                opt.zero_grad(set_to_none=True)
+
+                optimizer_step += 1
+
+        avg_train = running / max(1, len(train_dl))
 
         # ----- Validation -----
         model.eval()
@@ -291,25 +314,28 @@ def train(cfg):
                     logits = model(x)
                     loss = loss_fn(logits.view(-1, logits.size(-1)), y.reshape(-1))
                 val_loss += loss.item()
+
         avg_val = val_loss / max(1, len(val_dl))
         val_ppl = math.exp(min(20, avg_val))
         epoch_time = time.time() - epoch_start
 
         # Print
-        print(f"epoch {epoch+1}: train={avg_train:.4f}, val={avg_val:.4f}, ppl={val_ppl:.2f}, lr={lr:.6g}, t={epoch_time:.1f}s")
-        
+        print(f"epoch {epoch+1}: train={avg_train:.4f}, val={avg_val:.4f}, "
+            f"ppl={val_ppl:.2f}, lr={(last_lr or base_lr):.6g}, t={epoch_time:.1f}s")
 
         # TensorBoard
         writer.add_scalar("loss/train", avg_train, epoch + 1)
         writer.add_scalar("loss/val", avg_val, epoch + 1)
         writer.add_scalar("metrics/perplexity_val", val_ppl, epoch + 1)
-        writer.add_scalar("lr", lr, epoch + 1)
+        writer.add_scalar("lr", (last_lr or base_lr), epoch + 1)
         writer.add_scalar("time/epoch_seconds", epoch_time, epoch + 1)
         writer.add_text("samples/chicken_garlic_onion", quick_generate(model, tok, device), epoch + 1)
         writer.flush()
 
         # CSV
-        csv_writer.writerow([epoch + 1, f"{avg_train:.6f}", f"{avg_val:.6f}", f"{val_ppl:.6f}", f"{lr:.8f}", f"{epoch_time:.2f}"])
+        csv_writer.writerow([epoch + 1, f"{avg_train:.6f}", f"{avg_val:.6f}",
+                            f"{val_ppl:.6f}", f"{(last_lr or base_lr):.8f}",
+                            f"{epoch_time:.2f}"])
         csv_f.flush()
 
         # Save "last"
