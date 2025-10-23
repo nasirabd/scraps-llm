@@ -195,6 +195,15 @@ def train(cfg):
     cfg["optim"]["grad_clip"] = float(cfg["optim"]["grad_clip"])
 
     device = "cuda" if torch.cuda.is_available() and cfg["device"] == "auto" else cfg["device"]
+    print("=== CUDA check ===")
+    print("torch.cuda.is_available():", torch.cuda.is_available())
+    if torch.cuda.is_available():
+        print("GPU name:", torch.cuda.get_device_name(0))
+        print("CUDA version (PyTorch build):", torch.version.cuda)
+        print(f"✓ Memory Allocated: {torch.cuda.memory_allocated()/1024**3:.2f} GB")
+        print(f"✓ Memory Cached: {torch.cuda.memory_reserved()/1024**3:.2f} GB")
+    print("Chosen device:", device)
+    print("==================")
     torch.manual_seed(cfg["seed"])
 
     # --- Data ---
@@ -223,6 +232,11 @@ def train(cfg):
         use_rope=mcfg.get("use_rope", True),  # add this line
         tie_weights=mcfg.get("tie_weights", True),
     ).to(device)
+
+        # Confirm first parameter location
+    model_dev = next(model.parameters()).device
+    n_params = sum(p.numel() for p in model.parameters())
+    print(f"Model device: {model_dev} | params: {n_params/1e6:.2f}M")
 
     # --- Optimizer / AMP / Loss / Accum ---
     opt = torch.optim.AdamW(
@@ -275,6 +289,8 @@ def train(cfg):
             global_step += 1
 
             x, y = x.to(device, non_blocking=True), y.to(device, non_blocking=True)
+            if batch_idx == 0:
+                print("Batch x device:", x.device, "| y device:", y.device)
 
             with autocast(enabled=cfg["optim"]["mixed_precision"]):
                 logits = model(x)
