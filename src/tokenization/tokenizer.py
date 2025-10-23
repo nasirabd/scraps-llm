@@ -47,14 +47,10 @@ class BPETok:
     # -------- single-item encode/decode --------
     def encode(self, text: str, add_special: bool = True, max_len: Optional[int] = None) -> EncodeOut:
         ids = self.tk.encode(text).ids
-
-        # Avoid double-add if post-processor already did it
         if add_special and not self.inserts_bos_eos:
             ids = [self.bos_id] + ids + [self.eos_id]
-
         if max_len is not None:
             ids = ids[:max_len]
-
         attn = [1] * len(ids)
         return EncodeOut(ids, attn)
 
