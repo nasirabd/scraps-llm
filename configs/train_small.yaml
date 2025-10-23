@@ -7,9 +7,9 @@ vocab_path: tokenizer/bpe.json   # must match the tokenizer used for training
 data:
   processed_dir: data/processed
   max_len: 256           
-  train_batch_size: 16
-  val_batch_size: 16
-  num_workers: 0
+  train_batch_size: 24
+  val_batch_size: 24
+  num_workers: 2
 
 model:
   d_model: 256            
