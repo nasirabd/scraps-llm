@@ -50,9 +50,15 @@ class RecipesJSONL(Dataset):
         text = self._to_text(r["ingredients"], r["recipe"])
 
         ids = self.tok.encode(text, add_special=True)
+        # --- SAFETY: normalize to list[int] ---
+        if hasattr(ids, "input_ids"):      
+            ids = list(ids.input_ids)
+        elif hasattr(ids, "ids"):           
+            ids = list(ids.ids)
+        else:
+            ids = list(ids)                
         if self.max_len is not None and len(ids) > self.max_len:
             ids = ids[:self.max_len]
-
         if self.keep_raw:
             return {"ids": ids, "text": text, "ingredients": r["ingredients"], "recipe": r["recipe"]}
         return ids
