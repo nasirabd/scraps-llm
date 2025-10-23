@@ -1,0 +1,15 @@
+{
+  "vocab_size": 32000,
+  "specials": {
+    "[PAD]": 0,
+    "[BOS]": 1,
+    "[EOS]": 2,
+    "[UNK]": 3,
+    "<ING>": 4,
+    "<REC>": 5,
+    "<TITLE>": 6,
+    "<STEP>": 7
+  },
+  "lower": true,
+  "nfkc": true
+}
