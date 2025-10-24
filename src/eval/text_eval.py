@@ -1,4 +1,3 @@
-# src/eval/text_eval.py
 import argparse, json, random
 from pathlib import Path
 

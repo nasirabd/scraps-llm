@@ -1,4 +1,3 @@
-# src/infer/generate.py
 import argparse
 from pathlib import Path
 import yaml
