@@ -15,6 +15,7 @@ class RecipesJSONL(Dataset):
 
         cache_p = Path(cache_dir) / f"{split}.pt"
         if cache_p.exists():
+            print("Loading from cache...")
             blob = torch.load(cache_p, map_location="cpu")
             self.ids_list = blob["ids"]     
             self.pad_id = blob.get("pad_id", 0)
