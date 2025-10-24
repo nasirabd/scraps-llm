@@ -1,64 +1,64 @@
 import json
 from pathlib import Path
-from typing import Optional, List
-
+from typing import Optional
+import torch
 from torch.utils.data import Dataset
 from src.utils.io import read_jsonl
 
 class RecipesJSONL(Dataset):
-    """
-    Loads processed JSONL with pairs like:
-      {"ingredients": "...", "recipe": "Title: ...\\nStep 1: ..."}
-    and returns token id sequences using a tokenizer wrapper (BPETok).
+    def __init__(self, split="train", tok=None, max_len=512, keep_raw=False,
+                 root="data/processed", cache_dir="data/cache"):
+        self.keep_raw = keep_raw
+        self.max_len = max_len
+        self.tok = tok 
+        self.cached = False
 
-    Args:
-        split: "train" | "val" | "test"
-        tok: tokenizer wrapper (must have .encode())
-        max_len: truncate sequences to this length (after adding BOS/EOS)
-        keep_raw: if True, also returns raw text alongside ids (debugging)
-    """
-    def __init__(
-        self, 
-        split: str = "train", 
-        tok=None, 
-        max_len: int = 512, 
-        keep_raw: bool = False, 
-        root: str = "data/processed"
-    ):
+        cache_p = Path(cache_dir) / f"{split}.pt"
+        if cache_p.exists():
+            blob = torch.load(cache_p, map_location="cpu")
+            self.ids_list = blob["ids"]     
+            self.pad_id = blob.get("pad_id", 0)
+            self.cached = True
+            return
+
         self.path = Path(root) / f"{split}.jsonl"
         if not self.path.exists():
-            raise FileNotFoundError(
-                f"Missing {self.path}. Run preprocessing first (e.g., "
-                f"`make preprocess`."
-            )
-        self.rows = list(read_jsonl(self.path))
+            raise FileNotFoundError(f"Missing {self.path}. Run preprocessing or build cache.")
         if tok is None:
-            raise ValueError("Tokenizer `tok` is required (e.g., BPETok('tokenizer/bpe.json')).")
-        self.tok = tok
-        self.max_len = max_len
-        self.keep_raw = keep_raw
+            raise ValueError("Tokenizer `tok` is required when cache is missing.")
+        self.rows = list(read_jsonl(self.path))
 
     def __len__(self):
-        return len(self.rows)
-    
+        return len(self.ids_list) if self.cached else len(self.rows)
+
     @staticmethod
     def _to_text(ingredients: str, recipe: str) -> str:
         return f"Ingredients: {ingredients}\nRecipe: {recipe}"
 
     def __getitem__(self, idx: int):
-        r = self.rows[idx]
-        text = self._to_text(r["ingredients"], r["recipe"])
+        if getattr(self, "cached", False):
+            ids = self.ids_list[idx].tolist()
+            if len(ids) < 2 and hasattr(self, "pad_id"):
+                ids = ids + [self.pad_id]
+            if self.keep_raw:
+                return {"ids": ids, "text": None, "ingredients": None, "recipe": None}
+            return ids
 
-        ids = self.tok.encode(text, add_special=True)
-        # --- SAFETY: normalize to list[int] ---
-        if hasattr(ids, "input_ids"):      
-            ids = list(ids.input_ids)
-        elif hasattr(ids, "ids"):           
-            ids = list(ids.ids)
+        r = self.rows[idx]
+        ing = r.get("ingredients", "")
+        rec = r.get("recipe", "")
+        text = self._to_text(ing, rec)
+
+        enc = self.tok.encode(text, add_special=True, max_len=self.max_len)
+        # normalize to a plain list[int] 
+        if hasattr(enc, "input_ids"):
+            ids = list(enc.input_ids)
+        elif hasattr(enc, "ids"):
+            ids = list(enc.ids)
         else:
-            ids = list(ids)                
-        if self.max_len is not None and len(ids) > self.max_len:
-            ids = ids[:self.max_len]
+            ids = list(enc)
+        if len(ids) < 2:
+            ids = ids + [self.tok.pad_id]
         if self.keep_raw:
-            return {"ids": ids, "text": text, "ingredients": r["ingredients"], "recipe": r["recipe"]}
+            return {"ids": ids, "text": text, "ingredients": ing, "recipe": rec}
         return ids
