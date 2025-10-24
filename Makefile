@@ -139,7 +139,7 @@ tokenize:
 	  --sample_limit $(TOK_SAMPLE_LIMIT)
 
 cache:
-	python -m src.data.cache_tokens
+	python -m src.data.cache_tokens --max_len $(CACHE_MAX_LEN)
 
 test:
 	python -m src.model.test
