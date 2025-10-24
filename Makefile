@@ -172,10 +172,14 @@ resume_best:
 	python -m src.training.train --config $(CONFIG) --resume model/checkpoints/best_model.pt
 
 backup:
+	@if [ -z "$(DRIVE_CKPT_DIR)" ]; then \
+		echo "ERROR: Set DRIVE_CKPT_DIR to your Google Drive path."; exit 1; \
+		fi
 	@echo "Copying new checkpoints to Google Drive..."
-	mkdir -p $(DRIVE_CKPT_DIR)
-	cp -u model/checkpoints/*.pt $(DRIVE_CKPT_DIR)/
-	cp -u model/checkpoints/training_log.csv $(DRIVE_CKPT_DIR)/
+	mkdir -p "$(DRIVE_CKPT_DIR)"
+	cp -u model/checkpoints/*.pt "$(DRIVE_CKPT_DIR)/" || true
+	cp -u model/checkpoints/training_log.csv "$(DRIVE_CKPT_DIR)/" || true
+	@echo "✅ Copied checkpoints to $(DRIVE_CKPT_DIR)"
 
 sweep:
 	@for lr in $(SWEEP_LRS); do \
