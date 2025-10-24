@@ -188,6 +188,8 @@ def cosine_schedule(step, warmup, total, base_lr):
 # -------------------------
 # Training
 # -------------------------
+torch.set_float32_matmul_precision("high")          
+torch.backends.cuda.matmul.allow_tf32 = True        
 def train(cfg):
     # normalize cfg types
     cfg["optim"]["lr"] = float(cfg["optim"]["lr"])
@@ -338,6 +340,12 @@ def train(cfg):
         # Print
         print(f"epoch {epoch+1}: train={avg_train:.4f}, val={avg_val:.4f}, "
             f"ppl={val_ppl:.2f}, lr={(last_lr or base_lr):.6g}, t={epoch_time:.1f}s")
+        # --- Throughput measurement (approximate tokens/sec) ---
+        tokens_per_sample = x.size(1) - 1              
+        seen_samples = len(train_dl) * cfg["data"]["train_batch_size"]
+        seen_tokens = seen_samples * tokens_per_sample
+        tps = seen_tokens / max(1e-6, epoch_time)
+        print(f"~{tps/1e6:.2f}M tokens/sec (approx)")
 
         # TensorBoard
         writer.add_scalar("loss/train", avg_train, epoch + 1)
@@ -346,6 +354,8 @@ def train(cfg):
         writer.add_scalar("lr", (last_lr or base_lr), epoch + 1)
         writer.add_scalar("time/epoch_seconds", epoch_time, epoch + 1)
         writer.add_text("samples/chicken_garlic_onion", quick_generate(model, tok, device), epoch + 1)
+        writer.add_scalar("speed/tokens_per_sec", tps, epoch + 1)
+
         writer.flush()
 
         # CSV
