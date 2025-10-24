@@ -2,6 +2,8 @@ import argparse, json, random
 from pathlib import Path
 
 import torch
+from torch.cuda.amp import autocast
+
 import yaml
 import sacrebleu
 from rouge_score import rouge_scorer
@@ -19,29 +21,30 @@ def sample_continuation(model, tok, device, prompt: str,
     ids = torch.tensor([[tok.bos_id] + prompt_ids], dtype=torch.long, device=device)
 
     for _ in range(max_new_tokens):
-        logits = model(ids)[:, -1, :]              # (1,V)
-        probs = torch.softmax(logits / max(1e-6, temperature), dim=-1)
+        with autocast(enabled=torch.cuda.is_available()):
+            logits = model(ids)[:, -1, :]              # (1,V)
+            probs = torch.softmax(logits / max(1e-6, temperature), dim=-1)
 
-        # top-k
-        if top_k and top_k > 0:
-            topk_vals, topk_idx = torch.topk(probs, k=top_k, dim=-1)
-            mask = torch.zeros_like(probs).scatter(1, topk_idx, 1.0)
-            probs = probs * mask
-            probs = probs / probs.sum(dim=-1, keepdim=True)
+            # top-k
+            if top_k and top_k > 0:
+                topk_vals, topk_idx = torch.topk(probs, k=top_k, dim=-1)
+                mask = torch.zeros_like(probs).scatter(1, topk_idx, 1.0)
+                probs = probs * mask
+                probs = probs / probs.sum(dim=-1, keepdim=True)
 
-        # top-p
-        if top_p and (0.0 < top_p < 1.0):
-            sorted_probs, sorted_idx = torch.sort(probs, dim=-1, descending=True)
-            cum = torch.cumsum(sorted_probs, dim=-1)
-            keep = cum <= top_p
-            keep[..., 0] = True
-            filtered = torch.zeros_like(probs).scatter(1, sorted_idx, keep.float() * sorted_probs)
-            probs = filtered / filtered.sum(dim=-1, keepdim=True)
+            # top-p
+            if top_p and (0.0 < top_p < 1.0):
+                sorted_probs, sorted_idx = torch.sort(probs, dim=-1, descending=True)
+                cum = torch.cumsum(sorted_probs, dim=-1)
+                keep = cum <= top_p
+                keep[..., 0] = True
+                filtered = torch.zeros_like(probs).scatter(1, sorted_idx, keep.float() * sorted_probs)
+                probs = filtered / filtered.sum(dim=-1, keepdim=True)
 
-        next_id = torch.multinomial(probs, num_samples=1)  # (1,1)
-        ids = torch.cat([ids, next_id], dim=1)
-        if next_id.item() == tok.eos_id:
-            break
+            next_id = torch.multinomial(probs, num_samples=1)  # (1,1)
+            ids = torch.cat([ids, next_id], dim=1)
+            if next_id.item() == tok.eos_id:
+                break
 
     # token-level slice to continuation
     all_ids = ids[0].tolist()
