@@ -15,19 +15,20 @@ class RecipesJSONL(Dataset):
 
         cache_p = Path(cache_dir) / f"{split}.pt"
         if cache_p.exists():
-            print("Loading from cache...")
+            print(f"Loading from cache: {split}.pt")
             blob = torch.load(cache_p, map_location="cpu")
             self.ids_list = blob["ids"]     
             self.pad_id = blob.get("pad_id", 0)
             self.cached = True
+            self.rows = list(read_jsonl(self.path)) if self.path.exists() else None
             return
-
-        self.path = Path(root) / f"{split}.jsonl"
-        if not self.path.exists():
-            raise FileNotFoundError(f"Missing {self.path}. Run preprocessing or build cache.")
-        if tok is None:
-            raise ValueError("Tokenizer `tok` is required when cache is missing.")
-        self.rows = list(read_jsonl(self.path))
+        else:
+            # no cache → load rows (and require tokenizer for on-the-fly tokenization)
+            if not self.path.exists():
+                raise FileNotFoundError(f"Missing {self.path}. Run preprocessing or build cache.")
+            if tok is None:
+                raise ValueError("Tokenizer `tok` is required when cache is missing.")
+            self.rows = list(read_jsonl(self.path))
 
     def __len__(self):
         return len(self.ids_list) if self.cached else len(self.rows)
