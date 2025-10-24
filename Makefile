@@ -105,10 +105,23 @@ SWEEP_DMODELS  ?= 128 256
 SWEEP_HEADS    ?= 4 8
 
 # ---------- Phony ----------
-.PHONY: preprocess tokenize test train sweep recipe full-recipe just-recipe \
+.PHONY: help preprocess cache tokenize test train resume resume_best sweep backup recipe full-recipe just-recipe \
         eval-text eval-val eval-test eval-all tb \
         app app-auto app-share app-port \
         build-infer run-infer api-health api-curl
+
+help:
+	@echo "COMMON commands:"
+	@echo "  make setup          - Install dependencies"
+	@echo "  make tokenize       - Train tokenizer (BPE)"
+	@echo "  make preprocess     - Clean and prepare dataset"
+	@echo "  make cache          - Pre-encode data to data/cache/"
+	@echo "  make train          - Train new model"
+	@echo "  make resume         - Resume from last checkpoint"
+	@echo "  make resume_best    - Resume from best checkpoint"
+	@echo "  make backup         - Copy checkpoints to Drive"
+	@echo "  make tb    - Start TensorBoard"
+
 
 # =========================
 # Data
@@ -149,6 +162,20 @@ test:
 # =========================
 train:
 	python -m src.training.train --config $(CONFIG) $(if $(OVERRIDES),--override "$(OVERRIDES)")
+
+resume:
+	@echo "Resuming from last checkpoint..."
+	python -m src.training.train --config $(CONFIG) --resume model/checkpoints/last_model.pt
+
+resume_best:
+	@echo "Resuming from best checkpoint..."
+	python -m src.training.train --config $(CONFIG) --resume model/checkpoints/best_model.pt
+
+backup:
+	@echo "Copying new checkpoints to Google Drive..."
+	mkdir -p $(DRIVE_CKPT_DIR)
+	cp -u model/checkpoints/*.pt $(DRIVE_CKPT_DIR)/
+	cp -u model/checkpoints/training_log.csv $(DRIVE_CKPT_DIR)/
 
 sweep:
 	@for lr in $(SWEEP_LRS); do \
