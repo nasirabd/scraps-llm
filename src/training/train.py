@@ -1,6 +1,8 @@
 import math, yaml, json, csv, time
 from pathlib import Path
 import os, shutil
+from tqdm.auto import tqdm
+
 
 import torch
 import torch.nn as nn
@@ -327,7 +329,7 @@ def train(cfg):
         last_lr = None
 
         opt.zero_grad(set_to_none=True) 
-
+        pbar = tqdm(enumerate(train_dl), total=len(train_dl), desc=f"train e{epoch+1}", leave=False)
         for batch_idx, (x, y) in enumerate(train_dl):
             global_step += 1
 
@@ -361,13 +363,19 @@ def train(cfg):
 
                 optimizer_step += 1
 
+            # show live stats in the bar
+            pbar.set_postfix({
+                "loss": f"{(running/(batch_idx+1)):.3f}",
+                "lr": f"{(last_lr or base_lr):.2e}",
+             })
+
         avg_train = running / max(1, len(train_dl))
 
         # ----- Validation -----
         model.eval()
         val_loss = 0.0
         with torch.no_grad():
-            for x, y in val_dl:
+            for x, y in tqdm(val_dl, total=len(val_dl), desc=f"valid e{epoch+1}", leave=False):
                 x, y = x.to(device), y.to(device)
                 with autocast(enabled=cfg["optim"]["mixed_precision"]):
                     logits = model(x)
