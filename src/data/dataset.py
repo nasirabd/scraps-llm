@@ -1,8 +1,11 @@
 import json
 from pathlib import Path
 from typing import Optional, List
+from tqdm import tqdm
+
 import torch
 from torch.utils.data import Dataset
+
 from src.utils.io import read_jsonl
 
 class RecipesJSONL(Dataset):
