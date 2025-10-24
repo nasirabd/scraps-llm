@@ -138,6 +138,9 @@ tokenize:
 	  $(TOK_NFKC_FLAG) \
 	  --sample_limit $(TOK_SAMPLE_LIMIT)
 
+cache:
+	python -m src.data.cache_tokens
+
 test:
 	python -m src.model.test
 
