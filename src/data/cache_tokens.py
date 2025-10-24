@@ -2,7 +2,6 @@
 Pre-tokenize all processed JSONL splits into torch tensors for faster training.
 Reads max_len automatically from a YAML config file.
 """
-
 import argparse
 import yaml
 import torch

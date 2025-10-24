@@ -245,7 +245,15 @@ def train(cfg):
     tok = BPETok(cfg["vocab_path"])
     train_ds = RecipesJSONL("train", tok=tok, max_len=cfg["data"]["max_len"])
     val_ds   = RecipesJSONL("val",   tok=tok, max_len=cfg["data"]["max_len"])
-    val_rows_cached = val_ds.rows
+   
+    try:
+        val_rows_cached = val_ds.rows  
+    except AttributeError:
+        # load rows directly from processed jsonl for evaluation-only usage
+        data_path = Path(cfg["data"]["processed_dir"]) / "val.jsonl"
+        with data_path.open("r", encoding="utf-8") as f:
+            val_rows_cached = [json.loads(l) for l in f]
+
 
     collate = lambda b: pad_collate(b, tok.pad_id)
     train_dl = DataLoader(train_ds, batch_size=cfg["data"]["train_batch_size"],
