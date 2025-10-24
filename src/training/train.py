@@ -1,5 +1,6 @@
 import math, yaml, json, csv, time
 from pathlib import Path
+import os, shutil
 
 import torch
 import torch.nn as nn
@@ -19,6 +20,36 @@ import sacrebleu, random
 # -------------------------
 # Helpers
 # -------------------------
+# --- Checkpoint helpers ---
+def save_checkpoint(path: Path, *, model, optimizer=None, scaler=None,
+                    epoch: int = 0, step: int = 0, cfg: dict | None = None):
+    payload = {
+        "model": model.state_dict(),
+        "epoch": epoch,
+        "step": step,
+        "cfg": cfg or {},
+    }
+    if optimizer is not None:
+        payload["optimizer"] = optimizer.state_dict()
+    if scaler is not None:
+        try:
+            payload["scaler"] = scaler.state_dict()
+        except Exception:
+            pass
+    path.parent.mkdir(parents=True, exist_ok=True)
+    torch.save(payload, path)
+
+def load_checkpoint(path: Path, *, model, optimizer=None, scaler=None, map_location=None):
+    ckpt = torch.load(path, map_location=map_location)
+    model.load_state_dict(ckpt["model"])
+    if optimizer is not None and "optimizer" in ckpt:
+        optimizer.load_state_dict(ckpt["optimizer"])
+    if scaler is not None and "scaler" in ckpt:
+        try:
+            scaler.load_state_dict(ckpt["scaler"])
+        except Exception:
+            pass
+    return ckpt.get("epoch", 0), ckpt.get("step", 0)
 # --- simple k=v overrides: "optim.lr=1e-3,model.d_model=256,model.n_heads=8" ---
 def _cast_scalar(s: str):
     # try bool
@@ -60,20 +91,18 @@ class EarlyStopping:
     def __init__(self, patience=3, delta=0.0, ckpt_dir=Path("model/checkpoints")):
         self.patience = patience
         self.delta = delta
-        self.ckpt_dir = ckpt_dir
         self.best = float("inf")
         self.bad_epochs = 0
 
-    def step(self, current_val_loss, model):
+    def step(self, current_val_loss, model=None):
         improved = current_val_loss < (self.best - self.delta)
         if improved:
             self.best = current_val_loss
             self.bad_epochs = 0
-            self.ckpt_dir.mkdir(parents=True, exist_ok=True)
-            torch.save({"model": model.state_dict()}, self.ckpt_dir / "best_model.pt")
         else:
             self.bad_epochs += 1
         return improved, (self.bad_epochs >= self.patience)
+
 
 
 def init_csv_logger(path: Path):
@@ -88,7 +117,8 @@ def init_csv_logger(path: Path):
 @torch.no_grad()
 def quick_generate(model, tok, device, ing="chicken, garlic, onion", max_new_tokens=80):
     prompt = f"Ingredients: { ing }\nRecipe:"
-    ids = torch.tensor([tok.encode(prompt)], dtype=torch.long, device=device)
+    enc = tok.encode(prompt, add_special=True)
+    ids = torch.tensor([enc.input_ids], dtype=torch.long, device=device)
     model.eval()
     for _ in range(max_new_tokens):
         logits = model(ids)[:, -1, :]
@@ -106,7 +136,7 @@ def _sample_continuation_for_eval(model, tok, device, prompt: str,
                                   max_new_tokens=160, temperature=0.7, top_k=50, top_p=0.9):
     """Lightweight sampler that returns ONLY the continuation (no prompt)."""
     # Encode prompt without EOS; add BOS only
-    prompt_ids = tok.encode(prompt, add_special=False)
+    prompt_ids = tok.encode(prompt, add_special=False).input_ids
     ids = torch.tensor([[tok.bos_id] + prompt_ids], dtype=torch.long, device=device)
     prompt_len = ids.size(1)
 
@@ -189,7 +219,8 @@ def cosine_schedule(step, warmup, total, base_lr):
 # Training
 # -------------------------
 torch.set_float32_matmul_precision("high")          
-torch.backends.cuda.matmul.allow_tf32 = True        
+torch.backends.cuda.matmul.allow_tf32 = True 
+drive_dir = os.environ.get("DRIVE_CKPT_DIR")       
 def train(cfg):
     # normalize cfg types
     cfg["optim"]["lr"] = float(cfg["optim"]["lr"])
@@ -274,12 +305,22 @@ def train(cfg):
     warmup_steps = int(cfg["optim"]["warmup_steps"])
     base_lr = float(cfg["optim"]["lr"])
 
-    optimizer_step = 0   
-    global_step = 0      
+    optimizer_step = 0 
+    start_epoch = 0  
+    global_step = 0 
+    resume_path = cfg.get("resume_path")  # allow via config/override
+    if resume_path and Path(resume_path).exists():
+        print(f"Resuming from {resume_path}")
+        e, s = load_checkpoint(Path(resume_path), model=model, optimizer=opt, scaler=scaler,
+                            map_location=device)
+        start_epoch = e
+        global_step = s
+        print(f"→ resumed at epoch={start_epoch}, global_step={global_step}")
+    
 
     early = EarlyStopping(patience=3, delta=0.0, ckpt_dir=ckpt_dir)
 
-    for epoch in range(cfg["optim"]["epochs"]):
+    for epoch in range(start_epoch, cfg["optim"]["epochs"]):
         epoch_start = time.time()
         model.train()
         running = 0.0
@@ -365,10 +406,25 @@ def train(cfg):
         csv_f.flush()
 
         # Save "last"
-        torch.save({"model": model.state_dict()}, ckpt_dir / "last_model.pt")
+        save_checkpoint(ckpt_dir / "last_model.pt",
+                model=model, optimizer=opt, scaler=scaler,
+                epoch=epoch+1, step=global_step, cfg=cfg)
 
         # Early stopping
         improved, stop = early.step(avg_val, model)
+        if improved:
+            save_checkpoint(ckpt_dir / "best_model.pt",
+                            model=model, optimizer=opt, scaler=scaler,
+                            epoch=epoch+1, step=global_step, cfg=cfg)
+        
+        # Optional: auto-backup to Drive if env set
+        BACKUP_EVERY = int(os.environ.get("BACKUP_EVERY", "1"))  # epochs
+        if drive_dir and ((epoch + 1) % BACKUP_EVERY == 0):
+            for name in ("last_model.pt", "best_model.pt", "training_log.csv"):
+                src = ckpt_dir / name
+                if src.exists():
+                    shutil.copy2(src, Path(drive_dir) / name)
+
 
         # ----- Optional: in-loop text eval (ROUGE-L F1 + BLEU) -----
         evcfg = cfg.get("eval", {})
@@ -399,10 +455,13 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--config", type=str, default="configs/train_small.yaml")
     p.add_argument("--override", type=str, default=None, help='comma list like "optim.lr=1e-3,model.d_model=256"')
+    p.add_argument("--resume", type=str, default=None, help='Path to checkpoint (e.g. "model/checkpoints/last_model.pt").')
     args = p.parse_args()
 
     with open(args.config) as f:
         cfg = yaml.safe_load(f)
+    if args.resume:
+        cfg["resume_path"] = args.resume
     cfg = apply_overrides(cfg, args.override)
     train(cfg)
 
