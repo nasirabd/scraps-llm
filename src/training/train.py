@@ -316,7 +316,14 @@ def train(cfg):
     opt_steps_per_epoch = (steps_per_epoch + accum - 1) // accum  
     total_opt_steps = opt_steps_per_epoch * int(cfg["optim"]["epochs"])
 
-    warmup_steps = int(cfg["optim"]["warmup_steps"])
+    # --- Auto warmup calculation ---
+    if isinstance(cfg["optim"].get("warmup_steps"), str) and cfg["optim"]["warmup_steps"].lower() == "auto":
+        warmup_steps = int(max(500, min(2000, 0.05 * total_opt_steps)))
+        print(f"[auto] warmup_steps = {warmup_steps} (≈5% of total {total_opt_steps} steps)")
+        cfg["optim"]["warmup_steps"] = warmup_steps
+    else:
+        warmup_steps = int(cfg["optim"]["warmup_steps"])
+
     base_lr = float(cfg["optim"]["lr"])
 
     optimizer_step = 0 
@@ -452,14 +459,14 @@ def train(cfg):
         # Save "last"
         save_checkpoint(ckpt_dir / "last_model.pt",
             model=model, optimizer=opt, scaler=scaler,
-            epoch=epoch+1, step=global_step, optimizer_step=optimizer_step, cfg=cfg)
+            epoch=epoch+1, step=global_step, cfg=cfg)
 
         # Early stopping
         improved, stop = early.step(avg_val, model)
         if improved:
                 save_checkpoint(ckpt_dir / "best_model.pt",
                                 model=model, optimizer=opt, scaler=scaler,
-                                epoch=epoch+1, step=global_step, optimizer_step=optimizer_step, cfg=cfg)
+                                epoch=epoch+1, step=global_step, cfg=cfg)
         
         # Optional: auto-backup to Drive if env set
         if drive_dir and ((epoch + 1) % backup_every == 0):

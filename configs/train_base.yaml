@@ -14,12 +14,12 @@ vocab_path: tokenizer/bpe.json
 data:
   processed_dir: data/processed
   max_len: 256            
-  train_batch_size: 640
-  val_batch_size: 640
+  train_batch_size: 512
+  val_batch_size: 512
   num_workers: 2
 
 model:
-  d_model: 320
+  d_model: 256
   n_layers: 8
   n_heads: 8
   max_len: 256
@@ -33,7 +33,7 @@ optim:
   betas: [0.9, 0.95]
   grad_clip: 1.0
   epochs: 40
-  warmup_steps: 1500
+  warmup_steps: auto
   scheduler: cosine
   mixed_precision: true
   grad_accum_steps: 1

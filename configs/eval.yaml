@@ -1,8 +1,8 @@
 eval:
-  in_loop: true      # enable in-loop text eval
-  every: 2           # run every N epochs
-  max_examples: 64   # eval subset size
-  max_new_tokens: 160
-  temperature: 0.7
+  in_loop: true
+  every: 2
+  max_examples: 96
+  max_new_tokens: 200
+  temperature: 0.8
   top_k: 50
   top_p: 0.9

@@ -134,16 +134,25 @@ cython_debug/
 
 # Scraps-LLM project-specific 
 # Ignore all data, but keep placeholders
-# Scraps-LLM project-specific 
-# Ignore all data, but keep placeholders
-data/cached/*
-!data/cached/.gitkeep
+
+# Data caches
+data/cache/*
+!data/cache/.gitkeep
+
+# Data processed
 data/processed/*
 !data/processed/.gitkeep
+
+# Data raw
 data/raw/*
 !data/raw/.gitkeep
+
+# Model
 model/checkpoints/*
 !model/checkpoints/.gitkeep
 
+# Logs
+runs/*
+!runs/.gitkeep
 
 
