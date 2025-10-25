@@ -7,7 +7,7 @@ from tqdm.auto import tqdm
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
-from torch.cuda.amp import autocast, GradScaler
+from torch.amp import autocast, GradScaler
 from torch.utils.tensorboard import SummaryWriter
 
 from src.tokenization.tokenizer import BPETok
@@ -288,7 +288,7 @@ def train(cfg):
         betas=tuple(cfg["optim"]["betas"]),
         weight_decay=cfg["optim"]["weight_decay"],
     )
-    scaler = GradScaler(enabled=cfg["optim"]["mixed_precision"])
+    scaler = GradScaler(device="cuda", enabled=cfg["optim"]["mixed_precision"])
     loss_fn = nn.CrossEntropyLoss(ignore_index=-100)
 
     # --- Logging (TB + CSV) ---
@@ -337,15 +337,18 @@ def train(cfg):
         last_lr = None
 
         opt.zero_grad(set_to_none=True) 
-        pbar = tqdm(enumerate(train_dl), total=len(train_dl), desc=f"train e{epoch+1}", leave=False)
-        for batch_idx, (x, y) in enumerate(train_dl):
+        pbar = tqdm(train_dl, total=len(train_dl),
+                    desc=f"train e{epoch+1}", dynamic_ncols=True, 
+                    leave=False, mininterval=0.5
+        )
+        for batch_idx, (x, y) in enumerate(pbar):
             global_step += 1
 
             x, y = x.to(device, non_blocking=True), y.to(device, non_blocking=True)
             if batch_idx == 0:
                 print("Batch x device:", x.device, "| y device:", y.device)
 
-            with autocast(enabled=cfg["optim"]["mixed_precision"]):
+            with autocast(device_type="cuda", enabled=cfg["optim"]["mixed_precision"]):
                 logits = model(x)
                 loss = loss_fn(logits.view(-1, logits.size(-1)), y.reshape(-1))
                 loss = loss / accum  # normalize for accumulation
@@ -368,14 +371,14 @@ def train(cfg):
                 scaler.step(opt)
                 scaler.update()
                 opt.zero_grad(set_to_none=True)
-
                 optimizer_step += 1
 
             # show live stats in the bar
-            pbar.set_postfix({
-                "loss": f"{(running/(batch_idx+1)):.3f}",
-                "lr": f"{(last_lr or base_lr):.2e}",
-             })
+            if (batch_idx % 20) == 0:
+                pbar.set_postfix(
+                loss=f"{(running/(batch_idx+1)):.3f}",
+                lr=f"{(last_lr or base_lr):.2e}",
+                )
 
         avg_train = running / max(1, len(train_dl))
 
@@ -383,12 +386,16 @@ def train(cfg):
         model.eval()
         val_loss = 0.0
         with torch.no_grad():
-            for x, y in tqdm(val_dl, total=len(val_dl), desc=f"valid e{epoch+1}", leave=False):
+            vpbar = tqdm(val_dl, total=len(val_dl), desc=f"valid e{epoch+1}",
+                        dynamic_ncols=True, leave=False)
+            for x, y in vpbar:
                 x, y = x.to(device), y.to(device)
-                with autocast(enabled=cfg["optim"]["mixed_precision"]):
+                with autocast(device_type="cuda", enabled=cfg["optim"]["mixed_precision"]):
                     logits = model(x)
                     loss = loss_fn(logits.view(-1, logits.size(-1)), y.reshape(-1))
                 val_loss += loss.item()
+                vpbar.set_postfix(vloss=f"{loss.item():.3f}")
+
 
         avg_val = val_loss / max(1, len(val_dl))
         val_ppl = math.exp(min(20, avg_val))
