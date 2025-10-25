@@ -415,7 +415,7 @@ def train(cfg):
         epoch_time = time.time() - epoch_start
 
         # Print
-        print(f"epoch {epoch+1}: train={avg_train:.4f}, val={avg_val:.4f}, "
+        print(f"epoch {epoch+1}: train loss={avg_train:.4f}, val loss={avg_val:.4f}, "
             f"ppl={val_ppl:.2f}, lr={(last_lr or base_lr):.6g}, t={epoch_time:.1f}s")
         # --- Throughput measurement (approximate tokens/sec) ---
         tokens_per_sample = x.size(1) - 1              
