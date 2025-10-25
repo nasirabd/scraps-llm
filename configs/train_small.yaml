@@ -10,7 +10,7 @@ data:
   processed_dir: data/processed
   max_len: 256           
   train_batch_size: 512
-  val_batch_size: 212
+  val_batch_size: 512
   num_workers: 2
 
 model:
