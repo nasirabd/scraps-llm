@@ -262,6 +262,9 @@ def train(cfg):
     val_dl   = DataLoader(val_ds, batch_size=cfg["data"]["val_batch_size"],
                           shuffle=False, num_workers=cfg["data"]["num_workers"],
                           collate_fn=collate, pin_memory=torch.cuda.is_available())
+    print("train_ds.cached:", getattr(train_ds, "cached", False))
+    print("val_ds.cached:", getattr(val_ds, "cached", False))
+
 
     # --- Model ---
     mcfg = cfg["model"]
@@ -372,6 +375,10 @@ def train(cfg):
                 scaler.update()
                 opt.zero_grad(set_to_none=True)
                 optimizer_step += 1
+            
+            if global_step % 200 == 0:
+                writer.add_scalar("loss/train_step", loss.item() * accum, global_step)
+                writer.flush()
 
             # show live stats in the bar
             if (batch_idx % 20) == 0:
@@ -379,6 +386,12 @@ def train(cfg):
                 loss=f"{(running/(batch_idx+1)):.3f}",
                 lr=f"{(last_lr or base_lr):.2e}",
                 )
+            if global_step % 500 == 0: 
+                true_mb_loss = loss.item() * accum
+                writer.add_scalar("loss/train_step", true_mb_loss, global_step)
+                writer.add_scalar("lr/step", (last_lr or base_lr), global_step)
+                
+                writer.flush()
 
         avg_train = running / max(1, len(train_dl))
 
