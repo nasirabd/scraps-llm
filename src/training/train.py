@@ -29,6 +29,7 @@ def save_checkpoint(path: Path, *, model, optimizer=None, scaler=None,
         "model": model.state_dict(),
         "epoch": epoch,
         "step": step,
+        "optimizer_step": optimizer_step,
         "cfg": cfg or {},
     }
     if optimizer is not None:
@@ -51,7 +52,7 @@ def load_checkpoint(path: Path, *, model, optimizer=None, scaler=None, map_locat
             scaler.load_state_dict(ckpt["scaler"])
         except Exception:
             pass
-    return ckpt.get("epoch", 0), ckpt.get("step", 0)
+    return ckpt.get("epoch", 0), ckpt.get("step", 0), ckpt.get("optimizer_step", 0)
 # --- simple k=v overrides: "optim.lr=1e-3,model.d_model=256,model.n_heads=8" ---
 def _cast_scalar(s: str):
     # try bool
@@ -328,11 +329,22 @@ def train(cfg):
                             map_location=device)
         start_epoch = e
         global_step = s
-        print(f"→ resumed at epoch={start_epoch}, global_step={global_step}")
+        optimizer_step = opt_st          
+        print(f"→ resumed at epoch={start_epoch}, global_step={global_step}, optimizer_step={optimizer_step}")
     
 
     early = EarlyStopping(patience=3, delta=0.0, ckpt_dir=ckpt_dir)
 
+    drive_dir = os.environ.get("DRIVE_CKPT_DIR", "").strip()
+    backup_every = int(os.environ.get("BACKUP_EVERY", "1"))
+    if drive_dir:
+        drive_dir = Path(drive_dir)
+        drive_dir.mkdir(parents=True, exist_ok=True)
+        print(f"[backup] Drive checkpoint dir: {drive_dir.resolve()}")
+    else:
+        print("[backup] DRIVE_CKPT_DIR not set; auto-backup disabled.")
+
+     # ----- Training -----
     for epoch in range(start_epoch, cfg["optim"]["epochs"]):
         epoch_start = time.time()
         model.train()
@@ -344,6 +356,7 @@ def train(cfg):
                     desc=f"train e{epoch+1}", dynamic_ncols=True, 
                     leave=False, mininterval=0.5
         )
+        # ----- Training -----
         for batch_idx, (x, y) in enumerate(pbar):
             global_step += 1
 
@@ -373,10 +386,7 @@ def train(cfg):
                 scaler.update()
                 opt.zero_grad(set_to_none=True)
                 optimizer_step += 1
-            
-            if global_step % 200 == 0:
-                writer.add_scalar("loss/train_step", loss.item() * accum, global_step)
-                writer.flush()
+
 
             # show live stats in the bar
             if (batch_idx % 20) == 0:
@@ -441,23 +451,31 @@ def train(cfg):
 
         # Save "last"
         save_checkpoint(ckpt_dir / "last_model.pt",
-                model=model, optimizer=opt, scaler=scaler,
-                epoch=epoch+1, step=global_step, cfg=cfg)
+            model=model, optimizer=opt, scaler=scaler,
+            epoch=epoch+1, step=global_step, optimizer_step=optimizer_step, cfg=cfg)
 
         # Early stopping
         improved, stop = early.step(avg_val, model)
         if improved:
-            save_checkpoint(ckpt_dir / "best_model.pt",
-                            model=model, optimizer=opt, scaler=scaler,
-                            epoch=epoch+1, step=global_step, cfg=cfg)
+                save_checkpoint(ckpt_dir / "best_model.pt",
+                                model=model, optimizer=opt, scaler=scaler,
+                                epoch=epoch+1, step=global_step, optimizer_step=optimizer_step, cfg=cfg)
         
         # Optional: auto-backup to Drive if env set
-        BACKUP_EVERY = int(os.environ.get("BACKUP_EVERY", "1"))  # epochs
-        if drive_dir and ((epoch + 1) % BACKUP_EVERY == 0):
-            for name in ("last_model.pt", "best_model.pt", "training_log.csv"):
+        if drive_dir and ((epoch + 1) % backup_every == 0):
+            to_copy = ("last_model.pt", "best_model.pt", "training_log.csv")
+            for name in to_copy:
                 src = ckpt_dir / name
+                dst = drive_dir / name
                 if src.exists():
-                    shutil.copy2(src, Path(drive_dir) / name)
+                    try:
+                        shutil.copy2(src, dst)
+                        print(f"[backup] Copied {src} -> {dst}")
+                    except Exception as e:
+                        print(f"[backup][ERROR] Failed copying {src} -> {dst}: {e}")
+                else:
+                    print(f"[backup] Skip: {src} not found")
+
 
 
         # ----- Optional: in-loop text eval (ROUGE-L F1 + BLEU) -----
