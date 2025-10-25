@@ -31,7 +31,6 @@ class RecipesJSONL(Dataset):
                 blob = torch.load(cache_p, map_location="cpu")
                 pbar.update(1)
 
-            blob = torch.load(cache_p, map_location="cpu")
             self.ids_list = blob["ids"]
             self.pad_id = blob.get("pad_id", 0)
             self.cached = True
