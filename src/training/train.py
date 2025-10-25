@@ -348,8 +348,6 @@ def train(cfg):
             global_step += 1
 
             x, y = x.to(device, non_blocking=True), y.to(device, non_blocking=True)
-            if batch_idx == 0:
-                print("Batch x device:", x.device, "| y device:", y.device)
 
             with autocast(device_type="cuda", enabled=cfg["optim"]["mixed_precision"]):
                 logits = model(x)
