@@ -7,9 +7,9 @@ vocab_path: tokenizer/bpe.json   # must match the tokenizer used for training
 data:
   processed_dir: data/processed
   max_len: 256           
-  train_batch_size: 64
-  val_batch_size: 64
-  num_workers: 0
+  train_batch_size: 128
+  val_batch_size: 128
+  num_workers: 2
 
 model:
   d_model: 256            
@@ -29,4 +29,4 @@ optim:
   warmup_steps: 1500
   scheduler: cosine
   mixed_precision: true
-  grad_accum_steps: 2
+  grad_accum_steps: 1
