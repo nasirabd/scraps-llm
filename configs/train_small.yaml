@@ -1,4 +1,6 @@
-# configs/train_rope_small.yaml
+# ===========================
+# Scraps-LLM: test run
+# ===========================
 seed: 42
 device: auto
 
@@ -7,8 +9,8 @@ vocab_path: tokenizer/bpe.json   # must match the tokenizer used for training
 data:
   processed_dir: data/processed
   max_len: 256           
-  train_batch_size: 256
-  val_batch_size: 256
+  train_batch_size: 512
+  val_batch_size: 212
   num_workers: 2
 
 model:
@@ -21,12 +23,12 @@ model:
   tie_weights: true
 
 optim:
-  lr: 0.0005
+  lr: 0.001
   weight_decay: 0.01
   betas: [0.9, 0.95]
   grad_clip: 1.0
   epochs: 3
-  warmup_steps: 1000
+  warmup_steps: 2000
   scheduler: cosine
   mixed_precision: true
   grad_accum_steps: 1
