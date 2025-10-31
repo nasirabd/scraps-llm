@@ -42,7 +42,6 @@ def _format_recipe(text: str) -> str:
 
 def generate_handler(
     ingredients: str,
-    scaffold: str,
     num_recipes: int,
     max_new_tokens: int,
     temperature: float,
@@ -100,14 +99,11 @@ with gr.Blocks(title="Scraps-LLM: Recipe Generator") as demo:
                 lines=2,
                 value="chicken, garlic, onion",
             )
-        with gr.Column(scale=1):
-            scaffold = gr.Radio(
-                label="Prompt scaffold",
-                choices=["basic", "title_step1"],
-                value="basic",
-                info="Use 'title_step1' to nudge a 'Title:' then 'Step 1:' format."
+
+            num_recipes = gr.Slider(
+                1, 5, value=1, step=1,
+                label="Number of recipes to generate"
             )
-            num_recipes = gr.Slider(1, 5, value=1, step=1, label="Number of recipes")
 
     with gr.Accordion("Advanced generation settings", open=False):
         with gr.Row():
@@ -132,7 +128,7 @@ with gr.Blocks(title="Scraps-LLM: Recipe Generator") as demo:
 
     run_btn.click(
         fn=generate_handler,
-        inputs=[ingredients, scaffold, num_recipes, max_new_tokens, temperature, top_k, top_p, no_eos_stop, show_full, config_path, ckpt_dir, vocab_path],
+        inputs=[ingredients, num_recipes, max_new_tokens, temperature, top_k, top_p, no_eos_stop, show_full, config_path, ckpt_dir, vocab_path],
         outputs=[recipes_out, full_out],
         api_name="generate"
     )

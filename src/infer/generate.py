@@ -34,6 +34,13 @@ def top_k_top_p_filtering(logits, top_k=0, top_p=1.0):
 
     return probs
 
+def _to_ids(enc):
+    # normalize tokenizer outputs to a plain list[int]
+    if hasattr(enc, "input_ids"):
+        return list(enc.input_ids)
+    if hasattr(enc, "ids"):
+        return list(enc.ids)
+    return list(enc)
 
 def _clean_readability(s: str) -> str:
     # Temporary readability pass for byte-level artifacts.
@@ -62,9 +69,11 @@ def generate(
     """
     model.eval()
 
-    prompt_ids = tok.encode(prompt_text, add_special=False)     # no BOS/EOS from tokenizer
+    # encode prompt WITHOUT EOS; prepend BOS only
+    enc = tok.encode(prompt_text, add_special=False)
+    prompt_ids = _to_ids(enc)
     ids = torch.tensor([[tok.bos_id] + prompt_ids], dtype=torch.long, device=device)
-    prompt_len = ids.size(1)  # for token-level slicing
+    prompt_len = ids.size(1)
 
     for _ in range(max_new_tokens):
         logits = model(ids)[:, -1, :]             # (1, V)
@@ -77,7 +86,6 @@ def generate(
 
     all_ids = ids[0].tolist()
     cont_ids = all_ids[prompt_len:]  # strictly new tokens after the prompt
-
     full_text = tok.decode(all_ids)
     continuation = tok.decode(cont_ids)
     continuation = _clean_readability(continuation)
@@ -124,13 +132,10 @@ def load_from_config(config_path: str, ckpt_dir="model/checkpoints", vocab_path=
 # Prompt scaffold
 # -----------------------------
 def build_prompt(ingredients: str, scaffold: str) -> str:
-    """Keep what the model sees consistent with training, but allow helpful scaffolds."""
-    if scaffold == "basic":
-        return f"Ingredients: {ingredients}\nRecipe:"
-    elif scaffold == "title_step1":
-        return f"Ingredients: {ingredients}\nRecipe:\nTitle:\nStep 1:"
-    # fallback
+    if scaffold == "title_then_steps":
+        return f"Ingredients: {ingredients}\nRecipe:\nTitle:"
     return f"Ingredients: {ingredients}\nRecipe:"
+
 
 
 # -----------------------------
@@ -152,9 +157,7 @@ def parse_args():
     # UX flags
     p.add_argument("--just_recipe", action="store_true", default=True, help="Print only the generated recipe")
     p.add_argument("--show_full", action="store_true", help="Also print full decoded text (debug)")
-    p.add_argument("--scaffold", type=str, default="basic",
-                   choices=["basic", "title_step1"],
-                   help="Prompt scaffold style")
+    p.add_argument("--scaffold", type=str, default="title_then_steps", help="Prompt scaffold style")
     p.add_argument("--num_recipes", type=int, default=1, help="Number of recipes to generate")
     return p.parse_args()
 
@@ -165,9 +168,7 @@ def parse_args():
 def main():
     args = parse_args()
     model, tok, device = load_from_config(args.config, ckpt_dir=args.ckpt_dir, vocab_path=args.vocab, device=None)
-
     prompt = build_prompt(args.ingredients, args.scaffold)
-
     for i in range(args.num_recipes):
         full_text, continuation = generate(
             model, tok, prompt,

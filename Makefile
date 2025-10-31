@@ -214,8 +214,6 @@ recipe:
 full-recipe:
 	$(MAKE) recipe SHOW_FULL=1
 
-just-recipe:
-	$(MAKE) recipe
 
 # =========================
 # Evaluation

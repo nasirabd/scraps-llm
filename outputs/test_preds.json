@@ -1,7 +1,1002 @@
 [
   {
-    "ingredients": "chicken, garlic, onion",
-    "reference": "Title: Garlicky Chicken Step 1: Heat oil... Step 2: Add chicken...",
-    "hypothesis": ".. :  pasta P  Basil p es  tomato ...  Basil le  2  Basil  Basil"
+    "ingredients": "cheddar cheese, eggs, green onion, pepper, potatoes, salt",
+    "reference": "Title: Potato And Cheese Pie\nStep 1: Beat eggs, salt and pepper until well blended.\nStep 2: Stir in half and half, potatoes and onions.\nStep 3: Pour into well-greased 8-inch baking dish.\nStep 4: Bake in a 400° oven for 35 to 40 minutes, or until knife inserted in center comes out clean and potatoes are tender. Cool on rack 5 minutes; cut into squares.\nStep 5: Makes 4 large servings.",
+    "hypothesis": "title: potato cheese pie\nstep 1: combine all ingredients.\nstep 2: place in greased 9-inch pie plate.\nstep 3: bake at 350° for 40 minutes.\nstep 4: serves 6."
+  },
+  {
+    "ingredients": "basil, black pepper, flounder, green pepper, lemon juice, onion, pollack fillet, red pepper sauce, salad oil, salt, tomato",
+    "reference": "Title: Creole Flounder\nStep 1: Heat oven to 500°.\nStep 2: Place fillets in single layer in baking dish, 13 1/2 x 9 x 2-inch.\nStep 3: Stir together remaining ingredients except pepper rings. Spoon over fillets.\nStep 4: Bake 5 to 8 minutes or until fish flakes easily with fork.\nStep 5: Remove fillets to warm platter. Garnish with green pepper rings. Makes 4 to 6 servings.",
+    "hypothesis": "title: fish fillets with tomato-basil sauce\nstep 1: in 12-inch skillet over medium heat in hot salad oil, cook onion and green pepper until tender, about 3 minutes.\nstep 2: stir in tomato, basil, lemon juice, salt and pepper sauce.\nstep 3: heat to boiling.\nstep 4: reduce heat to low.\nstep 5: cover and simmer 5 minutes.\nstep 6: cut fish into 4 serving size pieces.\nstep 7: arrange fish on serving platter.\nstep 8: spoon sauce over fish.\nstep 9: makes 4 servings."
+  },
+  {
+    "ingredients": "butter, chicken breast, cream celery soup, cream chicken soup, cream mushroom soup, cut up chicken, margarine, rice",
+    "reference": "Title: Chicken Casserole\nStep 1: Mix all ingredients together in baking dish.\nStep 2: Cover and bake at 350° for 2 1/2 hours.\nStep 3: Bake the last 45 minutes, uncovered, to brown top of chicken.",
+    "hypothesis": "title: chicken and rice casserole\nstep 1: place rice in bottom of baking dish.\nstep 2: sprinkle chicken with salt and pepper.\nstep 3: place chicken on top of rice.\nstep 4: mix soups and pour over chicken.\nstep 5: dot with butter.\nstep 6: cover and bake at 350° for 1 hour."
+  },
+  {
+    "ingredients": "cashew, celery, chicken breast, cream, cream mushroom soup, noodles, onion, pea, peanut, soy sauce, tuna, in chunk, water",
+    "reference": "Title: Souper Tuna Crunch\nStep 1: Reserve 1/2 cup Chinese noodles.\nStep 2: In 1 1/2-quart casserole, combine remaining noodles, soup, water, tuna, cashews, celery, onion and peas.\nStep 3: Bake at 350° for 30 minutes or until hot.\nStep 4: Stir; sprinkle reserved noodles around edge.\nStep 5: Bake 5 minutes more. Serve with soy sauce.\nStep 6: Makes about 4 1/2 cups.",
+    "hypothesis": "title: chicken cashew casserole\nstep 1: mix all ingredients except noodles and nuts.\nstep 2: bake at 350° for 45 minutes.\nstep 3: sprinkle noodles on top and bake 10 minutes longer."
+  },
+  {
+    "ingredients": "cucumbers, dill, onion, salt, sugar, white vinegar",
+    "reference": "Title: Cucumber Salad With Dill\nStep 1: Combine all ingredients, except dill, making sure juices are mixed well.\nStep 2: Garnish with dill.\nStep 3: Chill.",
+    "hypothesis": "title: cucumber salad\nstep 1: mix all ingredients and let stand 1 hour.\nstep 2: drain and serve."
+  },
+  {
+    "ingredients": "any other chicken part you wish use, chicken mushroom soup, cream chicken, french onion soup, mushroom, onion soup, raw rice, rice, size chicken thigh",
+    "reference": "Title: Chicken Casserole\nStep 1: Mix all together; pour into a 7 x 12-inch casserole.\nStep 2: Sprinkle with pepper and paprika.\nStep 3: Bake approximately 1 hour and 15 minutes at 350°.",
+    "hypothesis": "title: chicken and rice casserole\nstep 1: mix soups, rice and mushrooms.\nstep 2: put in baking dish.\nstep 3: place chicken on top.\nstep 4: cover with foil.\nstep 5: bake at 350° for 1 hour.\nstep 6: remove foil and bake an additional 15 minutes."
+  },
+  {
+    "ingredients": "beef, bell pepper, cheese, cream celery soup, cream chicken soup, cream mushroom soup, onion, tater, tater tot",
+    "reference": "Title: Tater Tot Casserole\nStep 1: Spread Tater Tots in large cake pan, 9 x 13-inch. Brown meat and onions; drain well.\nStep 2: Pour meat mixture over Tater Tots. Mix all 3 soups in a bowl.\nStep 3: Pour over meat and Tater Tots. Sprinkle grated cheese to cover soup.\nStep 4: Bake at 325° for 1 hour.\nStep 5: As you brown meat and onions, salt and pepper well.",
+    "hypothesis": "title: tater tot casserole\nstep 1: brown ground beef and onion.\nstep 2: drain.\nstep 3: add soups, onion and bell pepper.\nstep 4: place in a 9 x 13-inch baking dish.\nstep 5: cover with tater tots.\nstep 6: bake at 350° for 1 hour.\nstep 7: top with cheese and bake 5 minutes longer."
+  },
+  {
+    "ingredients": "eggs, ginger ale, milk, pecan, pistachio instant pudding, pistachio instant pudding mix, vegetable oil, whip, white cake mix",
+    "reference": "Title: Watergate Cake\nStep 1: Combine box cake mix, oil, instant pudding, ginger ale, eggs, and pecans.\nStep 2: Pour into a 13 x 9-inch pan that has been greased and floured.\nStep 3: Bake at 350° for 30 minutes. Cool and add topping when ready to serve. For topping the cake, mix cool whip, milk and pistachio instant pudding mix. Pour over cake and let set.",
+    "hypothesis": "title: pistachio cake\nstep 1: mix all ingredients, except cool whip, in a large bowl.\nstep 2: beat at medium speed for 4 minutes.\nstep 3: pour into a greased and floured 10-inch tube pan.\nstep 4: bake at 350° for 45 to 50 minutes.\nstep 5: cool in pan for 15 minutes.\nstep 6: remove from pan and cool completely.\nstep 7: combine pudding mix and milk.\nstep 8: beat until thickened.\nstep 9: fold in cool whip.\nstep 10: spread over cooled cake.\nstep 11: sprinkle with chopped nuts.\nstep 12: refrigerate."
+  },
+  {
+    "ingredients": "butter, coconut, eggs, flour, milk, self rising flour, sugar, vanilla",
+    "reference": "Title: Coconut Pie\nStep 1: Mix flour, sugar and coconut in a bowl.\nStep 2: Beat eggs and add milk, butter and flavoring. Then add dry ingredients.\nStep 3: Pour into well greased pie plate and bake at 350° for 45 minutes to 1 hour or until golden brown.\nStep 4: This pie makes its own crust.",
+    "hypothesis": "title: impossible pie\nstep 1: mix all ingredients together.\nstep 2: pour into a greased 9-inch pie pan.\nstep 3: bake at 350° for 40 to 45 minutes."
+  },
+  {
+    "ingredients": "ginger ale, grenadine syrup, lemonade concentrate, maraschino cherry, orange juice concentrate, wafer lemon maraschino cherry, water",
+    "reference": "Title: Mistletoe Punch\nStep 1: Combine all ingredients, except ginger ale and garnish, in a punch bowl.\nStep 2: Just before serving, add some ice cubes and stir in the ginger ale.\nStep 3: Put lemon slice and a cherry in each cup.\nStep 4: Serves 30.",
+    "hypothesis": "title: christmas punch\nstep 1: combine first 3 ingredients in a large punch bowl.\nstep 2: add remaining ingredients and stir well.\nstep 3: chill.\nstep 4: garnish with cherries."
+  },
+  {
+    "ingredients": "mayonnaise, salt, self rising flour, sweet milk",
+    "reference": "Title: Mayonnaise Rolls\nStep 1: Mix well, fill muffin pans 1/3 full.\nStep 2: Bake at 400° until brown.\nStep 3: Makes about 6 rolls.",
+    "hypothesis": "title: quick rolls\nstep 1: mix ingredients together.\nstep 2: spoon into greased muffin tins.\nstep 3: bake at 450° for 10 to 12 minutes."
+  },
+  {
+    "ingredients": "caramel sauce, chocolate cake, condensed milk, german chocolate cake mix, milk, skor candy bar, whip",
+    "reference": "Title: Skor Cake\nStep 1: Make cake according to directions on box and bake in 9 x 13-inch pan.\nStep 2: Immediately after removing from oven, poke holes all over cake and pour Eagle Brand milk and caramel sauce over top of cake.\nStep 3: Allow cake to completely cool and then ice with Cool Whip. Crush Skor candy bars and sprinkle over cake.\nStep 4: Keep refrigerated.",
+    "hypothesis": "title: chocolate caramel cake\nstep 1: prepare cake mix as directed on box.\nstep 2: bake in 9 x 13-inch pan.\nstep 3: while cake is still hot, poke holes in cake with fork.\nstep 4: pour sweetened condensed milk over cake.\nstep 5: let cool.\nstep 6: pour caramel sauce over cake.\nstep 7: let cool.\nstep 8: cover with cool whip.\nstep 9: sprinkle with skor bars."
+  },
+  {
+    "ingredients": "cream, eggs, milk, salt, sugar, vanilla",
+    "reference": "Title: Ice Cream\nStep 1: Beat with electric mixer.\nStep 2: Put in freezer.",
+    "hypothesis": "title: baked custard\nstep 1: mix all ingredients and pour into baking dish.\nstep 2: sprinkle with nutmeg.\nstep 3: bake at 350° for 45 minutes."
+  },
+  {
+    "ingredients": "butter, crisco, egg whites, eggs, flour, milk, sugar, vanilla",
+    "reference": "Title: Fluffy White Icing\nStep 1: Mix all ingredients together, except milk.\nStep 2: Beat at high speed; slowly add milk.",
+    "hypothesis": "title: pound cake\nstep 1: cream butter, crisco and sugar until light and fluffy.\nstep 2: add eggs, one at a time, beating well after each addition.\nstep 3: add flour and milk alternately, beginning and ending with flour.\nstep 4: add vanilla.\nstep 5: bake in a tube pan for 1 hour and 15 minutes at 325°."
+  },
+  {
+    "ingredients": "chicken bouillon, chicken breasts, skin removed, onion, fine, tarragon",
+    "reference": "Title: Chicken With Tarragon\nStep 1: Lightly brown meat side of chicken breasts.\nStep 2: Lay all 4 chicken breasts, meat side down, in small (8-inch) skillet.\nStep 3: Add enough water, with chicken bouillon, added to just cover chicken.\nStep 4: Add onion over top of chicken.\nStep 5: Sprinkle with tarragon.\nStep 6: Bring to boil and reduce heat to medium.\nStep 7: Cover skillet with well-fitting lid and cook approximately 30 to 45 minutes or until chicken is done. Add a little water if necessary to replace any lost in steam.",
+    "hypothesis": "title: tarragon chicken\nstep 1: place chicken breasts in baking dish.\nstep 2: sprinkle with tarragon and onion.\nstep 3: pour bouillon over chicken.\nstep 4: bake, covered, at 350° for 1 hour.\nstep 5: uncover and bake 10 minutes longer."
+  },
+  {
+    "ingredients": "cabbage, carrot, celery, green pepper, lemon, pineapple tidbit, water",
+    "reference": "Title: Lemon Jello Vegetable Salad\nStep 1: Mix box of jello with the cup of boiling water.\nStep 2: Mix until dissolved.\nStep 3: Add cold water.\nStep 4: Let jell slightly, then add all other ingredients.\nStep 5: Mix and jell in a flat, 1 1/2-quart dish.\nStep 6: Cut into squares to serve on a lettuce leaf.",
+    "hypothesis": "title: sunshine salad\nstep 1: dissolve jello in hot water.\nstep 2: add pineapple and remaining ingredients.\nstep 3: refrigerate until set."
+  },
+  {
+    "ingredients": "chicken breast, cream mushroom soup, envelope onion soup mix, onion soup, rice, thigh, water",
+    "reference": "Title: Chicken Casserole\nStep 1: Spread rice in bottom of a 9 x 13-inch glass casserole dish. Sprinkle onion soup mix on top.\nStep 2: Lay chicken pieces on top and spoon mushroom soup over all.\nStep 3: Pour water around chicken pieces. Cover with foil and bake at 325° for 1 1/2 hours. Take foil off the last 1/2 hour.\nStep 4: Check liquid content and add, if necessary.",
+    "hypothesis": "title: chicken and rice\nstep 1: place rice in bottom of casserole dish.\nstep 2: add soup mix, water and soup mix.\nstep 3: place chicken on top.\nstep 4: cover and bake at 350° for 1 1/2 hours."
+  },
+  {
+    "ingredients": "chuck roast, garlic, garlic salt, ginger, paprika, pepper, tomato paste",
+    "reference": "Title: Pot Roast\nStep 1: You will need 1 large iron kettle (pot) or 2 iron skillets.",
+    "hypothesis": "title: easy slow cooker swiss steak\nstep 1: in a bowl, combine the tomato paste, paprika, ginger, garlic salt, pepper and paprika.\nstep 2: rub the mixture over the meat.\nstep 3: place in the slow cooker.\nstep 4: cover and cook on low for 8-10 hours."
+  },
+  {
+    "ingredients": "black pepper, mozzarella cheese, mushroom, onion, oregano, parmesan cheese, part skim mozzarella cheese, spaghetti sauce, zucchini",
+    "reference": "Title: Zucchini Pizzas\nStep 1: Combine spaghetti sauce, onions, black pepper and oregano in a small bowl.\nStep 2: Combine Mozzarella cheese and Parmesan cheese.\nStep 3: Place zucchini coins on a cookie sheet which has been coated with vegetable cooking spray (approximately 1-inch apart).\nStep 4: Top with sauce, then a mushroom slice.\nStep 5: Sprinkle with cheese mixture. Broil until hot and bubbly.",
+    "hypothesis": "title: vegetable lasagna\nstep 1: cook zucchini and onion in a small amount of water until tender. drain.\nstep 2: in a large bowl, combine zucchini, mushrooms, spaghetti sauce, oregano and pepper.\nstep 3: in a 13 x 9 x 2-inch baking dish, layer half of the vegetable mixture, half of the mozzarella and half of the parmesan cheese. repeat layers.\nstep 4: bake, uncovered, at 350° for 30 minutes.\nstep 5: let stand 10 minutes before serving.\nstep 6: makes 8 servings."
+  },
+  {
+    "ingredients": "beef, crust, italian seasoning, mozzarella cheese, onion, pepper, pizza crust, salt, tomato paste",
+    "reference": "Title: Cheeseburger Pie\nStep 1: Brown meat and seasoning in skillet.\nStep 2: Drain off fat.\nStep 3: Add tomato paste; blend.\nStep 4: Turn mixture out on crust.\nStep 5: Top with cheese. Bake at 375° for 10 to 15 minutes.",
+    "hypothesis": "title: upside-down pizza\nstep 1: brown ground beef, onion and seasonings.\nstep 2: spread over crust. top with tomato paste, then cheese.\nstep 3: top with pepperoni.\nstep 4: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "celery, cheese, chicken breasts, green pepper, mushroom, mushroom soup, onion, spinach noodles, in broth",
+    "reference": "Title: Chicken Casserole\nStep 1: Cook chicken. Saute celery, pepper and onion. Add cheese and soup. Add 1 cup chicken broth. Mix spinach with chicken mixture. Bake, uncovered, for 30 minutes at 350°.",
+    "hypothesis": "title: chicken florentine\nstep 1: mix all ingredients together.\nstep 2: put in a 9 x 13-inch pan.\nstep 3: bake at 350° for 1 hour."
+  },
+  {
+    "ingredients": "butter, cinnamon, margarine, sugar, wheat bread, white",
+    "reference": "Title: Log Cabin Toast\nStep 1: Mix sugar and cinnamon in custard cup.\nStep 2: Toast bread.\nStep 3: Spread with soft margarine.\nStep 4: Sprinkle with sugar-cinnamon mixture.\nStep 5: Cut each slice of toast into 4 strips.\nStep 6: Put them together on plate like stacked logs to make the wall of a log cabin.\nStep 7: Start from the top and eat all the logs.",
+    "hypothesis": "title: cinnamon toast\nstep 1: combine sugar and cinnamon.\nstep 2: dip bread in butter, then in cinnamon sugar mixture.\nstep 3: place on cookie sheet.\nstep 4: bake at 350° for 15 minutes."
+  },
+  {
+    "ingredients": "celery, green pepper, hamburger, salt, salt pepper, stalk celery, tomato soup, white onion",
+    "reference": "Title: Spanish Hamburger #1\nStep 1: Fry hamburger half done.\nStep 2: Cut onion, green pepper and celery in fine pieces and add.\nStep 3: Let simmer 1/2 hour.\nStep 4: Add salt and pepper, then add tomato soup. Simmer 2 hours.\nStep 5: Keep steam in for best results.",
+    "hypothesis": "title: hamburger soup\nstep 1: brown hamburger with chopped celery, green pepper and onion.\nstep 2: add tomato soup, salt and pepper.\nstep 3: let simmer for about 1 hour."
+  },
+  {
+    "ingredients": "cream mushroom soup, lean beef, onion, tater, tater tot, vegetables",
+    "reference": "Title: Tater Tot Casserole\nStep 1: Sear meat and onion until browned; add mixed vegetables and soup and mix well.\nStep 2: Turn into buttered casserole dish and top with Tater Tots.\nStep 3: Bake at 350° for 45 minutes.",
+    "hypothesis": "title: tater tot hot dish\nstep 1: brown ground beef and onion; drain.\nstep 2: add vegetables and soup.\nstep 3: mix well.\nstep 4: pour into a greased casserole dish.\nstep 5: top with tater tots.\nstep 6: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "black pepper, brisket, celery powder, garlic, liquid smoke, onion, worcestershire sauce",
+    "reference": "Title: Teresa'S Brisket\nStep 1: Cover with all ingredients and refrigerate overnight in a 13 x 9-inch pan.\nStep 2: Next morning add 1 bottle Worcestershire sauce and black pepper.\nStep 3: Bake in 275° oven for 6 to 8 hours.\nStep 4: Cover with barbecue sauce.",
+    "hypothesis": "title: beef brisket\nstep 1: place brisket in a large container with lid.\nstep 2: pour liquid smoke over brisket.\nstep 3: add worcestershire sauce, celery powder, garlic powder, black pepper and liquid smoke.\nstep 4: cover and refrigerate overnight.\nstep 5: next day, drain brisket and reserve liquid.\nstep 6: place brisket in a roasting pan.\nstep 7: pour reserved liquid over brisket.\nstep 8: cover and bake at 300° for 6 hours.\nstep 9: remove brisket to a warm platter.\nstep 10: slice and serve."
+  },
+  {
+    "ingredients": "beef, cheddar cheese, cream soup, kernel corn, onion, tater, tater tot, turkey",
+    "reference": "Title: Tater Tot Casserole\nStep 1: Lightly brown ground meat and onion.\nStep 2: Drain off fat.\nStep 3: Spread in bottom of casserole dish.\nStep 4: Mix cream soup with 1/2 can milk. Spread corn over meat and soup over corn.\nStep 5: Don't stir.\nStep 6: Sprinkle cheese over soup.\nStep 7: Cover top with frozen Tater Tots.\nStep 8: Bake at 325°, covered, about 30 to 40 minutes, or longer if potatoes are not done.",
+    "hypothesis": "title: hamburger casserole\nstep 1: brown meat and onion.\nstep 2: drain off fat.\nstep 3: add corn, soup and 1/2 cup cheese.\nstep 4: pour into casserole dish.\nstep 5: top with tater tots.\nstep 6: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "barbecue shake 'n bake, beef, eggs, garlic powder, n, onion, onion salt, sweet relish",
+    "reference": "Title: Meat Balls\nStep 1: Mix beef, sweet relish, garlic powder, onion powder, onion salt and egg.\nStep 2: Form into balls.\nStep 3: Put into bag of Shake 'N Bake. Cover good.\nStep 4: Cook at 350° for 30 to 40 minutes.",
+    "hypothesis": "title: sweet n' sour meat loaf\nstep 1: mix all ingredients together.\nstep 2: shape into loaf and bake at 350° for 1 hour."
+  },
+  {
+    "ingredients": "butter, buttermilk, coconut, eggs, sugar, vanilla",
+    "reference": "Title: Jackie'S Coconut Pie\nStep 1: Melt margarine.\nStep 2: Add eggs and sugar to margarine and beat. Add buttermilk and mix thoroughly.\nStep 3: Add vanilla and coconut. Mix thoroughly.\nStep 4: Pour into 2 deep dish pie shells.\nStep 5: Bake at 300° for 1 hour.",
+    "hypothesis": "title: french coconut pie\nstep 1: mix all ingredients together and pour into unbaked pie shell. bake at 350° for 30 to 40 minutes."
+  },
+  {
+    "ingredients": "cherry, cottage cheese, pineapple, whip",
+    "reference": "Title: Cherry Delight\nStep 1: Into a medium size bowl, put in pineapple. Add dry jello. Stir. Then add cottage cheese. Stir and finally add Cool Whip. Stir. Refrigerate.",
+    "hypothesis": "title: pink salad\nstep 1: mix all ingredients together and chill."
+  },
+  {
+    "ingredients": "butter, celery, chicken breast, corn flak, cream chicken soup, eggs, lemon juice, mayonnaise, onion, rice, slivered almond, water chestnut",
+    "reference": "Title: Chicken Casserole\nStep 1: Mix first nine ingredients.\nStep 2: Saute 5 minutes butter, almonds and corn flakes.\nStep 3: Bake at 350° for 35 minutes.\nStep 4: Makes 4 to 6 servings.",
+    "hypothesis": "title: hot chicken salad\nstep 1: mix all ingredients except corn flakes and butter.\nstep 2: put in a 9 x 13-inch baking dish.\nstep 3: top with corn flakes and melted butter.\nstep 4: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "cherry pie filling, cracker, cream cheese, milk, pack graham cracker",
+    "reference": "Title: Crystal'S Cherry Delight\nStep 1: Simply sprinkle graham crackers on bottom of pan.\nStep 2: Mix cream cheese and Eagle Brand together. Spread over graham crackers.\nStep 3: Put cherry pie filling on top.\nStep 4: Refrigerate.\nStep 5: Ready to eat 2 hours later.",
+    "hypothesis": "title: cherry cheese cake\nstep 1: mix cream cheese and milk.\nstep 2: add cherry pie filling.\nstep 3: pour into graham cracker crust.\nstep 4: chill.\nstep 5: top with cherry pie filling."
+  },
+  {
+    "ingredients": "condensed milk, eggs, evaporated milk, ice, milk, rock salt, salt, sugar, vanilla flavoring",
+    "reference": "Title: Ice Cream\nStep 1: Mix sugar, eggs, evaporated milk, condensed milk and vanilla flavoring. Pour into freezer, then add whole milk to top. Freeze. (Two cups of fruit may be added into mixture to create your favorite flavor.)",
+    "hypothesis": "title: homemade ice cream\nstep 1: mix all ingredients together.\nstep 2: pour into ice cream freezer and finish filling with milk.\nstep 3: makes 1 gallon."
+  },
+  {
+    "ingredients": "apple, celery, chicken breast, green pepper, italian salad dressing, lettuce, lite line cheese, onion, unpared apple",
+    "reference": "Title: Light And Crunchy Chicken Salad\nStep 1: In medium bowl, combine all ingredients (except cheese).\nStep 2: Mix well.\nStep 3: Cover and chill well.\nStep 4: Just before serving, add cheese. Serve on lettuce.\nStep 5: Garnish with apple slices and pepper rings. Refrigerate leftovers.",
+    "hypothesis": "title: apple chicken salad\nstep 1: toss together chicken, apple, celery, onion and green pepper.\nstep 2: toss with italian dressing.\nstep 3: cover and chill.\nstep 4: just before serving, stir in apple.\nstep 5: sprinkle with cheese.\nstep 6: makes 6 servings."
+  },
+  {
+    "ingredients": "american cheese, bread, chicken breast, cream celery soup, cream mushroom soup, day old bread, remove crust save, eggs, mayonnaise, milk, mushroom, oleo, pimentos, salt, water chestnuts",
+    "reference": "Title: Chicken Casserole\nStep 1: Arrange bread in 13 x 9 x 2-inch baking dish.\nStep 2: Top with chicken; cover with mushrooms and chestnuts.\nStep 3: In bowl, beat eggs; blend in milk, mayonnaise and salt.\nStep 4: Pour over chicken.\nStep 5: Arrange chicken on top.\nStep 6: Add soups and pimentos.\nStep 7: Cover and refrigerate overnight.\nStep 8: Crumble bread crusts; toss with melted oleo.\nStep 9: Bake for 1 1/4 hours at 325°.\nStep 10: Let stand 10 minutes.",
+    "hypothesis": "title: chicken souffle\nstep 1: cook chicken and chop.\nstep 2: mix all ingredients except bread crumbs.\nstep 3: put in a 9 x 13-inch pan.\nstep 4: top with bread crumbs.\nstep 5: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "black olif, cheese, guacamole, jalapeno pepper, monterey jack cheese, sharp cheddar, summer sausage, tomato, tortilla chip",
+    "reference": "Title: Santa Fe Nachos\nStep 1: Top tortilla with cheese. Place a slice of sausage on each chip. Microwave until cheese melts. Garnish with peppers and olives. Serve with guacamole and tomatoes.",
+    "hypothesis": "title: taco dip\nstep 1: fry sausage in skillet until crumbly; drain.\nstep 2: add diced tomatoes and jalapenos.\nstep 3: simmer for 10 minutes.\nstep 4: layer in crock-pot with cheese, then sausage mixture.\nstep 5: serve with tortilla chips."
+  },
+  {
+    "ingredients": "baking powder, buttermilk, flour, lard, meal, plain flour, salt, self rising meal, soda, sugar",
+    "reference": "Title: Corn Light Bread\nStep 1: Mix ingredients and pour into a regular size loaf pan. Bake at 350° for 1 hour.\nStep 2: Let cool before serving.",
+    "hypothesis": "title: corn bread\nstep 1: mix all ingredients together.\nstep 2: pour into a greased pan.\nstep 3: bake at 450° for 25 minutes."
+  },
+  {
+    "ingredients": "brown sugar, candy, chocolate chip, eggs, m&m candy, oatmeal, peanut butter, soda, syrup, vanilla, white sugar",
+    "reference": "Title: Monster Cookies\nStep 1: Makes lots of cookies!!!",
+    "hypothesis": "title: grandma's cookies\nstep 1: mix all ingredients together.\nstep 2: drop by teaspoon on cookie sheet.\nstep 3: bake at 350° for 10 to 12 minutes."
+  },
+  {
+    "ingredients": "cream cheese, garlic cheese, kraft garlic cheese spread, pecan",
+    "reference": "Title: Garlic Cheese Ball\nStep 1: Let cheese soften to room temperature, then blend both cheeses together until thoroughly mixed.\nStep 2: Shape into one big ball.\nStep 3: Chill. Roll in crushed pecans.\nStep 4: Serve with any type crackers.",
+    "hypothesis": "title: cheese ball\nstep 1: combine all ingredients.\nstep 2: shape into ball.\nstep 3: roll in pecans.\nstep 4: refrigerate."
+  },
+  {
+    "ingredients": "canned corn, corn, crisco, eggs, flour, milk, pepper, salt, sugar",
+    "reference": "Title: Baked Corn\nStep 1: Melt Crisco; add flour and mix well.\nStep 2: Add milk gradually and bring to the boiling point, stirring constantly.\nStep 3: Add corn, sugar, salt and pepper and heat thoroughly.\nStep 4: Remove from fire; add well beaten eggs and pour into a greased baking dish.\nStep 5: Bake in oven at 350° for 25 minutes, or until corn is firm.",
+    "hypothesis": "title: corn pudding\nstep 1: mix all ingredients together and bake in greased baking dish at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "beef, dairy sour cream, lemon juice, onion, in, pepper, roast beef, salt, sirloin, sour cream",
+    "reference": "Title: Marinated Beef Slices\nStep 1: Slice meat in julienne strips.\nStep 2: Add sliced onion, salt and pepper to taste.\nStep 3: Sprinkle lemon juice over mixture and mix in sour cream.\nStep 4: Chill well.\nStep 5: Serve in crystal bowl with crackers. Great appetizer!",
+    "hypothesis": "title: beef stroganoff\nstep 1: brown meat in small amount of oil.\nstep 2: add onion and cook until tender.\nstep 3: add salt, pepper, lemon juice and 2 cups water.\nstep 4: cover and simmer for 20 minutes.\nstep 5: blend sour cream and flour together and stir into meat mixture.\nstep 6: cook, stirring constantly, until thickened.\nstep 7: serve over noodles."
+  },
+  {
+    "ingredients": "egg whites, stiff, flour, milk, oleo, salt, shortening, sugar, water, yeast",
+    "reference": "Title: Madge'S Refrigerator Rolls\nStep 1: Put sugar over yeast in lukewarm water and let foam.\nStep 2: Scald milk, sugar, oleo and salt.\nStep 3: When cool, add dissolved yeast.\nStep 4: Fold in egg whites, stir in flour.\nStep 5: Dough should be soft.\nStep 6: Do not add more flour.\nStep 7: Let stand covered until double in size.\nStep 8: Stir down and put covered in refrigerator.\nStep 9: Let set overnight.\nStep 10: Bake in muffin tins.\nStep 11: Two small balls dipped in melted oleo forms one roll.",
+    "hypothesis": "title: yeast rolls\nstep 1: melt oleo in hot water.\nstep 2: pour into large bowl.\nstep 3: add sugar, salt, egg whites and yeast.\nstep 4: add milk and flour.\nstep 5: knead dough until smooth.\nstep 6: let rise until double in size.\nstep 7: punch down and let rise again.\nstep 8: shape into rolls and let rise again.\nstep 9: bake at 400° for 15 to 20 minutes."
+  },
+  {
+    "ingredients": "garlic, italian style tomatoes, olive oil, parsley, pasta, red pepper, salt",
+    "reference": "Title: Penne Al'Arrabbiato\nStep 1: Put on water to boil (and when boiling put in penne). Meanwhile, saute garlic in the olive oil briefly then add tomatoes, parsley, whole peppers and salt.\nStep 2: (Always prepare this sauce in an open skillet.)\nStep 3: Simmer until pasta is cooked.\nStep 4: Mix the sauce with the drained pasta and top with sprigs of fresh parsley.",
+    "hypothesis": "title: pasta with tomatoes and garlic\nstep 1: heat oil in a large skillet over medium heat.\nstep 2: add garlic and cook, stirring, until fragrant, about 1 minute.\nstep 3: add tomatoes and red pepper.\nstep 4: cook, stirring occasionally, until tomatoes have broken down and sauce thickens slightly, about 5 minutes.\nstep 5: stir in parsley and salt.\nstep 6: meanwhile, cook pasta in a large pot of boiling salted water until al dente.\nstep 7: drain.\nstep 8: toss pasta with sauce and serve."
+  },
+  {
+    "ingredients": "bac os, garlic, garlic powder, green onion, green pepper, mayonnaise, pimento, salt, salt pepper, sour cream, tabasco",
+    "reference": "Title: Vegetable Dip\nStep 1: Mix all ingredients and let set in refrigerator several hours or overnight.\nStep 2: It gets better with age and will keep well for 2 weeks.",
+    "hypothesis": "title: green onion dip\nstep 1: mix all ingredients.\nstep 2: refrigerate.\nstep 3: serve with crackers."
+  },
+  {
+    "ingredients": "coconut, crust, lowfat milk, pie crust, sugar, sugar free instant vanilla pudding, whip",
+    "reference": "Title: Coconut Cream Pie(Low Calorie)\nStep 1: Mix pudding mix with 3 cups milk. Add coconut. Pour in baked or graham pie crust. Cover with Cool Whip. Sprinkle with toasted coconut. Keep in refrigerator.",
+    "hypothesis": "title: coconut cream pie recipe\nstep 1: mix pudding and lowfat milk.\nstep 2: beat till thick.\nstep 3: add in coconut and 1/2 of the cold whip.\nstep 4: pour into pie crust.\nstep 5: top with remaining cold whip.\nstep 6: sprinkle with remaining coconut.\nstep 7: chill."
+  },
+  {
+    "ingredients": "corn bread, cream style corn, jiffy corn bread mix, kernel corn, oleo, sour cream",
+    "reference": "Title: Baked Corn\nStep 1: Mix all together well.\nStep 2: Bake 1 hour at 350°.",
+    "hypothesis": "title: corn casserole\nstep 1: mix all ingredients together.\nstep 2: pour into casserole dish.\nstep 3: bake at 350° for 45 minutes."
+  },
+  {
+    "ingredients": "butter, celery, chicken breast, cream chicken soup, mayonnaise, onion, pecan, rice",
+    "reference": "Title: Chicken Casserole\nStep 1: Mix all ingredients together in buttered casserole dish. Sprinkle grated cheese over top of casserole.\nStep 2: Bake at 350° until bubbly, at least 1 hour.\nStep 3: Makes 4 to 6 servings.",
+    "hypothesis": "title: chicken and rice casserole\nstep 1: mix all ingredients together.\nstep 2: put in a 9 x 13-inch pan.\nstep 3: top with crushed potato chips.\nstep 4: bake at 350° for 45 minutes."
+  },
+  {
+    "ingredients": "bisquick, cheese, chicken breast, cream chicken soup, hard eggs, margarine, mayonnaise, milk, onion, veg all",
+    "reference": "Title: Chicken Casserole\nStep 1: Saute onion in 2 tablespoons margarine.\nStep 2: Add next six ingredients and mix.\nStep 3: Spread in a casserole dish.",
+    "hypothesis": "title: chicken pot pie\nstep 1: mix first 6 ingredients together.\nstep 2: put in a 9 x 13-inch pan.\nstep 3: put in the chicken.\nstep 4: mix the next 3 ingredients and pour over the chicken.\nstep 5: melt margarine and mix with bisquick and milk.\nstep 6: pour over top of casserole.\nstep 7: bake at 350° for 40 minutes."
+  },
+  {
+    "ingredients": "stove top stuffing",
+    "reference": "Title: Chicken Broccoli Casserole\nStep 1: Sprinkle top with 1 cup grated cheese.\nStep 2: Bake at 350° for 45 minutes to 1 hour.",
+    "hypothesis": "title: stuffing balls\nstep 1: prepare stuffing according to package directions.\nstep 2: add 1/2 cup water and 1/2 cup stuffing.\nstep 3: mix well.\nstep 4: shape into balls.\nstep 5: place on a cookie sheet.\nstep 6: bake at 350° for 15 minutes.\nstep 7: serve hot."
+  },
+  {
+    "ingredients": "carrot, celery, chuck, minute rice, pea, potato, rice, tomato soup",
+    "reference": "Title: 7 Layer Dish\nStep 1: Building from bottom of covered (tall) casserole dish (2 1/2-quarts), spread in layers, 2 cubed raw potatoes (1/4-inch cubes), 2 diced raw carrots, diced celery (enough to cover layer), small can peas, drained, 1 1/2 tablespoons Minute rice (cover peas), 1/2 pound raw ground chuck.\nStep 2: Pat down; add 1 cup tomato soup.\nStep 3: Final layer, another 1/2 pound ground chuck.\nStep 4: Bake at 350° for 1 1/2 hours covered.",
+    "hypothesis": "title: hamburger casserole\nstep 1: brown ground chuck and drain.\nstep 2: add celery, carrots, peas and rice.\nstep 3: pour in a casserole dish.\nstep 4: cover with soup.\nstep 5: bake at 350° for 1 hour."
+  },
+  {
+    "ingredients": "beef, onions, pepper, salt, tomato, white potato",
+    "reference": "Title: Missouri Casserole\nStep 1: Make 1 pound of your favorite meat loaf and pat into a 10-inch pie plate.\nStep 2: Spread 1 small can of tomato sauce over top and bake in a 350° oven for 45 minutes.\nStep 3: Then add grated cheese over top and put back in oven until cheese is melted.\nStep 4: Slice like pie and serve with beer bread.",
+    "hypothesis": "title: beef stew\nstep 1: place all ingredients in a large saucepan.\nstep 2: bring to a boil; reduce heat and simmer, covered, for 1 hour.\nstep 3: serves 6."
+  },
+  {
+    "ingredients": "cheese, corn meal, little salt, salt, tomato sauce, water",
+    "reference": "Title: Polenta\nStep 1: In pan mix corn meal with 1 cup cold water.\nStep 2: Add 3 cups hot water and salt.\nStep 3: Cook over medium heat, stirring constantly for 7 to 8 minutes,\nStep 4: bringing\nStep 5: heat\nStep 6: down to low.\nStep 7: Place in two dishes, cover with gravy and sprinkle with grated cheese.",
+    "hypothesis": "title: tamale pie\nstep 1: mix meal, salt and water.\nstep 2: add tomato sauce.\nstep 3: cook until thick.\nstep 4: put half of mixture in bottom of baking dish.\nstep 5: put layer of cheese, then layer of meat.\nstep 6: repeat layers.\nstep 7: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "coconut, eggs, flour, margarine, milk, pie crust, raw pie crust, sugar, vanilla",
+    "reference": "Title: Coconut Pie\nStep 1: Mix flour and sugar together.\nStep 2: Have crust ready with about 1/2-inch coconut spread in bottom.\nStep 3: Mix all other ingredients and pour over coconut.\nStep 4: Bake at 350° until golden brown (30 minutes). To add a little something special, try adding a few raisins or pecans or a cupful of chocolate chips.",
+    "hypothesis": "title: coconut custard pie\nstep 1: mix sugar, flour and eggs.\nstep 2: add margarine, milk, coconut and vanilla.\nstep 3: pour into pie crust.\nstep 4: bake at 350° for 30 to 40 minutes."
+  },
+  {
+    "ingredients": "ginger ale, green maraschino cherry, lemon lime soda, maraschino cherry, orange, red maraschino cherry",
+    "reference": "Title: Christmas Cheer Punch\nStep 1: Chill ginger ale and soda in bottles in refrigerator.\nStep 2: Pour part of ginger ale and lemon-lime in separate ice cube trays; place a green or red cherry or orange slice in each cube.\nStep 3: Freeze as quickly as possible.\nStep 4: When ready to serve, put cubes in chilled punch bowl and pour in chilled carbonated beverages.\nStep 5: Place bowl in bed of Christmas greens or other appropriate decoration. Yields 30 servings.",
+    "hypothesis": "title: holiday punch\nstep 1: combine the first 5 ingredients in a punch bowl.\nstep 2: add the ginger ale just before serving.\nstep 3: makes about 1 gallon."
+  },
+  {
+    "ingredients": "bean sprout, chicken style seasoning, flour, green onions, cut in inch, snow peas, soy sauce, tofu, unbleached flour, water, water chestnut, yeast, yeast flak",
+    "reference": "Title: Tofu Foo Yong\nStep 1: Saute snow\nStep 2: peas,\nStep 3: green\nStep 4: onions and chestnuts in water over low\nStep 5: heat\nStep 6: for 5 minutes.\nStep 7: When vegetables are crisp-tender, mix in sprouts, remove from heat and set aside.",
+    "hypothesis": "title: tofu oriental\nstep 1: mix the flour, water, yeast and soy sauce together in a large bowl.\nstep 2: mix the flour mixture into the mixture.\nstep 3: let stand for 1 hour.\nstep 4: add the bean sprouts, bean sprouts, green onions, water chestnuts and tofu.\nstep 5: mix well.\nstep 6: form into patties.\nstep 7: put on a well-greased cookie sheet.\nstep 8: bake at 350° for 20 minutes.\nstep 9: turn over and bake 10 minutes more."
+  },
+  {
+    "ingredients": "chicken breast, chicken broth, cream celery soup, cream chicken soup, margarine, stuffing",
+    "reference": "Title: Chicken Casserole\nStep 1: Add can of chicken broth to chicken while cooking the chicken. After chicken is done, cut in small pieces.\nStep 2: Put layer of chicken and layer of dressing.\nStep 3: Repeat this step.\nStep 4: Add mixture to moisten. Pour cream of chicken and celery soup plus chicken broth over the layers.\nStep 5: Bake at 350° for 45 minutes.",
+    "hypothesis": "title: chicken and dressing casserole\nstep 1: boil chicken and debone.\nstep 2: melt margarine and pour over stuffing.\nstep 3: add chicken broth and cream of celery soup.\nstep 4: mix well.\nstep 5: put 1/2 of stuffing in bottom of baking dish.\nstep 6: spread chicken mixture over stuffing.\nstep 7: put rest of stuffing on top.\nstep 8: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "cocoa, country, country crock spreadable, eggs, flour, lemon flavoring, plain flour, soda, sour cream, sugar, vanilla extract",
+    "reference": "Title: Chocolate Sour Cream Pound Cake\nStep 1: Grease and flour 10-inch tube pan.\nStep 2: Sift flour, cocoa and soda; set aside.\nStep 3: Cream Country Crock and sugar together in large mixing bowl.\nStep 4: Add eggs, mixing, one at a time.\nStep 5: Add sour cream, while continuing to mix.\nStep 6: Add flour, 1/2 to 1 cup at a time.\nStep 7: Add vanilla and lemon flavorings.\nStep 8: Bake at 325° for 1 to 1 1/2 hours. Use a toothpick to doneness of cake before removing.",
+    "hypothesis": "title: sour cream pound cake\nstep 1: cream sugar and shortening.\nstep 2: add eggs, one at a time, beating well after each addition.\nstep 3: sift flour, cocoa and soda together.\nstep 4: add to creamed mixture alternately with sour cream.\nstep 5: add flavoring.\nstep 6: bake in greased and floured tube pan at 325° for 1 1/2 hours."
+  },
+  {
+    "ingredients": "bread, butter, english cheese, loaf unsliced bread, old english cheese",
+    "reference": "Title: Cheese Squares\nStep 1: Cut bread about 1 1/2 inches thick and remove crust and cut in quarters.\nStep 2: Whip butter and cheese together and ice the squares all\nStep 3: over, except the bottoms.\nStep 4: Place on baking sheet and\nStep 5: bake in\nStep 6: oven\nStep 7: for about 10 minutes at 350°.\nStep 8: Watch them closely.",
+    "hypothesis": "title: cheese biscuits\nstep 1: let cheese and butter soften.\nstep 2: cut bread into cubes.\nstep 3: put in bowl.\nstep 4: pour melted cheese over.\nstep 5: cut each slice of bread into four squares.\nstep 6: put on cookie sheet.\nstep 7: put in oven at 350° for 10 to 15 minutes."
+  },
+  {
+    "ingredients": "all purpose, all purpose flour, boneless skinless duck breast half, butter, cheddar cheese, envelope spaghetti sauce mix, garlic salt, margarine, mozzarella cheese, mushroom, onion, onion salt, parmesan cheese, parsley, pasta, spaghetti sauce mix, tomato sauce",
+    "reference": "Title: Italian Style Duck\nStep 1: In a saucepan, saute onion and mushrooms in 2 Tbsp. butter until tender. Stir in the tomato sauce, Parmesan cheese, 1/4 c. parsley and spaghetti sauce mix. Bring to a boil. Reduce heat; cover and simmer for 15 minutes, stirring occasionally.",
+    "hypothesis": "title: duck parmesan\nstep 1: cut duck breasts into serving-size pieces.\nstep 2: in a large skillet, brown duck in butter or margarine.\nstep 3: remove duck to a serving platter.\nstep 4: in the same skillet, saute mushrooms and onion in butter until tender.\nstep 5: stir in flour and seasonings.\nstep 6: gradually add tomato sauce and half and half.\nstep 7: cook and stir until thickened and bubbly.\nstep 8: reduce heat; stir in cheese.\nstep 9: spoon over duck.\nstep 10: sprinkle with parmesan cheese.\nstep 11: serve with hot cooked pasta."
+  },
+  {
+    "ingredients": "bisquick, butter, eggs, milk, onion, poppy seed, sharp cheese, shortening",
+    "reference": "Title: Onion-Cheese Bread\nStep 1: Heat oven to 400°.\nStep 2: Saute onion in shortening until golden. Mix egg and milk.\nStep 3: Blend in Bisquick.\nStep 4: Add onion and half of the cheese.\nStep 5: Spread dough in greased 8 x 1 1/2-inch round glass baking dish.\nStep 6: Sprinkle top with remaining cheese and poppy seed. Sprinkle melted butter over all.\nStep 7: Bake for 20 to 25 minutes. Serve hot.\nStep 8: Makes 6 to 8 servings.",
+    "hypothesis": "title: onion cheese bread\nstep 1: mix ingredients.\nstep 2: pour into greased loaf pan.\nstep 3: bake at 350° for 1 hour."
+  },
+  {
+    "ingredients": "broccoli cut, cheddar cheese, chicken breast, cut up, cream chicken soup, milk",
+    "reference": "Title: Chicken Broccoli Casserole\nStep 1: Cook broccoli until slightly tender.\nStep 2: Drain.\nStep 3: Layer a casserole dish with broccoli cuts, chicken and cheese.\nStep 4: Mix cream of chicken soup with milk and pour over casserole.\nStep 5: Make sure it gets down through the mixture.\nStep 6: Bake at 350° for 45 minutes.",
+    "hypothesis": "title: chicken divan\nstep 1: place broccoli in baking dish.\nstep 2: place chicken on top.\nstep 3: mix soup and milk.\nstep 4: pour over chicken.\nstep 5: sprinkle with cheese.\nstep 6: bake at 350° for 1 hour."
+  },
+  {
+    "ingredients": "baking soda, cinnamon, cocoa, eggs, flour, milk, oleo, sugar, vanilla, vinegar, water",
+    "reference": "Title: Texas Chocolate Sheet Cake\nStep 1: Bring to boil first 3 ingredients, then add 2 cups sugar and 2 cups flour.\nStep 2: Blend well and add eggs, 1/2 cup sour milk (fresh milk + 1 teaspoon vinegar), soda, 1 teaspoon vanilla and 1/2 teaspoon cinnamon.\nStep 3: Bake at 400° for 20 minutes.",
+    "hypothesis": "title: chocolate cake\nstep 1: mix sugar, flour, cocoa, cinnamon and soda.\nstep 2: add water, vinegar, vanilla and eggs.\nstep 3: mix well.\nstep 4: bake at 350° for 35 minutes."
+  },
+  {
+    "ingredients": "butter, coconut, eggs, flour, milk, sugar",
+    "reference": "Title: Coconut Pie\nStep 1: Separate\nStep 2: eggs.\nStep 3: Use\nStep 4: whites for meringue.\nStep 5: Cream sugar and butter.\nStep 6: Add\nStep 7: flour and milk.\nStep 8: Add eggs last.\nStep 9: Cook on low heat until\nStep 10: thick.\nStep 11: Add coconut and pour into baked pie shell. Top with meringue, sprinkle with coconut and brown.",
+    "hypothesis": "title: coconut custard pie\nstep 1: mix all ingredients together.\nstep 2: pour into unbaked pie shell.\nstep 3: bake at 350° for 45 minutes."
+  },
+  {
+    "ingredients": "cream cheese, ham, onion, smoked ham",
+    "reference": "Title: Philadelphia Cream Cheese Ball\nStep 1: Chop onion and ham.\nStep 2: Mix together with cream cheese.\nStep 3: Make sure cream cheese is left out to room temperature.\nStep 4: Makes 1 medium cheese ball.",
+    "hypothesis": "title: ham ball\nstep 1: mix all ingredients together.\nstep 2: form into a ball.\nstep 3: roll in chopped nuts.\nstep 4: serve with crackers."
+  },
+  {
+    "ingredients": "apricot preserf, baking soda, coconut, flour, oat, oleo, quick oat, salt, sugar, vanilla",
+    "reference": "Title: Apricot Oatmeal Bars\nStep 1: In large mixing bowl, combine all ingredients, except for preserves and coconut.\nStep 2: Beat at low speed until crumbly.\nStep 3: Reserve 1 cup crumbs.\nStep 4: Press remaining crumbs in greased 9 x 13-inch pan.",
+    "hypothesis": "title: apricot bars\nstep 1: mix ingredients and press into a 9 x 13-inch pan.\nstep 2: bake at 350° for 20 minutes.\nstep 3: cool."
+  },
+  {
+    "ingredients": "chicken breast, cream chicken soup, cream mushroom soup, french onion soup, margarine, onion soup, pepper, rice, salt",
+    "reference": "Title: Chicken Casserole\nStep 1: Wash rice.\nStep 2: Mix soups and rice together in large casserole dish.\nStep 3: Place chicken on top.\nStep 4: Slice margarine and place on top of chicken.\nStep 5: Salt and pepper.\nStep 6: Bake at 375° for 1 hour or until chicken is done.",
+    "hypothesis": "title: chicken and rice casserole\nstep 1: place rice in greased 9 x 13-inch pan.\nstep 2: season chicken.\nstep 3: mix soups and pour over rice.\nstep 4: place chicken on top.\nstep 5: sprinkle with salt and pepper.\nstep 6: drizzle margarine over chicken.\nstep 7: cover with foil.\nstep 8: bake at 350° for 1 hour."
+  },
+  {
+    "ingredients": "all purpose flour, baking powder, baking soda, banana, confectioner sugar, eggs, flour, nuts, salt, shortening, sour cream, sugar, vanilla extract",
+    "reference": "Title: Bananas 'N' Cream Cake\nStep 1: In a mixing bowl, cream shortening and sugar.\nStep 2: Add the eggs, one at a time, beating well after each addition.\nStep 3: Blend in vanilla.\nStep 4: Add bananas and mix well.\nStep 5: Combine flour, baking powder, baking soda and salt; add to the creamed mixture alternately with sour cream, stirring just until combined.\nStep 6: Stir in nuts.\nStep 7: Pour into a greased and floured 10-inch Bundt or tube pan.\nStep 8: Bake at 350° for 50 minutes or until cake tests done.\nStep 9: Cool 10 minutes in pan before removing to a wire rack to cool.\nStep 10: Dust with confectioners sugar before serving.\nStep 11: Yield:\nStep 12: 12 to 16 servings.",
+    "hypothesis": "title: banana nut bread\nstep 1: cream shortening; gradually add sugar, beating well at medium speed of an electric mixer.\nstep 2: add eggs, one at a time, beating well after each addition.\nstep 3: combine flour, baking powder, soda and salt; add to creamed mixture alternately with sour cream, beginning and ending with flour mixture.\nstep 4: stir in vanilla and bananas.\nstep 5: pour batter into a greased and floured 9 x 5 x 3-inch loaf pan.\nstep 6: bake at 350° for 1 hour and 10 minutes or until a wooden pick inserted in center comes out clean.\nstep 7: cool in pan 10 minutes; remove from pan and cool completely on wire rack.\nstep 8: yield:\nstep 9"
+  },
+  {
+    "ingredients": "lemon juice, potato, salt, sugar",
+    "reference": "Title: Mashed Potato Candy\nStep 1: Mix until doughlike and can be rolled.\nStep 2: Roll 1/2-inch thick; roll it out using powdered sugar instead of flour.\nStep 3: Spread peanut butter on dough and slice.",
+    "hypothesis": "title: lemon potatoes\nstep 1: peel and slice potatoes.\nstep 2: place in a large pot with salt and sugar.\nstep 3: cover with water and cook until tender.\nstep 4: drain and put back in pot.\nstep 5: add lemon juice and serve."
+  },
+  {
+    "ingredients": "celery, cheddar cheese, chicken flavored rice, chicken flavored rice a roni, cream mushroom soup, fryer, boned, golden mushroom soup, green pepper, margarine, mild cheddar cheese, onion, water chestnut",
+    "reference": "Title: Chicken Casserole\nStep 1: Cook Rice-A-Roni as directed on package.\nStep 2: Saute onion, pepper and celery in margarine.\nStep 3: Mix with rice. Add diced chicken. Add water chestnuts and soups (undiluted). Top with cheese.\nStep 4: Bake at 400° for 20 minutes.",
+    "hypothesis": "title: chicken and rice casserole\nstep 1: cook onion, celery and green pepper in margarine until tender.\nstep 2: add soup and water chestnuts.\nstep 3: mix well.\nstep 4: add chicken and rice.\nstep 5: mix well.\nstep 6: pour into casserole dish.\nstep 7: top with cheese.\nstep 8: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "chicken breast, chicken broth, cream mushroom soup, margarine, poppy seed, sour cream, stack, stack ritz crackers, turkey",
+    "reference": "Title: Chicken Casserole\nStep 1: Line bottom of a 9 x 13 x 2-inch casserole dish with diced chicken. Add salt and pepper, if needed. Combine soup, sour cream and broth and pour over meat. Mix crushed crackers, margarine and poppy seed. Sprinkle over meat and mixture. Bake at 350° for 30 minutes.",
+    "hypothesis": "title: poppy seed chicken\nstep 1: boil chicken and remove from bone.\nstep 2: cut into bite size pieces. mix with soup, sour cream and chicken broth.\nstep 3: pour into a 9 x 13-inch pan.\nstep 4: melt margarine and mix with crushed crackers.\nstep 5: sprinkle over top of casserole.\nstep 6: bake at 350° for 1 hour."
+  },
+  {
+    "ingredients": "chicken breasts, deboned cut in size, cream mushroom soup, sour cream, stove top stuffing mix",
+    "reference": "Title: Chicken Casserole\nStep 1: Combine chicken, sour cream and mushroom soup together.\nStep 2: Put in 9\nStep 3: x 13-inch pan.\nStep 4: Top with stuffing.\nStep 5: Cover with foil and bake at 350° for 45 minutes to 1 hour.",
+    "hypothesis": "title: chicken and stuffing casserole\nstep 1: boil chicken and cut into small pieces.\nstep 2: mix sour cream and soup together.\nstep 3: add chicken.\nstep 4: pour in casserole dish.\nstep 5: top with stuffing mix.\nstep 6: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "celery, chicken breast, crouton, kraft natural swiss cheese, milk, miracle, miracle whip dressing, onion, pepper, salt, swiss cheese, walnut",
+    "reference": "Title: Swiss 'N Chicken Casserole\nStep 1: Heat oven to 350°.\nStep 2: Mix all ingredients, except walnuts. Spoon into 2-quart casserole.\nStep 3: Sprinkle with walnuts.\nStep 4: Bake 40 minutes or until thoroughly heated.\nStep 5: Serves 6.",
+    "hypothesis": "title: swiss chicken salad\nstep 1: combine all ingredients except dressing and croutons.\nstep 2: mix well.\nstep 3: refrigerate several hours or overnight.\nstep 4: just before serving, top with croutons."
+  },
+  {
+    "ingredients": "beef, cheese, elbow macaroni, green peppers, ketchup, mushroom soup, steak sauce, tomato",
+    "reference": "Title: \"Cowbelle\" Special\nStep 1: Cook macaroni according to directions on label.\nStep 2: Saute ground beef until well done.\nStep 3: Add tomatoes, green peppers, steak sauce and ketchup.\nStep 4: Simmer for 30 minutes.\nStep 5: Pour into baking dish.\nStep 6: Add cooked macaroni and mushroom soup.\nStep 7: Top with grated cheese.",
+    "hypothesis": "title: cheeseburger casserole\nstep 1: cook macaroni according to package directions.\nstep 2: brown ground beef and drain.\nstep 3: add green peppers, mushrooms, macaroni, soup, ketchup and steak sauce.\nstep 4: stir together and simmer for 10 minutes.\nstep 5: pour into a 2-quart casserole dish.\nstep 6: top with cheese.\nstep 7: bake at 350° for 25 minutes."
+  },
+  {
+    "ingredients": "black pepper, celery, fine, green pepper, macaroni, cooled, olif, salad dressing, salt, stuffed olif, sugar, sweet pickl",
+    "reference": "Title: Macaroni Salad\nStep 1: Combine all ingredients.\nStep 2: Chill and serve.\nStep 3: Serves 8 to 10.",
+    "hypothesis": "title: macaroni salad\nstep 1: mix all ingredients together and refrigerate."
+  },
+  {
+    "ingredients": "all purpose flour, baking powder, chif, flour, milk, salt, skipped chif, vegetable oil",
+    "reference": "Title: Dumplings With Chives\nStep 1: Stir flour, baking powder, salt and chives together.\nStep 2: Combine milk, oil and add to dry ingredients.",
+    "hypothesis": "title: chive biscuits\nstep 1: preheat oven to 450 degrees f (230 degrees c).\nstep 2: combine flour, baking powder, chives, and salt in a bowl. stir in oil and milk until a soft dough forms.\nstep 3: turn dough out onto a lightly floured surface and knead until smooth. roll dough out to 1/2 inch thickness. cut into rounds with a 2 1/2 inch biscuit cutter. place biscuits on a baking sheet.\nstep 4: bake in the preheated oven until golden brown, 10 to 12 minutes."
+  },
+  {
+    "ingredients": "chicken breast, chicken broth, corn bread stuffing, cream celery soup, cream chicken soup, margarine, milk, pepperidge farm corn bread stuffing",
+    "reference": "Title: Chicken Casserole\nStep 1: Boil chicken until tender.\nStep 2: Cool and debone.\nStep 3: Mix milk, celery soup\nStep 4: and chicken\nStep 5: soup. Add\nStep 6: 1 cup chicken broth to mixture. Melt\nStep 7: margarine\nStep 8: and\nStep 9: stir into corn bread stuffing. In\nStep 10: a large dish put a layer of crumbs, a layer of chicken and soup mixture. Put another layer of crumbs, a layer of chicken and\nStep 11: soup mixture.\nStep 12: Top\nStep 13: with\nStep 14: crumbs and bake at 350° for 45 minutes to 1 hour.",
+    "hypothesis": "title: chicken and dressing casserole\nstep 1: mix stuffing and margarine.\nstep 2: spread half of stuffing in bottom of greased casserole dish.\nstep 3: mix chicken, soups and milk.\nstep 4: pour over stuffing mixture.\nstep 5: put remaining stuffing on top.\nstep 6: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "butterscotch chip, condensed milk, marshmallow, miniature marshmallow, semi sweet chocolate chip, sweetened condensed milk, walnuts",
+    "reference": "Title: Shortcut Rocky Road Candy\nStep 1: In a 2-quart saucepan, combine butterscotch, chocolate chips and condensed milk.\nStep 2: Heat over medium-low heat, stirring until chips are melted.\nStep 3: Do not let chocolate burn.\nStep 4: Remove from heat. Stir nuts and marshmallows into mixture.\nStep 5: Spread into greased 9-inch square baking pan.\nStep 6: Refrigerate until firm, about 2 hours. Cut into squares.\nStep 7: Makes 2 pounds.",
+    "hypothesis": "title: rocky road fudge\nstep 1: in a large saucepan, combine milk and chips.\nstep 2: cook and stir over medium heat until chips are melted.\nstep 3: remove from heat.\nstep 4: stir in marshmallows, walnuts and walnuts.\nstep 5: spread into a greased 8-inch square pan.\nstep 6: chill until firm.\nstep 7: cut into squares.\nstep 8: makes about 2 pounds."
+  },
+  {
+    "ingredients": "concentrated white grape juice, simmered down from, envelop unflavored gelatin, lemon juice, lemon rind, salt, strawberries, unflavored gelatin, white grape juice",
+    "reference": "Title: Easy Frozen Berry Jam\nStep 1: Place berries, juices, rind and salt in saucepan.\nStep 2: Mash berries to release juice.\nStep 3: Heat to boiling.\nStep 4: Sprinkle gelatin over hot mixture, stirring well to dissolve.\nStep 5: Remove from heat; skim and pack immediately into hot, sterile jars topped with sterile lids.\nStep 6: Set aside to cool to room temperature.\nStep 7: When cool, freeze in sharp freeze section of freezer.\nStep 8: Remove to main part for storage.\nStep 9: To use, thaw overnight.\nStep 10: One tablespoon has 6 calories.",
+    "hypothesis": "title: strawberry-grape gelatin mold\nstep 1: in a small saucepan, sprinkle gelatin over grape juice; let stand 1 minute. cook over low heat, stirring constantly, until gelatin is dissolved. remove from heat; stir in grape juice, salt, lemon rind and juice.\nstep 2: pour into a lightly oiled 1-quart mold. chill until firm.\nstep 3: unmold onto a serving plate. garnish with strawberry slices if desired."
+  },
+  {
+    "ingredients": "barbecue sauce, carrot, cooking oil, flour, green pepper, onion, peach preserf, pepper, preserf, skinless, boneless chicken breast, soy sauce, water chestnut",
+    "reference": "Title: Honolulu Chicken\nStep 1: Mix flour, salt and pepper in bowl.\nStep 2: Coat chicken in flour mixture and cook in oil until brown.\nStep 3: Remove drippings from pan. Return chicken to pan.\nStep 4: In a bowl mix peach preserves, barbecue sauce, soy sauce and onion; mix well.\nStep 5: Cover chicken with sauce and bring to a boil.\nStep 6: Reduce heat to low and cook 40 minutes.\nStep 7: Add water chestnuts, green pepper slices and carrot slices.\nStep 8: Cook an additional 10 minutes.\nStep 9: Serve over rice.",
+    "hypothesis": "title: sweet and sour chicken\nstep 1: cut chicken into strips and marinate in soy sauce, barbecue sauce, water, pepper and onion for 1 hour.\nstep 2: drain and coat chicken with flour.\nstep 3: in large skillet, heat oil and fry chicken over medium heat until golden brown.\nstep 4: add vegetables and water chestnuts.\nstep 5: cover and simmer for 15 minutes.\nstep 6: add barbecue sauce and simmer for 5 minutes.\nstep 7: serve over rice."
+  },
+  {
+    "ingredients": "all purpose flour, baking powder, baking soda, butter, caramel icing, cocoa, eggs, flour, instant coffee crystal, margarine, salt, sugar, vanilla",
+    "reference": "Title: Mocha Cookies\nStep 1: Beat sugar, margarine, vanilla and egg in a medium bowl until light and fluffy.\nStep 2: Stir in remaining ingredients except caramel icing.\nStep 3: Cover and refrigerate 1 hour, until chilled.\nStep 4: Heat oven to 375°.\nStep 5: Roll dough 1/8-inch thick on lightly floured surface.\nStep 6: Cut into cookies.\nStep 7: Bake on greased cookie sheet until brown.",
+    "hypothesis": "title: mocha brownies\nstep 1: in a mixing bowl, cream butter and sugar.\nstep 2: add eggs and vanilla.\nstep 3: combine flour, cocoa, baking powder, baking soda and salt.\nstep 4: add to creamed mixture.\nstep 5: pour into a greased 13 x 9 x 2-inch baking pan.\nstep 6: bake at 350° for 25 to 30 minutes.\nstep 7: cool.\nstep 8: frost with caramel icing.\nstep 9: sprinkle with cocoa.\nstep 10: cut into squares."
+  },
+  {
+    "ingredients": "baking soda, cake, cake crumbled, compressed yeast, dry yeast, flour, salt, shortening, sour cream, sugar, unbeaten egg",
+    "reference": "Title: Cinnamon Twists\nStep 1: Bring sour cream to a boil and remove from heat.\nStep 2: Stir in, until well blended, the shortening, sugar, soda and salt.\nStep 3: Cool to lukewarm.\nStep 4: Add egg and yeast.\nStep 5: Stir until yeast is dissolved.\nStep 6: Mix in the flour with spoon.",
+    "hypothesis": "title: sour cream refrigerator rolls\nstep 1: dissolve yeast in sour cream.\nstep 2: add sugar, salt, shortening and flour.\nstep 3: beat thoroughly.\nstep 4: cover and store in refrigerator until ready to use.\nstep 5: when ready to use, roll out dough on floured board.\nstep 6: cut out and place on greased pan.\nstep 7: let rise in warm place until double in bulk.\nstep 8: bake at 375° for 12 to 15 minutes."
+  },
+  {
+    "ingredients": "carton whip, cornstarch, egg yolk, fruit cocktail, mandarin oranges, marshmallow, miniature marshmallow, nuts, pineapple, pineapple tidbit, sugar",
+    "reference": "Title: Heavenly Hash Salad\nStep 1: Drain well, reserving syrup from fruit cocktail and pineapple. Combine in saucepan the cornstarch and 1/4 cup sugar.\nStep 2: Mix well. Combine and add the egg yolks and 1 cup reserved syrup.\nStep 3: Blend well.\nStep 4: Cover over medium heat, stirring constantly, until thickened.\nStep 5: Cool thoroughly.\nStep 6: Fold in Cool Whip, chopped nuts, marshmallows, pineapple, fruit cocktail and mandarin oranges. Cover and chill several hours or overnight.",
+    "hypothesis": "title: fruit salad\nstep 1: mix sugar, cornstarch and egg yolks.\nstep 2: add pineapple and juice. cook until thick, stirring constantly.\nstep 3: remove from heat and add marshmallows and cool.\nstep 4: fold in cool whip.\nstep 5: refrigerate."
+  },
+  {
+    "ingredients": "boneless chicken breasts, skinned, butter, chicken bouillon, chicken breast, cream celery, cream chicken soup, cream mushroom soup, margarine, stove top stuffing",
+    "reference": "Title: Chicken Casserole\nStep 1: In a pan of water (and bouillon, if desired), cook chicken breasts until tender. Let cool and cut into bite-sized pieces. Save broth. Melt butter and pour over stuffing mix and stir well. Pour 1/2 stuffing mixture in a greased 9 x 13-inch pan. Spread chicken pieces over stuffing. Sprinkle the rest of the stuffing mixture over the chicken.",
+    "hypothesis": "title: chicken and dressing casserole\nstep 1: cook chicken breasts in water to cover.\nstep 2: when done, take chicken off bone and cut into bite size pieces.\nstep 3: put in a 9 x 13-inch baking dish.\nstep 4: mix soup and cream of chicken soup together.\nstep 5: pour over chicken.\nstep 6: melt butter and mix with stuffing mix.\nstep 7: spread over chicken.\nstep 8: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "baking powder, cocoa, crisco, eggs, flour, margarine, plain flour, salt, sour cream, sugar, vanilla",
+    "reference": "Title: Chocolate Sour Cream Pound Cake\nStep 1: Cream Crisco and margarine with sugar.\nStep 2: Add remaining ingredients.\nStep 3: Blend well.\nStep 4: Pour into greased tube pan.\nStep 5: Bake at 325° for 1 hour and 10 minutes.",
+    "hypothesis": "title: chocolate pound cake\nstep 1: cream margarine, crisco and sugar.\nstep 2: add eggs, one at a time.\nstep 3: add flour, cocoa, baking powder and salt.\nstep 4: add sour cream and vanilla.\nstep 5: bake at 325° for 1 hour and 20 minutes."
+  },
+  {
+    "ingredients": "eggs, milk, sugar, vanilla",
+    "reference": "Title: Ice Cream\nStep 1: Beat eggs.\nStep 2: Add sugar and vanilla.\nStep 3: Fill container with whole milk.\nStep 4: Makes 1 gallon.",
+    "hypothesis": "title: baked custard\nstep 1: beat eggs and sugar.\nstep 2: add milk, vanilla and beat.\nstep 3: pour into a buttered baking dish.\nstep 4: set dish in pan of hot water.\nstep 5: bake at 350° for 35 to 40 minutes."
+  },
+  {
+    "ingredients": "french style green beans, green bean, onions, vegetable oil, vinegar",
+    "reference": "Title: French-Style Beans\nStep 1: Combine all ingredients and marinate all day in the refrigerator.\nStep 2: Cook several slices of onion; crumble and add to beans.\nStep 3: Cook in the oven at 325° for 20 minutes.",
+    "hypothesis": "title: marinated green beans\nstep 1: cook beans until tender.\nstep 2: drain.\nstep 3: add onions.\nstep 4: mix vinegar and oil.\nstep 5: pour over beans.\nstep 6: marinate overnight."
+  },
+  {
+    "ingredients": "banana, carton sour cream, carton whip, instant vanilla pudding, milk, sour cream, vanilla pudding, vanilla wafer, water",
+    "reference": "Title: Banana Pudding\nStep 1: Layer bottom of pan with vanilla wafers; put slice of banana on each wafer.\nStep 2: Mix Eagle Brand milk and water; add pudding and beat with fork until lumps are gone.\nStep 3: Add sour cream; mix until well blended.\nStep 4: Add Cool Whip.\nStep 5: Cover layer of wafers and bananas with 1/2 of pudding.\nStep 6: Add another layer of wafers and bananas; cover with other half of pudding.\nStep 7: Crumble remaining wafers on top.",
+    "hypothesis": "title: sour cream banana pudding\nstep 1: mix pudding with milk.\nstep 2: add sour cream and water.\nstep 3: layer wafers, bananas and pudding.\nstep 4: top with cool whip."
+  },
+  {
+    "ingredients": "butter, chicken breast, chicken broth, cream chicken soup, onion, pepperidge stuffing mix, pet cream, stuffing mix",
+    "reference": "Title: Chicken Casserole\nStep 1: Cook chicken. Remove from bone. Melt 1 stick butter with 1 chopped onion. Add stuffing mix and 2 cups chicken broth; mix well. Set aside.",
+    "hypothesis": "title: chicken and dressing casserole\nstep 1: boil chicken until tender; remove from broth.\nstep 2: mix onion, soup and broth.\nstep 3: place layer of dressing in bottom of 9 x 13-inch pan.\nstep 4: add chicken and pour soup mixture over chicken.\nstep 5: add layer of stuffing mix and dot with butter.\nstep 6: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "basil, bulb garlic, garlic, green peppers, olive oil, pearl onions, pepper, salt, sweet red peppers, tomatoes, unsalted butter",
+    "reference": "Title: Pepper, Tomato And Onion Stew\nStep 1: Cut tomatoes in half; scoop out pulp and reserve for use in other recipes.\nStep 2: Sprinkle insides of tomatoes with 1 teaspoon salt. Place tomato shells upside down on paper towels to drain.\nStep 3: Let stand for 30 minutes.\nStep 4: Chop and set aside.\nStep 5: Combine olive oil and butter in a large skillet over medium heat; add green peppers, red peppers, onions and garlic.\nStep 6: Cook, stirring frequently, until onions are translucent.\nStep 7: Add reserved tomatoes and basil.\nStep 8: Reduce heat to low; cover and cook for 10 minutes.\nStep 9: Add remaining salt and pepper.\nStep 10: Increase heat to high and cook, uncovered, until most of the liquid has evaporated, stirring frequently.",
+    "hypothesis": "title: roasted peppers and onions\nstep 1: place peppers and onions in a shallow roasting pan. drizzle with oil; sprinkle with salt and pepper.\nstep 2: roast, uncovered, at 450° for 20-25 minutes or until tender, stirring occasionally.\nstep 3: transfer to a large bowl; add the remaining ingredients. cover and refrigerate for at least 2 hours."
+  },
+  {
+    "ingredients": "baking powder, cocoa, eggs, flour, milk, pecan, salt, shortening, sugar, tap water, vanilla, water",
+    "reference": "Title: Grandmaw'S Brownies\nStep 1: Sift together flour, sugar, baking powder, salt, cocoa and powdered sugar. Add at once the eggs, shortening, eggs, tap water, vanilla and pecans. Beat 1 minute.",
+    "hypothesis": "title: chocolate pound cake\nstep 1: mix flour, baking powder, salt and sugar.\nstep 2: set aside.\nstep 3: in saucepan, bring shortening, cocoa and water to a boil.\nstep 4: pour over flour mixture.\nstep 5: add milk, eggs, vanilla and pecans.\nstep 6: pour into greased and floured tube pan.\nstep 7: bake at 325° for 1 hour and 30 minutes."
+  },
+  {
+    "ingredients": "beef, black pepper, carrot, kernel corn, onion, potato, raw carrot, salt, raw potato, tomatoes, cut up",
+    "reference": "Title: Six Layer Dinner\nStep 1: Layer potatoes, corn, onion, meat and carrots in 3-quart casserole, seasoning each layer with salt and pepper.\nStep 2: Pour tomatoes over top.\nStep 3: Cover and bake at 350° for 1 3/4 hours or until vegetables are done.\nStep 4: Makes 6 servings.",
+    "hypothesis": "title: beef stew\nstep 1: brown beef in skillet.\nstep 2: add onion, salt, pepper and tomatoes.\nstep 3: cook until done.\nstep 4: add corn, carrots and potatoes.\nstep 5: cook until tender."
+  },
+  {
+    "ingredients": "american cheese, butter, cabbage, caraway seed, carrots, chicken broth, french cut green bean, green bean, onion, parsley, salt",
+    "reference": "Title: \"Good Friday\" Vegetable Soup\nStep 1: In covered Dutch oven or saucepan (4-quart) over medium heat, cook butter, carrots, onions, cabbage, parsley and salt for 20 minutes, stirring occasionally.\nStep 2: Add chicken broth, green beans and caraway seed.\nStep 3: Reduce to low heat, cover and simmer 15 minutes or until vegetables are fork-tender.",
+    "hypothesis": "title: cabbage and green bean casserole\nstep 1: saute onion in butter.\nstep 2: add broth, cabbage, salt and caraway seed.\nstep 3: bring to a boil.\nstep 4: cover and simmer 15 minutes.\nstep 5: stir in green beans and carrots.\nstep 6: cover and simmer 5 minutes.\nstep 7: sprinkle with cheese.\nstep 8: heat until cheese melts."
+  },
+  {
+    "ingredients": "maraschino cherry, orang, peache, sugar",
+    "reference": "Title: Peach And Orange Marmalade\nStep 1: Crush peaches.\nStep 2: Put oranges through coarse blade of food chopper.\nStep 3: Add sugar and cook one hour.\nStep 4: Add syrup from cherries and chopped cherries just before marmalade is cooked.\nStep 5: Pour in hot jars and seal.",
+    "hypothesis": "title: peach marmalade\nstep 1: peel and pit peaches.\nstep 2: cut into 1/2-inch cubes.\nstep 3: peel oranges and slice.\nstep 4: measure 3 cups into a large kettle.\nstep 5: add peaches, sugar and cherries.\nstep 6: cook, stirring occasionally, until mixture comes to a boil.\nstep 7: cook rapidly, stirring occasionally, until mixture is thick and clear, about 20 minutes.\nstep 8: remove from heat.\nstep 9: skim off foam.\nstep 10: ladle hot marmalade into hot sterilized jars, leaving 1/4-inch headspace.\nstep 11: adjust caps.\nstep 12: process in boiling water bath for 10 minutes.\nstep 13: makes 6 half pints."
+  },
+  {
+    "ingredients": "bread crumb, butter, chicken breast per, chicken breast per person, dry bread crumb, garlic powder, jack cheese, oregano, parmesan cheese, parsley, pepper",
+    "reference": "Title: Chicken Kiev\nStep 1: Place breasts between waxed paper; pound until 1/4-inch thick. In pie pan, combine the next 5 ingredients.\nStep 2: In bowl, mix butter, parsley and 1/2 teaspoon oregano.\nStep 3: Spread mixture onto breasts. Lay strip of cheese (1 1/2 x 1/2-inch) along width of breast. Roll and secure with toothpicks.\nStep 4: Dip in melted butter; roll in crumbs.\nStep 5: Place in pan lined with foil, seam side down.\nStep 6: Drizzle with remaining butter.\nStep 7: Bake, uncovered, in a 425° oven for 30 minutes, or until chicken is no longer pink inside.",
+    "hypothesis": "title: chicken parmesan\nstep 1: preheat oven to 350°.\nstep 2: wash and dry chicken.\nstep 3: combine bread crumbs, cheese, parsley, oregano, garlic powder and pepper.\nstep 4: dip chicken in melted butter, then roll in crumb mixture.\nstep 5: place in greased baking dish.\nstep 6: bake for 1 hour."
+  },
+  {
+    "ingredients": "celery, chicken breast, cut up chicken, cream celery soup, herb stuffing, margarine, milk, onion, parsley, pepperidge farm herb stuffing, salt, salt pepper, soup milk",
+    "reference": "Title: Chicken Casserole\nStep 1: Saute celery and onion in small skillet with small amount of margarine.\nStep 2: Mix soup and milk together in small bowl.\nStep 3: Combine all ingredients (except 1/2 cup stuffing) in a large bowl.\nStep 4: Place in a 9 x 13-inch casserole dish. Top with reserved stuffing. Bake at 400° for 20 to 30 minutes.",
+    "hypothesis": "title: chicken casserole\nstep 1: combine chicken, celery, onion, soup, milk, salt and pepper in a large bowl.\nstep 2: mix well.\nstep 3: spoon into a greased 9 x 13-inch baking dish.\nstep 4: combine stuffing and margarine.\nstep 5: sprinkle over chicken mixture.\nstep 6: bake at 350° for 1 hour."
+  },
+  {
+    "ingredients": "baking powder, eggs, flour, light brown sugar, marshmallow, nuts, plain flour, salt, semi sweet chocolate chip, shortening, sugar",
+    "reference": "Title: Mom'S Cake\nStep 1: Cream shortening and sugar.\nStep 2: Beat in whole egg and 2 egg yolks.\nStep 3: Sift flour, baking powder and salt.\nStep 4: Combine 2 mixtures; blend.\nStep 5: Grease and flour 13 x 9-inch pan.\nStep 6: Sprinkle nuts, chocolate pieces and marshmallows over batter.\nStep 7: Beat 2 egg whites very stiff.\nStep 8: Fold in brown sugar.\nStep 9: Spread over cake.\nStep 10: Bake 30 to 40 minutes.",
+    "hypothesis": "title: rocky road bars\nstep 1: preheat oven to 350°.\nstep 2: in a large bowl, cream shortening and sugars.\nstep 3: add eggs, one at a time, beating well after each addition.\nstep 4: sift together flour, baking powder and salt.\nstep 5: add to creamed mixture and mix well.\nstep 6: stir in nuts and chocolate chips.\nstep 7: spread in a greased 15 x 10 x 1-inch baking pan.\nstep 8: bake 25 to 30 minutes.\nstep 9: cool and cut into bars."
+  },
+  {
+    "ingredients": "butter, cheese, chicken breast, cream chicken soup, cream mushroom soup, garlic clove, garlic powder, green pepper, onion, ro tel tomato, ro tel tomato with green chily, soft tortilla",
+    "reference": "Title: King Ranch\nStep 1: Saute onion and green pepper in butter.\nStep 2: Add soups, tomatoes and garlic.\nStep 3: Line large casserole dish with tortillas (about 12). Fill casserole with alternate layers of chicken, sauce and cheese. Bake at 350° for 30 minutes.\nStep 4: Serves 8.",
+    "hypothesis": "title: king ranch chicken\nstep 1: melt butter in large skillet.\nstep 2: add onion and green pepper; saute until tender.\nstep 3: add soups, ro-tel tomatoes and garlic powder.\nstep 4: mix well.\nstep 5: add chicken.\nstep 6: bring to a boil.\nstep 7: add tortillas.\nstep 8: cook over low heat until tortillas are soft.\nstep 9: place chicken mixture in tortillas.\nstep 10: top with cheese.\nstep 11: serve with sour cream and salsa."
+  },
+  {
+    "ingredients": "celery soup, oyster",
+    "reference": "Title: Oyster Stew\nStep 1: Heat can of soup to boiling point. Add oysters. Bring to a boil, taste and serve.",
+    "hypothesis": "title: oyster stew\nstep 1: mix and heat.\nstep 2: serve with oyster crackers."
+  },
+  {
+    "ingredients": "bell pepper, butter, celery, cheese, cream celery soup, cream chicken soup, cream mushroom soup, onion, ro tel, ro tel tomato, shrimp, shrimp water",
+    "reference": "Title: Shrimp Soup\nStep 1: Saute in butter the onion, bell pepper and celery.\nStep 2: Add all ingredients together and cook until cheese melts.\nStep 3: Serve over rice.",
+    "hypothesis": "title: shrimp casserole\nstep 1: saute onion, bell pepper and celery in butter.\nstep 2: add soups, ro-tel tomatoes and shrimp.\nstep 3: stir until well blended.\nstep 4: pour into greased casserole dish.\nstep 5: top with grated cheese.\nstep 6: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "almond flavoring, eggs, flour, milk, salt, shortening, soda, sugar",
+    "reference": "Title: Sure Thing Sugar Cookies\nStep 1: Cut shortening into flour with a fork until the mixture is the consistency of small peas and corn meal.\nStep 2: Combine remaining ingredients and mix with flour.\nStep 3: Roll dough to 1/8-inch thickness. Cut into various shapes with cookie cutters.\nStep 4: Bake at 350° for 8 to 10 minutes.",
+    "hypothesis": "title: almond pound cake\nstep 1: cream shortening and sugar.\nstep 2: add eggs, one at a time, beating well after each addition.\nstep 3: sift flour, soda and salt together.\nstep 4: add alternately with milk.\nstep 5: add almond flavoring.\nstep 6: bake in a tube pan at 350° for 1 hour and 15 minutes."
+  },
+  {
+    "ingredients": "chicken breast, cream chicken soup, cream mushroom, stove top stuffing",
+    "reference": "Title: Chicken Casserole\nStep 1: Cook chicken and debone.\nStep 2: Cut into small pieces.\nStep 3: Cook Stove Top stuffing as directed.\nStep 4: In greased pan, layer stuffing, chicken and soup.\nStep 5: Drizzle 1/4 to 1/2 can of water on top of casserole so won't dry out.\nStep 6: Bake at 350°\nStep 7: for 30 minutes.",
+    "hypothesis": "title: chicken casserole\nstep 1: boil chicken; debone and cut into bite size pieces.\nstep 2: cook stove top stuffing according to directions on box.\nstep 3: put chicken in bottom of baking dish.\nstep 4: add 1/2 can of cream of chicken soup and 1/2 can of water.\nstep 5: mix together.\nstep 6: pour over chicken.\nstep 7: put other can of soup on top.\nstep 8: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "baking powder, butter, buttermilk, eggs, flour, salt, soda, sugar, vanilla",
+    "reference": "Title: Buttermilk Pound Cake\nStep 1: Sift together flour, soda, baking powder and salt.\nStep 2: Sift again. Cream butter with sugar until light and fluffy. Add eggs, one at a time, beating well after each addition.\nStep 3: Blend in vanilla. Add flour mixture and buttermilk alternately and beat until smooth after each addition.\nStep 4: Pour into greased and floured wax papered loaf pan. Bake in moderate oven at 350° for about 1 hour and 10 minutes or until cake tester comes out clean.\nStep 5: Remove from pan and cool. Dust with powdered sugar.",
+    "hypothesis": "title: buttermilk cookies\nstep 1: cream sugar and butter.\nstep 2: add eggs, one at a time.\nstep 3: sift flour, salt, soda and baking powder.\nstep 4: add alternately with buttermilk.\nstep 5: add vanilla.\nstep 6: bake at 350° for 12 to 15 minutes."
+  },
+  {
+    "ingredients": "butter, chocolate chip, colored miniature, colored miniature marshmallow, confectioner sugar, eggs",
+    "reference": "Title: Cathedral Window Candy\nStep 1: Place butter and chocolate chips in medium heat resistant bowl.\nStep 2: Heat, uncovered, in microwave for 4 minutes, or until melted.\nStep 3: Combine egg and sugar; add slowly to chocolate mixture. Stir in marshmallows to coat well.\nStep 4: Pour onto waxed paper.\nStep 5: Shape into 18-inch log.\nStep 6: Refrigerate.\nStep 7: Slice before serving.",
+    "hypothesis": "title: church windows\nstep 1: melt chocolate chips and butter in double boiler.\nstep 2: add eggs and sugar; beat until smooth.\nstep 3: add marshmallows and beat until marshmallows are melted.\nstep 4: chill until firm.\nstep 5: divide into 3 parts.\nstep 6: roll each part into a roll about 1/4-inch thick.\nstep 7: wrap in wax paper and chill.\nstep 8: slice into 1/4-inch slices.\nstep 9: serve with whipped cream."
+  },
+  {
+    "ingredients": "bread, cream cheese, eggs, maple syrup, milk",
+    "reference": "Title: Stuffed French Toast\nStep 1: Mix together and cover dish with plastic overnight.\nStep 2: Bake the next morning at 375° for 45 minutes.",
+    "hypothesis": "title: french toast casserole\nstep 1: grease a 9 x 13-inch pan.\nstep 2: spread bread slices with cream cheese.\nstep 3: place bread slices in pan.\nstep 4: beat eggs, milk and syrup together.\nstep 5: pour over bread.\nstep 6: cover and refrigerate overnight.\nstep 7: bake, uncovered, at 350° for 40 minutes.\nstep 8: remove from oven and sprinkle with powdered sugar.\nstep 9: cut into squares."
+  },
+  {
+    "ingredients": "almond, almond extract, butter, cinnamon, flour, nutmeg, pastry, pastry for double crust pie, you use ready made crust, peaches, sugar",
+    "reference": "Title: Double Crust Peach Cobbler\nStep 1: Combine peaches, sugar, flour and spices.\nStep 2: Set aside until syrup forms.\nStep 3: Bring peaches to a boil.\nStep 4: Cook 10 minutes or until tender.\nStep 5: Remove from heat and blend in almond extract and butter.",
+    "hypothesis": "title: peach pie\nstep 1: preheat oven to 400°.\nstep 2: in a bowl, combine sugar, flour, cinnamon, nutmeg and almond extract.\nstep 3: add peaches and toss to coat.\nstep 4: place into pie shell.\nstep 5: dot with butter.\nstep 6: cover with top crust and seal edges.\nstep 7: cut slits in top crust.\nstep 8: bake 40 to 50 minutes or until crust is golden brown."
+  },
+  {
+    "ingredients": "carrots, green pepper, fine, mayonnaise, milk, onion, pepper, salt, shell macaroni, sugar, vinegar",
+    "reference": "Title: Macaroni Salad\nStep 1: Cook macaroni; drain and cool.\nStep 2: Mix green pepper, onion and carrots in macaroni.\nStep 3: Mix remaining ingredients in separate bowl. Pour over macaroni.\nStep 4: Let set in refrigerator overnight.",
+    "hypothesis": "title: macaroni salad\nstep 1: cook macaroni until tender; drain.\nstep 2: add salt, pepper, sugar, vinegar, mayonnaise and milk.\nstep 3: mix all together.\nstep 4: chill overnight."
+  },
+  {
+    "ingredients": "beef, cheese, cream mushroom soup, onion, tater, tater tot",
+    "reference": "Title: Tater Tot Casserole\nStep 1: Brown ground beef with small chopped onion and drain.\nStep 2: Add 1/2 can soup and 1/2 cup water.\nStep 3: Add Velveeta (cubed).\nStep 4: Pour into casserole dish.\nStep 5: Put Tater Tots on top.\nStep 6: Mix 1/2 can soup and 1/2 can water and pour over Tater Tots.\nStep 7: Garnish top with cheese. Cover with foil and bake at 425° for 45 minutes.",
+    "hypothesis": "title: hamburger casserole\nstep 1: brown ground beef and onion.\nstep 2: drain.\nstep 3: layer in casserole dish with tater tots.\nstep 4: mix soups and pour over tater tots.\nstep 5: top with cheese.\nstep 6: bake at 350° for 45 minutes."
+  },
+  {
+    "ingredients": "catsup, horseradish, juice lemon, lemon, vinegar, worcestershire sauce",
+    "reference": "Title: Cocktail Sauce\nStep 1: Mix ingredients and chill.\nStep 2: Serve with shrimp.",
+    "hypothesis": "title: barbecue sauce\nstep 1: mix and heat.\nstep 2: use on chicken or ribs."
+  },
+  {
+    "ingredients": "cucumbers, eggs, green onion, macaroni, mayonnaise, salt, salt pepper",
+    "reference": "Title: Macaroni Salad\nStep 1: Chop everything very fine and mix with the mayonnaise.",
+    "hypothesis": "title: macaroni salad\nstep 1: cook macaroni.\nstep 2: add cucumbers, onions and eggs.\nstep 3: mix mayonnaise and salt and pepper to taste.\nstep 4: add to macaroni mixture.\nstep 5: serve cold."
+  },
+  {
+    "ingredients": "appl, cinnamon, eggs, flour, oil, self rising flour, sugar, vanilla, walnut",
+    "reference": "Title: Apple Coffee Cake\nStep 1: Combine egg, sugar and oil.\nStep 2: Mix flour and cinnamon.\nStep 3: Stir into egg mixture.\nStep 4: This is very stiff.\nStep 5: Add vanilla, apples and walnuts. Pour into greased and floured 9-inch cake pan.\nStep 6: Bake at 350° for 45 to 50 minutes.",
+    "hypothesis": "title: fresh apple cake\nstep 1: mix oil, sugar and eggs together.\nstep 2: add flour, cinnamon and vanilla.\nstep 3: fold in apples and nuts.\nstep 4: bake in greased and floured bundt pan at 350° for 1 hour."
+  },
+  {
+    "ingredients": "brown sugar, eggs, flour, pecan, sugar, vanilla, wesson oil",
+    "reference": "Title: Cornbread Cake\nStep 1: Mix all ingredients together and pour into a lightly greased 9 x 13-inch pan.\nStep 2: Bake at 350° for approximately 30 minutes.",
+    "hypothesis": "title: pecan pie\nstep 1: mix all ingredients and pour into unbaked pie shell.\nstep 2: bake at 325° for 1 hour."
+  },
+  {
+    "ingredients": "catsup, celery, celery seed, nutmeg, pork chop, salt, vinegar, water",
+    "reference": "Title: Barbecue Pork Chops\nStep 1: Brown chops in hot shortening.\nStep 2: Drain.\nStep 3: Combine remaining ingredients and pour over chops.\nStep 4: Bake in slow oven at 325° for 1 1/2 hours.\nStep 5: Turn chops once during baking.",
+    "hypothesis": "title: barbecued pork chops\nstep 1: trim fat from chops.\nstep 2: season with salt and pepper.\nstep 3: brown in skillet.\nstep 4: place in baking dish.\nstep 5: combine remaining ingredients and pour over chops.\nstep 6: cover and bake at 350° for 1 hour."
+  },
+  {
+    "ingredients": "canned bean sprout, cornstarch, cornstarch with water, garlic, green onions, diagonally, green peppers, cut in strip, kikkoman soy sauce, oil, round steak, salt, salt pepper, soy sauce, sprout, steak, sugar",
+    "reference": "Title: Chinese Pepper Steak(Crockery Cooking)\nStep 1: Slice steak diagonally (against the grain) in narrow strips. In skillet, brown steak in smoking hot oil.\nStep 2: Combine with garlic, salt, pepper and sugar in crock-pot.\nStep 3: Cook on low for 6 to 9 hours.\nStep 4: Turn control to High.\nStep 5: Add bean sprouts, tomatoes and green peppers.\nStep 6: Dissolve cornstarch in water.\nStep 7: Stir into pot, cover and cook on high 20 minutes until thickened and clear. Sprinkle with onion.\nStep 8: Serve hot with rice or chow mein noodles.",
+    "hypothesis": "title: beef and pepper stir-fry\nstep 1: cut steak across grain into thin strips.\nstep 2: brown in oil in large skillet.\nstep 3: add garlic, green onions, bean sprouts, soy sauce, sugar, salt and pepper.\nstep 4: cook until vegetables are tender-crisp.\nstep 5: mix cornstarch with water and add to skillet.\nstep 6: cook until thickened.\nstep 7: serve over rice."
+  },
+  {
+    "ingredients": "crisco shortening, eggs, flour, lemon, lemon extract, salt, shortening, soda, sour milk, sugar, vanilla",
+    "reference": "Title: Aunt Sis' Sugar Cookies\nStep 1: Mix ingredients together and roll out on a floured surface 1/4 to 1/2-inch thickness.\nStep 2: Cut into desired shapes and bake on cookie sheet at 350° for 10 to 15 minutes.",
+    "hypothesis": "title: old fashioned pound cake\nstep 1: cream shortening and sugar together.\nstep 2: add eggs, one at a time, beating well after each addition.\nstep 3: add flavoring.\nstep 4: sift flour, soda and salt together.\nstep 5: add to creamed mixture alternately with milk.\nstep 6: pour into a greased and floured tube pan.\nstep 7: bake at 325° for 1 1/2 hours."
+  },
+  {
+    "ingredients": "cheese, chicken breast, chicken broth, cream celery soup, cream mushroom soup, french onion, garden peas, margarine, mushroom, onion, pimento, rice, salt, salt pepper, stuffing mix, water chestnuts",
+    "reference": "Title: Chicken Casserole\nStep 1: Saute onion and water chestnuts in margarine.\nStep 2: Mix all ingredients except cheese, stuffing mix and 1/4 cup onion rings. Place in greased casserole.\nStep 3: Top with cheese and stuffing mix. Bake at 350° about 30 minutes or until bubbly.\nStep 4: Sprinkle 1/4 cup onion rings on top and bake another 5 minutes.",
+    "hypothesis": "title: chicken and rice casserole\nstep 1: mix all ingredients, except stuffing mix and margarine.\nstep 2: put in a greased 9 x 13-inch pan.\nstep 3: sprinkle with stuffing mix.\nstep 4: bake at 350° for 45 minutes."
+  },
+  {
+    "ingredients": "eggs, flour, margarine, milk, sugar",
+    "reference": "Title: Blueberry Streusel Pie\nStep 1: Combine flour and sugar.\nStep 2: Cut in margarine.\nStep 3: Add milk and egg. Mix with fork until soft dough.\nStep 4: Press into a 9 x 9 x 2-inch baking dish.\nStep 5: Place 3 cups frozen blueberries over pastry.",
+    "hypothesis": "title: basic crepes\nstep 1: combine all ingredients in blender or food processor.\nstep 2: blend until smooth.\nstep 3: pour batter into hot, lightly greased, lightly greased skillet.\nstep 4: bake on hot griddle for 5 minutes on each side.\nstep 5: serve hot with syrup."
+  },
+  {
+    "ingredients": "chachere cajun, lemon, salmon, tony chachere cajun seasoning",
+    "reference": "Title: Lady Smoked Salmon\nStep 1: Leave salmon whole, just clean and gill.\nStep 2: Wash thoroughly. Squeeze lemon over entire fish.\nStep 3: Season entire fish.\nStep 4: Wrap and seal in foil.\nStep 5: Cook on smoker (indirect heat) at 350° for 50 to 80 minutes (10 minutes per pound) or until flesh flakes with fork, or in oven.\nStep 6: When opening foil, beware of steam.\nStep 7: Peel skin from upper side of fish and serve.",
+    "hypothesis": "title: cajun salmon\nstep 1: place salmon in baking dish.\nstep 2: pour lemon and tony chachere's over salmon.\nstep 3: bake at 350° for 20 minutes.\nstep 4: baste often."
+  },
+  {
+    "ingredients": "bar paraffin, butter, chocolate chip, confectioner sugar, paraffin, peanut butter",
+    "reference": "Title: Peanut Butter Balls\nStep 1: Mix sugar, butter and peanut butter together until mixed well. Roll into balls.\nStep 2: Melt chips and paraffin.\nStep 3: Dip balls.\nStep 4: Let stand until cool.",
+    "hypothesis": "title: buckeyes\nstep 1: mix peanut butter, butter and confectioners sugar together.\nstep 2: form into balls.\nstep 3: melt chocolate chips and paraffin in double boiler.\nstep 4: dip balls into chocolate and put on waxed paper to cool."
+  },
+  {
+    "ingredients": "celery soup, chuck, onions, salt, salt pepper, tater, tater tot, undiluted celery soup",
+    "reference": "Title: Tater Tot Casserole\nStep 1: Place meat in bottom of oblong casserole.\nStep 2: Mix in salt and pepper.\nStep 3: Place onions, sliced thin, on top of meat.\nStep 4: Spread undiluted celery soup on top of onions.\nStep 5: Place frozen Tater Tots on top.\nStep 6: Cover completely. Cook 1 hour in a 400° oven in 9 x 13-inch pan.",
+    "hypothesis": "title: tater tot hot dish\nstep 1: brown ground chuck and onion.\nstep 2: add celery soup and simmer.\nstep 3: pour in casserole dish.\nstep 4: cover with tater tots.\nstep 5: bake at 350° for 45 minutes."
+  },
+  {
+    "ingredients": "celery soup, chicken breast, deboned, sour cream",
+    "reference": "Title: Chicken Casserole\nStep 1: Mix together and top with crushed Hi Ho crackers. Cook in oven at 350° until bubbly.",
+    "hypothesis": "title: chicken and celery casserole\nstep 1: place chicken in a 9 x 13-inch pan.\nstep 2: mix sour cream and celery soup together.\nstep 3: pour over chicken.\nstep 4: top with grated cheese.\nstep 5: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "cheez whiz, dry instant lipton onion soup, mayonnaise, onion soup, sour cream, worcestershire sauce",
+    "reference": "Title: Vegetable Dip\nStep 1: Mix all ingredients and refrigerate.\nStep 2: Serve with variety of fresh vegetables.",
+    "hypothesis": "title: onion dip\nstep 1: mix together and chill.\nstep 2: serve with raw vegetables."
+  },
+  {
+    "ingredients": "cream cheese, lemon juice, mustard, nuts, onion, paprika, shrimp, soy sauce",
+    "reference": "Title: Shrimp Cheese Ball\nStep 1: Combine all ingredients (except nuts) and chill for several hours.\nStep 2: Form into balls and roll in nuts.\nStep 3: Serve with crackers.",
+    "hypothesis": "title: shrimp ball\nstep 1: mix together cream cheese, lemon juice, onion, mustard and soy sauce.\nstep 2: form into a ball.\nstep 3: chill.\nstep 4: roll in nuts.\nstep 5: serve with crackers."
+  },
+  {
+    "ingredients": "bourbon, butter, chocolate chip, cornstarch, eggs, pecan, pie shell, unbaked, sugar",
+    "reference": "Title: Best Chocolate Chip Pie\nStep 1: In a small bowl, beat eggs.\nStep 2: Gradually add sugar.\nStep 3: Mix until blended.\nStep 4: Add melted butter and bourbon.\nStep 5: Blend in cornstarch. Stir in pecans and chocolate chips.\nStep 6: Pour into unbaked pie shell. Bake in a 350° oven for 45 minutes.\nStep 7: Cool 1 hour.\nStep 8: Serve warm topped with bourbon flavored topping.",
+    "hypothesis": "title: kentucky bourbon pie\nstep 1: beat eggs well.\nstep 2: add sugar, cornstarch, bourbon and butter.\nstep 3: mix well.\nstep 4: add chocolate chips and pecans.\nstep 5: pour into pie shell.\nstep 6: bake at 350° for 50 to 60 minutes."
+  },
+  {
+    "ingredients": "bread crumb, broccoli, cheddar cheese, eggs, golden mushroom soup, mayonnaise",
+    "reference": "Title: Broccoli Bake\nStep 1: Cook and drain broccoli.\nStep 2: Place in shallow baking dish.\nStep 3: Mix together soup, eggs and mayonnaise.\nStep 4: Pour over broccoli and sprinkle bread crumbs on top.\nStep 5: Bake.",
+    "hypothesis": "title: broccoli casserole\nstep 1: cook broccoli according to package directions.\nstep 2: drain.\nstep 3: place in buttered casserole dish.\nstep 4: mix mayonnaise, soup and cheese.\nstep 5: pour over broccoli.\nstep 6: top with bread crumbs.\nstep 7: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "cilantro, ginger, lime juice, orange juice, pineapple juice, vanilla lowfat yogurt",
+    "reference": "Title: Herbed Pineapple Refresher\nStep 1: Place ginger, a little at a time, in a garlic press to extract juice (you should have about 1 1/2 teaspoons). In a blender container or food processor bowl, combine ginger juice, pineapple juice, orange juice, yogurt, lime juice and cilantro. Cover and blend or process until nearly smooth. Serve immediately. Makes about 6 servings.",
+    "hypothesis": "title: pineapple-ginger dip\nstep 1: combine all ingredients in a small bowl, stirring well. cover and chill. serve with fresh fruit."
+  },
+  {
+    "ingredients": "apple pie filling, apricot preserf, cranberry sauce, orange marmalade, sweet potatoes",
+    "reference": "Title: Cranberry-Apple Sweet Potatoes\nStep 1: Cut sweet potatoes into bite size pieces.\nStep 2: In a large saucepan, cook potatoes, covered, in enough boiling salted water to cover, about 15 minutes, or until tender (disregard this step if using canned potatoes).\nStep 3: Drain and set aside.\nStep 4: Spread pie filling in an 8 x 8 x 2-inch baking dish.\nStep 5: Arrange cooked fresh or canned sweet potatoes atop.\nStep 6: In a small mixing bowl, stir together cranberry sauce, apricot preserves and orange marmalade; spoon over sweet potatoes.\nStep 7: Bake, uncovered, in a 350° oven for 20 to 25 minutes, or until heated through.\nStep 8: Serves 6 to 8.",
+    "hypothesis": "title: sweet potato casserole\nstep 1: combine sweet potatoes, cranberry sauce, preserves and marmalade in a 2-quart casserole.\nstep 2: bake at 350° for 30 minutes.\nstep 3: sprinkle with cranberries.\nstep 4: bake an additional 5 minutes."
+  },
+  {
+    "ingredients": "cornstarch, eggs, lemon juice, lemon rind, margarine, sugar",
+    "reference": "Title: Lemon Curd\nStep 1: Combine first 5 ingredients in top of a double boiler.\nStep 2: Cook over simmering water, stirring constantly, until butter melts. Gradually stir about 1/4 of hot mixture into eggs; add to remaining hot mixture, stirring constantly, until mixture thickens and coats a spoon (about 15 minutes).\nStep 3: Remove from heat; cool. Cover and refrigerate.",
+    "hypothesis": "title: lemon pie\nstep 1: mix the sugar, cornstarch and flour together in a saucepan.\nstep 2: add the eggs, butter, lemon juice and rind.\nstep 3: cook over medium heat, stirring constantly, until thickened.\nstep 4: pour into a baked pie shell.\nstep 5: cover with meringue and brown."
+  },
+  {
+    "ingredients": "cheddar cheese, cream asparagus soup, undiluted, crescent roll, eggs, lemon pepper, lemon pepper seasoning, onion, pillsbury crescent roll dough, salt",
+    "reference": "Title: Asparagus Onion Quiche Squares\nStep 1: Line a 9x13 dish or pan with the crescent dough, sealing the edges of the crescents together.\nStep 2: Push dough about 1/2 inch up the sides of the pan.\nStep 3: In a mixing bowl, combine the onion, soup, 1 cup Cheddar, eggs, salt and lemon pepper seasoning.\nStep 4: Beat well. Pour into baking pan and sprinkle remaining cheese over the top. Bake in a 375 degree oven for about 30 minutes.\nStep 5: Remove from oven and allow to cool slightly before cutting into small squares.",
+    "hypothesis": "title: asparagus cheese puffs\nstep 1: preheat oven to 375°.\nstep 2: lightly grease a cookie sheet.\nstep 3: unroll crescent rolls and separate into triangles.\nstep 4: place 1 teaspoon of cheese in center of each triangle.\nstep 5: bring points of triangles up over cheese and tuck under wide ends.\nstep 6: press edges to seal.\nstep 7: brush with beaten egg.\nstep 8: combine remaining ingredients and mix well.\nstep 9: spoon into crescent rolls.\nstep 10: bake for 15 to 20 minutes or until golden brown.\nstep 11: serve warm."
+  },
+  {
+    "ingredients": "almond extract, chocolate syrup, coconut extract, condensed milk, eggs, instant coffee, sweetened condensed milk, vanilla, whiskey",
+    "reference": "Title: Irish Cream\nStep 1: Mix in blender 2 minutes; refrigerate.",
+    "hypothesis": "title: bailey's irish cream\nstep 1: mix all ingredients together.\nstep 2: pour into a large container and freeze.\nstep 3: will keep indefinitely."
+  },
+  {
+    "ingredients": "cheese, cream chicken soup, egg noodl, milk, soup milk, white chicken meat",
+    "reference": "Title: Chicken Casserole\nStep 1: Boil noodles until tender.\nStep 2: In a different pan (while noodles are cooking), put the cream of chicken soup and the 2 soup cans full of milk.\nStep 3: Mix well.\nStep 4: Cook over heat until ready, then add the chicken and cheese.\nStep 5: Drain the noodles.\nStep 6: Mix in with the cream mixture.",
+    "hypothesis": "title: chicken noodle casserole\nstep 1: boil chicken until tender.\nstep 2: cook noodles in broth.\nstep 3: mix soups and milk together.\nstep 4: add chicken and noodles.\nstep 5: pour into casserole dish.\nstep 6: top with cheese.\nstep 7: bake at 350° for 45 minutes."
+  },
+  {
+    "ingredients": "baking powder, brown sugar, cinnamon, flour, ginger, nutmeg, nuts, pumpkin, raisin, shortening, soda, vanilla",
+    "reference": "Title: Pumpkin Cookies\nStep 1: Mix above ingredients together and bake at 350° for 15 minutes.",
+    "hypothesis": "title: pumpkin cookies\nstep 1: cream shortening and sugar.\nstep 2: add pumpkin and vanilla.\nstep 3: add dry ingredients.\nstep 4: stir in nuts and raisins.\nstep 5: drop by teaspoon on greased cookie sheet.\nstep 6: bake at 350° for 12 to 15 minutes."
+  },
+  {
+    "ingredients": "bell pepper, celery, celery seed, dry mustard, flour, margarine, noodles, onion, pimento, red bean, salt, skroodle noodl, sugar, vegetables, vinegar",
+    "reference": "Title: Skroodle Salad\nStep 1: Cook noodles and drain.\nStep 2: Add red beans, mixed vegetables (drained), bell peppers, celery, onion and pimento.\nStep 3: Cook celery seed, salt, margarine, sugar, vinegar, flour and dry mustard until bubbly and thickened.\nStep 4: Pour over noodle mixture.\nStep 5: Let stand overnight.",
+    "hypothesis": "title: mixed vegetable salad\nstep 1: cook noodles and drain.\nstep 2: melt margarine.\nstep 3: add flour, sugar, salt, mustard, celery seed and vinegar.\nstep 4: cook until thick.\nstep 5: add vegetables and noodles.\nstep 6: mix well.\nstep 7: let stand overnight."
+  },
+  {
+    "ingredients": "chocolate pudding, confectioner sugar, cream cheese, instant vanilla, milk, oreo cookies, with rolling pin, whip",
+    "reference": "Title: Dirt Cake\nStep 1: Mix\nStep 2: together\nStep 3: cream\nStep 4: cheese,\nStep 5: sugar and Cool Whip.\nStep 6: In another\nStep 7: bowl,\nStep 8: mix pudding and milk.\nStep 9: Combine pudding mixture and cream cheese mixture.\nStep 10: Layer with crumbled Oreo cookies in Pyrex dish,\nStep 11: ending with cookies, so it has the appearance of dirt. Refrigerate.",
+    "hypothesis": "title: dirt dessert\nstep 1: mix cream cheese, sugar and milk together.\nstep 2: add cool whip and mix well.\nstep 3: crush oreos.\nstep 4: mix pudding with milk.\nstep 5: layer pudding, cookies and pudding.\nstep 6: keep layering until you run out of pudding mixture.\nstep 7: sprinkle oreos on top."
+  },
+  {
+    "ingredients": "carrot, celery, celery stem with, ham, ham broth, ham broth water, navy bean, onion, salt, season all, season all salt",
+    "reference": "Title: Ham-Bean Soup\nStep 1: Combine all ingredients, except navy beans, and simmer for 2 hours.\nStep 2: Add cooked navy beans.\nStep 3: Ham pieces may be added.",
+    "hypothesis": "title: navy bean soup\nstep 1: soak beans overnight.\nstep 2: add all ingredients.\nstep 3: simmer for 1 hour."
+  },
+  {
+    "ingredients": "chicken breast, removed from bone, cream chicken soup, sour cream, stove top stuffing",
+    "reference": "Title: Chicken Casserole\nStep 1: Mix stuffing according to directions.\nStep 2: Put half in a 9 x 13-inch baking dish.\nStep 3: Mix sour cream, chicken (cut up) and soup together.\nStep 4: Layer on top of stuffing.\nStep 5: Put the remaining stuffing on top of chicken mixture.\nStep 6: Bake at 350° until golden brown.",
+    "hypothesis": "title: chicken and stuffing casserole\nstep 1: mix all ingredients together except stuffing.\nstep 2: put stuffing in bottom of 9 x 13-inch pan.\nstep 3: put chicken on top of stuffing.\nstep 4: put stuffing on top of chicken.\nstep 5: bake at 350° for 1 hour."
+  },
+  {
+    "ingredients": "okra, onion, pepper, pepper salt, pig feet, rice, salt pork, tomato",
+    "reference": "Title: Okra Soup\nStep 1: Cook pig feet\nStep 2: and\nStep 3: salt pork until done.\nStep 4: Cut up okra, tomatoes and onion.\nStep 5: Add to meat.\nStep 6: Let boil until thick enough for a good soup.\nStep 7: Can be served over rice.",
+    "hypothesis": "title: okra gumbo\nstep 1: wash and remove the ends of the pig feet.\nstep 2: chop the meat into small pieces.\nstep 3: cook the meat in a large pot until the meat is done.\nstep 4: remove from the pot and add the onion, salt, pepper, okra and tomatoes.\nstep 5: cook for 30 minutes.\nstep 6: add the rice and cook for 20 minutes more.\nstep 7: serve hot."
+  },
+  {
+    "ingredients": "cheddar cheese, chicken breast, cream chicken soup, cream mushroom soup, flour tortilla, green chily, green onion, salt, pepper garlic, sour cream",
+    "reference": "Title: Sour Cream Enchiladas\nStep 1: Combine soups, chicken, chilies, sour cream, salt, pepper, and garlic.\nStep 2: Simmer for a few minutes.\nStep 3: Place a small amount on a limp flour tortilla.\nStep 4: Sprinkle with a few green onions and cheese.\nStep 5: Roll tortilla and place in baking dish.\nStep 6: Repeat with desired number of tortillas.\nStep 7: Pour remaining sauce over tortillas. Sprinkle remaining cheese and onions on top. Bake at 350° until bubbly (about 30 minutes).",
+    "hypothesis": "title: chicken enchiladas\nstep 1: combine all ingredients except tortillas and cheese.\nstep 2: fill tortillas with mixture.\nstep 3: place in a 9 x 13-inch pan.\nstep 4: pour remaining mixture over top.\nstep 5: sprinkle with cheese.\nstep 6: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "breast chicken, flaked, celery, corkscrew pasta, green onion, lemon juice, lemon yogurt, mayonnaise, pasta, red grap, seedless red grap",
+    "reference": "Title: Lemon Chicken Salad\nStep 1: Cook pasta; rinse in cold water and drain.\nStep 2: In a large bowl, combine yogurt, mayonnaise and lemon juice.\nStep 3: Stir in chicken, pasta, grapes, onions and celery.",
+    "hypothesis": "title: chicken pasta salad\nstep 1: in a large bowl, combine the pasta, chicken, grapes, celery and onions. in a small bowl, combine the mayonnaise, yogurt, lemon juice and lemon yogurt. pour over salad and toss to coat. cover and refrigerate for at least 1 hour."
+  },
+  {
+    "ingredients": "blackberry, equal amount, equal amount sugar",
+    "reference": "Title: Old Fashioned Blackberry Jam\nStep 1: Measure blackberries that have been cleaned and washed.\nStep 2: Crush well and add an equal amount of sugar in a large kettle.\nStep 3: Mix well.\nStep 4: Bring to a quick boil and cook rapidly, stirring often. Cook until large bubbles appear.\nStep 5: Ladle into jars and seal.",
+    "hypothesis": "title: blackberry jam\nstep 1: combine all ingredients in saucepan.\nstep 2: boil 1 minute.\nstep 3: remove from heat.\nstep 4: add equal and 1 tablespoon lemon juice.\nstep 5: stir until thick.\nstep 6: pour into jars and seal."
+  },
+  {
+    "ingredients": "boiling water, salt, water, yellow cornmeal",
+    "reference": "Title: Polenta\nStep 1: Mix cornmeal, cold water and salt together.\nStep 2: Add to the 3 cups boiling water.\nStep 3: Cook until done, about 20 minutes.",
+    "hypothesis": "title: corn meal mush\nstep 1: put cornmeal in bowl and add boiling water.\nstep 2: stir until smooth.\nstep 3: add salt and stir until mixed.\nstep 4: pour into greased casserole dish.\nstep 5: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "cornflak, karo syrup, peanut butter, sugar, syrup",
+    "reference": "Title: Peanut Butter Balls\nStep 1: Using a large pot, bring sugar and corn syrup to a boil (stir until sugar melts).\nStep 2: Remove from heat immediately.\nStep 3: Stir in peanut butter and cornflakes until well mixed.\nStep 4: Roll into balls and place on wax paper till cool.",
+    "hypothesis": "title: cornflake candy\nstep 1: bring sugar and syrup to a boil.\nstep 2: remove from heat.\nstep 3: add peanut butter and cornflakes.\nstep 4: mix well.\nstep 5: drop by teaspoon on wax paper."
+  },
+  {
+    "ingredients": "cinnamon, dates, egg white, until foamy, eggs, ginger, salt, squash, water",
+    "reference": "Title: Squash Pie(Sugarless)\nStep 1: Heat and stir dates and water.\nStep 2: Cook until smooth.\nStep 3: Put dates, egg white, squash, spices and milk into blender and process until smooth.\nStep 4: Pour into unbaked 9-inch pie pastry and bake at 400° for 15 minutes, then at 350° for 20 minutes.",
+    "hypothesis": "title: squash custard\nstep 1: beat eggs until frothy.\nstep 2: add water, salt, cinnamon, ginger and dates.\nstep 3: beat until mixed.\nstep 4: pour into a buttered baking dish.\nstep 5: bake at 375° for 30 minutes.\nstep 6: serve warm or cold."
+  },
+  {
+    "ingredients": "chicken breast, cream celery soup, cream mushroom soup, frying chicken, cut up, milk, rice",
+    "reference": "Title: Forgotten Chicken\nStep 1: Combine rice, mushroom soup, celery soup and milk in bottom of 9 x 13-inch casserole dish.\nStep 2: Place chicken on the bed of rice and soups.\nStep 3: Sprinkle 1 package dry French onion soup over the chicken pieces.\nStep 4: Cover with foil and bake at 350°\nStep 5: for 2 hours.",
+    "hypothesis": "title: chicken and rice\nstep 1: combine rice, soups and milk in a 9 x 13-inch pan.\nstep 2: lay chicken pieces on top.\nstep 3: bake at 350° for 1 1/2 hours."
+  },
+  {
+    "ingredients": "butter, cocoa, eggs, evaporated milk, margarine, milk, salt, shell, sugar, unbaked inch pie shell, vanilla",
+    "reference": "Title: Chocolate Chess Pie\nStep 1: Mix last 7 ingredients together.\nStep 2: Pour into crust.\nStep 3: Bake at 325° until set (about 30 to 40 minutes).",
+    "hypothesis": "title: chocolate chess pie\nstep 1: combine all ingredients and mix well.\nstep 2: pour into pie shell. bake at 350° for 50 to 55 minutes."
+  },
+  {
+    "ingredients": "cherry chip cake, cherry chip cake mix, cream cheese, eggs, margarine, vanilla",
+    "reference": "Title: Confetti Cookies\nStep 1: Cream the cream cheese, margarine, egg and vanilla.\nStep 2: Add cake mix, a third at a time.\nStep 3: Chill 30 minutes.\nStep 4: Drop by teaspoonfuls onto ungreased cookie sheet.\nStep 5: Bake for 8 to 10 minutes at 375°.",
+    "hypothesis": "title: cherry chip cake\nstep 1: mix cake mix, eggs and margarine together.\nstep 2: press into 9 x 13-inch pan.\nstep 3: mix cream cheese, vanilla and powdered sugar.\nstep 4: pour over cake mixture.\nstep 5: sprinkle with chips.\nstep 6: bake at 350° for 35 to 40 minutes."
+  },
+  {
+    "ingredients": "banana, milk, vanilla pudding, vanilla wafer",
+    "reference": "Title: Banana Pudding\nStep 1: Mix pudding mix with milk and cook.\nStep 2: Layer wafers and bananas in deep bowl.",
+    "hypothesis": "title: old fashioned banana pudding\nstep 1: in a large bowl, mix the pudding with the milk.\nstep 2: beat until it starts to thicken.\nstep 3: add the whipped topping and vanilla wafers.\nstep 4: mix well.\nstep 5: layer the bananas and pudding mix in a dish.\nstep 6: sprinkle with crushed wafers.\nstep 7: refrigerate until ready to serve."
+  },
+  {
+    "ingredients": "baking soda, brown sugar, butter, butterscotch chip, chocolate chip, crunchy peanut butter, eggs, granulated sugar, m&m, oatmeal, quick oatmeal, sugar, vanilla, white karo syrup",
+    "reference": "Title: Monster Cookies\nStep 1: Mix ingredients in a large mixing bowl.\nStep 2: Using an ice cream scoop, drop 6 large dough balls on a cookie sheet.\nStep 3: Preheat oven and bake at 350° for 12 minutes.\nStep 4: Recipe makes approximately 3 dozen \"monster\" cookies.",
+    "hypothesis": "title: grandma's cookies\nstep 1: mix the first 8 ingredients together.\nstep 2: add the remaining ingredients.\nstep 3: drop by teaspoon on ungreased cookie sheet.\nstep 4: bake at 350° for 10 to 12 minutes."
+  },
+  {
+    "ingredients": "chicken breast, concentrated orange juice, ketchup, mayonnaise, orange juice",
+    "reference": "Title: New Orleans Orange Chicken\nStep 1: Cut up chicken as desired.\nStep 2: Combine mayonnaise, ketchup and orange juice.\nStep 3: Pour over chicken in a shallow baking dish.\nStep 4: Bake at 350° for 1 hour (uncovered).\nStep 5: Extra sauce may be used over rice.",
+    "hypothesis": "title: orange chicken\nstep 1: combine orange juice, ketchup and mayonnaise.\nstep 2: marinate chicken in mixture for 2 hours.\nstep 3: broil chicken breasts until done.\nstep 4: baste with sauce and broil 5 minutes."
+  },
+  {
+    "ingredients": "beer, garlic, pepper, pork chop, salt, sauerkraut",
+    "reference": "Title: Pork Chops With Kraut\nStep 1: Brown the pork chops quickly in heavy skillet. Arrange a layer of kraut in the bottom of a buttered casserole, then add 3 of the chops. Sprinkle with salt, pepper and garlic.\nStep 2: Repeat again.\nStep 3: Pour over all the beer. Cover and bake at 325° for 2 hours.",
+    "hypothesis": "title: pork chops with sauerkraut\nstep 1: brown pork chops in a large skillet.\nstep 2: season with salt and pepper.\nstep 3: drain sauerkraut and add to skillet.\nstep 4: add beer and garlic.\nstep 5: cover and simmer for 1 hour."
+  },
+  {
+    "ingredients": "banana, cut up, buttermilk, ice, plain yogurt, strawberry, unsweetened",
+    "reference": "Title: Strawberry-Yogurt Drink\nStep 1: If frozen, thaw strawberries.\nStep 2: In blender, combine buttermilk, yogurt, banana, ice cubes and strawberries.\nStep 3: Cover and blend until smooth.\nStep 4: Makes 4 servings at 93 calories each.",
+    "hypothesis": "title: strawberry banana smoothie\nstep 1: place all ingredients in a blender and blend until smooth."
+  },
+  {
+    "ingredients": "appl, brown sugar, cinnamon, eggs, milk, pancake mix",
+    "reference": "Title: Johnny Appleseed Cakes\nStep 1: Grate apples (peeling, too).\nStep 2: Add remaining ingredients.\nStep 3: Mix and fry in a small amount of oil.",
+    "hypothesis": "title: apple pancakes\nstep 1: beat egg and milk.\nstep 2: add pancake mix and cinnamon.\nstep 3: add apples.\nstep 4: stir until well mixed.\nstep 5: pour batter onto heated griddle.\nstep 6: when bubbles appear on top, flip and cook until golden brown."
+  },
+  {
+    "ingredients": "bell pepper, carrot, catsup, eggroll wrapper, eggs, garlic powder, oil, oil for deep frying, onion, pork, raisin, salt, wrapper",
+    "reference": "Title: Meat Eggrolls(Lumpia)\nStep 1: Mix all ingredients, except oil and catsup.\nStep 2: Put small amount of filling inside each eggroll wrapper.\nStep 3: Roll up filled wrapper, but before you get to the end, brush wrapper end with beaten egg so that wrapper will stick together.\nStep 4: Deep fry until golden brown. Serve with catsup for dipping.\nStep 5: Makes approximately 30 rolls.",
+    "hypothesis": "title: fried eggroll\nstep 1: mix together pork, egg, catsup, onion, garlic powder, salt and raisins.\nstep 2: fill center of wrapper with 1/2 tablespoon of mixture.\nstep 3: fold wrapper in half and seal.\nstep 4: deep fry until golden brown.\nstep 5: drain on paper towels.\nstep 6: serve with catsup and sweet and sour sauce."
+  },
+  {
+    "ingredients": "beef, buttered bread crumb, chili powder, cooking oil, green peppers, onions, rice, salt, tomato",
+    "reference": "Title: Texas Hash\nStep 1: Heat oil in skillet.\nStep 2: Saute peppers and onions until tender. Add beef and cook until pink is gone, stirring to crumble meat. Add tomatoes, rice and seasonings.\nStep 3: Arrange in greased baking dish.\nStep 4: Top with bread crumbs.\nStep 5: Bake until brown at 350°.",
+    "hypothesis": "title: spanish rice\nstep 1: saute onions, green peppers and ground beef in oil until meat is brown.\nstep 2: add tomatoes, chili powder, salt and rice.\nstep 3: simmer about 10 minutes.\nstep 4: place in baking dish.\nstep 5: sprinkle with bread crumbs.\nstep 6: bake at 350° for about 30 minutes."
+  },
+  {
+    "ingredients": "baking powder, egg whit, egg yolk, graham cracker crumb, sugar, vanilla, walnut",
+    "reference": "Title: Graham Cracker Nut Torte\nStep 1: Beat egg yolks until lemon colored.\nStep 2: Add sugar gradually and beat well, about 10 minutes.\nStep 3: Add vanilla.\nStep 4: Add crumbs and baking powder.\nStep 5: Blend in nuts.\nStep 6: Fold in stiffly beaten egg whites.\nStep 7: Bake in 2 (9-inch) round cake pans, greased and floured, for 25 to 30 minutes at 375°.",
+    "hypothesis": "title: graham cracker pie\nstep 1: beat egg whites until stiff.\nstep 2: add sugar gradually.\nstep 3: add baking powder, vanilla and walnuts.\nstep 4: fold in egg whites.\nstep 5: pour into a 9-inch pie pan and bake at 350° for 25 minutes.\nstep 6: cool.\nstep 7: top with whipped cream."
+  },
+  {
+    "ingredients": "cottage cheese, lime, pecan, pineapple, sugar, whip",
+    "reference": "Title: Irvin'S Salad\nStep 1: Mix crushed pineapple (including juice), jello, sugar in saucepan; let cook for 1 minute or until hot. Pour mixture into large bowl and cool completely. Add cottage cheese, cool whip and pecans. Refrigerate over night.",
+    "hypothesis": "title: green salad\nstep 1: mix all ingredients together and refrigerate."
+  },
+  {
+    "ingredients": "all purpose flour, butter, flour, pecan, sugar, vanilla",
+    "reference": "Title: Sandies\nStep 1: Beat butter for 30 seconds; add granulated sugar and beat until fluffy.\nStep 2: Add vanilla and 2 teaspoons water, beat well.\nStep 3: Stir in flour and pecans.\nStep 4: Shape into 1-inch balls or 1 1/2 x 1/2-inch fingers.\nStep 5: Place on ungreased cookie sheet.\nStep 6: Bake in 325° oven for 20 minutes.\nStep 7: Cool completely.\nStep 8: Gently shake a few cookies at a time in a bag with powdered sugar.\nStep 9: Yields 36.",
+    "hypothesis": "title: mexican wedding cakes\nstep 1: mix butter, sugar and vanilla.\nstep 2: stir in flour.\nstep 3: add pecans.\nstep 4: roll into small balls.\nstep 5: bake on ungreased cookie sheet at 300° for 15 minutes.\nstep 6: roll in powdered sugar while hot."
+  },
+  {
+    "ingredients": "all purpose flour, baking powder, butter, cocoa, dry cocoa, eggs, flour, instant chocolate, instant chocolate drink mix, margarine, nuts, sugar, vanilla",
+    "reference": "Title: Microwave Brownies\nStep 1: Melt butter or margarine in bowl on HIGH for 1 minute or until melted.\nStep 2: Add sugar.\nStep 3: Cool.\nStep 4: Add eggs and vanilla.\nStep 5: Put flour, dry cocoa, instant drink mix and baking powder together and blend into sugar mixture.\nStep 6: Stir in nuts to suit your taste (1/2 cup or more). Pour in a 9-inch glass pie plate.\nStep 7: Cook on HIGH for 4 1/2 - 5 1/2 minutes, turning if needed.\nStep 8: Cool before cutting.\nStep 9: Makes 1 dozen.",
+    "hypothesis": "title: triple chocolate brownies\nstep 1: melt butter.\nstep 2: add cocoa and blend.\nstep 3: add sugar and vanilla.\nstep 4: blend in eggs, one at a time.\nstep 5: stir in flour, baking powder and nuts.\nstep 6: bake in a greased 8 x 8-inch pan at 350° for 30 to 35 minutes.\nstep 7: cool and frost."
+  },
+  {
+    "ingredients": "brown, butter, cheese, corn flak, crackers, cream soup, hash brown, onion, pepper, sour cream",
+    "reference": "Title: California Potato Casserole\nStep 1: Combine all ingredients and top with crushed topping.\nStep 2: Bake in a 350° oven for 45 minutes to 1 hour.\nStep 3: Put in a 9 x 13-inch pan. Good.",
+    "hypothesis": "title: hash brown casserole\nstep 1: mix all ingredients except corn flakes and butter.\nstep 2: pour into a 9 x 13-inch pan.\nstep 3: sprinkle corn flakes on top.\nstep 4: drizzle melted butter over all.\nstep 5: bake at 350° for 1 hour."
+  },
+  {
+    "ingredients": "caramel, milk, popcorn, popped popcorn",
+    "reference": "Title: Caramel Corn\nStep 1: Combine caramels and milk in top of a double boiler.\nStep 2: Heat over boiling water until smooth and creamy.\nStep 3: Stir occasionally; remove from heat.\nStep 4: Drizzle over popcorn.",
+    "hypothesis": "title: caramel popcorn\nstep 1: heat caramel and milk in a saucepan over medium heat until smooth. remove from heat and stir in popcorn.\nstep 2: pour caramel over popcorn in a large bowl and stir until well coated."
+  },
+  {
+    "ingredients": "eggs, milk, salt, sugar, vanilla",
+    "reference": "Title: Ice Cream\nStep 1: Beat together and let freeze until soft.\nStep 2: Beat again.\nStep 3: Eat or freeze.",
+    "hypothesis": "title: homemade ice cream\nstep 1: beat eggs.\nstep 2: add sugar, salt and vanilla.\nstep 3: mix well.\nstep 4: add milk.\nstep 5: pour into freezer can.\nstep 6: finish filling with milk.\nstep 7: freeze."
+  },
+  {
+    "ingredients": "baking powder, brown sugar, butter, chocolate chip, eggs, karo syrup, m&m, margarine, oat, peanut butter, quaker oat, sugar, syrup, vanilla",
+    "reference": "Title: Monster Cookies\nStep 1: Cream the first 3 ingredients, then gradually beat in eggs. Add Karo syrup and vanilla, mixing well. Add peanut butter, mixing well with beater. In separate bowl, blend oats and baking soda together. (Put oats in bowl first, baking soda will stick to bottom of bowl.) Add this mixture gradually to peanut butter mixture, mixing well (with spoon, not beater). Add chocolate chips and M&M's, blending them throughout dough. Drop by heaping spoonfuls onto ungreased cookie sheet. Press several M&M's onto tops of each cookie. Bake 10 to 12 minutes. Cool on cookie sheet 5 to 10 minutes. Move to paper towels on table or counter.",
+    "hypothesis": "title: monster bars\nstep 1: combine flour, oats, baking powder and brown sugar.\nstep 2: cut in butter until mixture resembles coarse crumbs.\nstep 3: press firmly into 13 x 9-inch pan.\nstep 4: bake at 350° for 15 minutes.\nstep 5: combine remaining ingredients.\nstep 6: pour over hot crust.\nstep 7: bake for 20 minutes.\nstep 8: cool; cut into bars."
+  },
+  {
+    "ingredients": "bell pepper, block parkay butter, butter, garlic, shrimp, stalk celery, white onion",
+    "reference": "Title: Shrimp Etouffee\nStep 1: Melt butter.\nStep 2: Add veggies.\nStep 3: Turn on low heat.\nStep 4: Throw in shrimp; cover with tight lid.\nStep 5: Cook for 45 minutes.\nStep 6: Do not add water to this recipe.\nStep 7: Never freeze it.\nStep 8: Serve over cooked rice.",
+    "hypothesis": "title: shrimp etouffee\nstep 1: chop bell pepper, onion and celery; saute in butter.\nstep 2: add shrimp; cook until pink.\nstep 3: add garlic and cook until shrimp are pink.\nstep 4: serve over rice."
+  },
+  {
+    "ingredients": "any red flavor, boiling water, ice, strawberry, sugar, sugar free strawberry flavor gelatin, topping, whip topping",
+    "reference": "Title: Strawberry Mousse\nStep 1: Pour boiling water into blender.\nStep 2: Add gelatin and blend at low speed until completely dissolved, about 3 seconds.\nStep 3: Add ice cubes and stir until ice is partially melted.\nStep 4: Add strawberries, reserving 6 halves for garnish.\nStep 5: If desired, add the whipped topping.\nStep 6: Blend at high speed 30 seconds or until smooth.\nStep 7: Pour into individual glasses.\nStep 8: Chill until set, at least 30 minutes. Garnish with strawberries.",
+    "hypothesis": "title: strawberry-lemonade pie\nstep 1: add boiling water to gelatin mix in large bowl; stir 2 min.\nstep 2: until completely dissolved.\nstep 3: add enough ice to cold water to measure 1-1/2 cups.\nstep 4: add to gelatin; stir until slightly thickened.\nstep 5: remove any unmelted ice.\nstep 6: add whipped topping; stir with wire whisk until well blended.\nstep 7: refrigerate 15 min.\nstep 8: or until mixture is slightly thickened.\nstep 9: stir in whipped topping.\nstep 10: spoon into 9-inch pie plate sprayed with cooking spray.\nstep 11: refrigerate 4 hours or until firm.\nstep 12: top with strawberries just before serving."
+  },
+  {
+    "ingredients": "boneless skinless chicken breast half, bread crumb, butter, chicken breast, dijon mustard, dry bread crumb, honey, margarine",
+    "reference": "Title: Honey-Mustard Chicken\nStep 1: Flatten Chicken to 1/4 inch thickness.\nStep 2: In a shallow bowl, combine Bread Crumbs and 1 teaspoon Mustard.\nStep 3: In another shallow bowl, combine Honey and remaining Mustard.\nStep 4: Dip Chicken in honey-mustard mixture, then coat with Crumbs.\nStep 5: In non-stick skillet, over medium heat, cook Chicken in Butter on both sides until juices run clear, about 8 minutes.",
+    "hypothesis": "title: honey dijon chicken\nstep 1: heat oven to 350 degrees.\nstep 2: in a shallow bowl, combine bread crumbs and mustard.\nstep 3: dip chicken in melted butter, then in bread crumb mixture.\nstep 4: place in a greased 13x9 inch baking dish.\nstep 5: bake uncovered for 30 minutes or until chicken is no longer pink."
+  },
+  {
+    "ingredients": "butter, cream cheese, gummy worm, milk, oreo cookies, vanilla pudding, whip, xxxx sugar",
+    "reference": "Title: Dirt Cake\nStep 1: Mix\nStep 2: the\nStep 3: butter,\nStep 4: cream cheese and sugar together; mix well and set aside.\nStep 5: Combine pudding and milk and beat about 2 minutes. Add Cool Whip and mix with other ingredients.\nStep 6: Layer mixed ingredients and Oreos in a bowl that looks like a flower pot, making\nStep 7: sure\nStep 8: the Oreos make up the top layer.\nStep 9: Add gummy worms and\nStep 10: 2\nStep 11: to\nStep 12: 3\nStep 13: plastic\nStep 14: flowers.\nStep 15: Serve with plastic toy spade.",
+    "hypothesis": "title: dirt pudding\nstep 1: cream butter and cream cheese.\nstep 2: add pudding and milk.\nstep 3: mix well.\nstep 4: add cool whip.\nstep 5: layer cookies, pudding and cream cheese mixture.\nstep 6: repeat layers until all is used.\nstep 7: sprinkle with cookie crumbs."
+  },
+  {
+    "ingredients": "blueberry pie filling, confectioner sugar, cream cheese, graham cracker crumb, margarine, regular, regular size whip, sugar",
+    "reference": "Title: Blueberry Supreme\nStep 1: In bowl, combine graham cracker crumbs and sugar.\nStep 2: Melt margarine and add to mixture.\nStep 3: Press 2/3 crust mixture in a 9 x 13-inch baking dish.\nStep 4: Set aside.\nStep 5: In mixing bowl, beat Cool Whip and cream cheese together.\nStep 6: Add confectioners sugar and continue to beat until smooth.\nStep 7: Put cream cheese mixture on top of crust mixture.\nStep 8: Top with blueberry pie filling.\nStep 9: Sprinkle top with remaining crust mixture.\nStep 10: Refrigerate before serving.",
+    "hypothesis": "title: blueberry yum-yum\nstep 1: combine graham cracker crumbs, margarine and sugar.\nstep 2: press into a 9 x 13-inch pan.\nstep 3: bake at 350° for 8 minutes.\nstep 4: cool."
+  },
+  {
+    "ingredients": "bacon, cheddar cheese, noodles, seashell noodl, stewed tomato, tomato, tomato paste",
+    "reference": "Title: Mess\nStep 1: Cut bacon strips into 1/2-inch pieces. Fry until done and drain off grease. Add tomatoes, tomato paste and 1 cup water. Cook to a thick sauce.\nStep 2: Boil noodles according to directions. Drain.\nStep 3: Pour sauce over noodles. Top individual servings with generous sprinkling of grated Cheddar cheese.",
+    "hypothesis": "title: tomato-bacon noodle casserole\nstep 1: cook noodles.\nstep 2: drain.\nstep 3: cook bacon until crisp. drain and crumble.\nstep 4: cook tomatoes with juice, tomato paste and paste.\nstep 5: mix all ingredients together and bake at 350° for 45 minutes."
+  },
+  {
+    "ingredients": "butter, corn, eggs, flour, milk, salt, sugar",
+    "reference": "Title: Baked Corn\nStep 1: Beat eggs, then add sugar and salt.\nStep 2: Mix well with fork.\nStep 3: Mix 1/2 cup milk and add flour, then add to the ingredients.\nStep 4: Add rest of the milk.\nStep 5: Melt butter and add.\nStep 6: Add corn and mix well.\nStep 7: Bake for 1 hour at 350°; bake, covered.",
+    "hypothesis": "title: corn pudding\nstep 1: mix together.\nstep 2: bake at 350° for 1 hour."
+  },
+  {
+    "ingredients": "barbecue sauce, burrito wrap, cheese, chicken breast, chili powder, cream chicken soup, onion, taco sauce, wrap",
+    "reference": "Title: Chicken Burritos\nStep 1: Boil or fry chicken and dice it up.\nStep 2: Dice onion.\nStep 3: Spread thin layer of chicken, onion, cheese, barbecue sauce and taco sauce on burrito wraps.\nStep 4: Add dash of chili powder.\nStep 5: Place burritos in baking pan and spread cream of chicken soup over burritos.\nStep 6: Sprinkle cheese and chili powder on top.\nStep 7: Bake 20 minutes or until cheese is melted thoroughly.",
+    "hypothesis": "title: chicken enchiladas\nstep 1: cook chicken and onion in skillet until done.\nstep 2: drain.\nstep 3: add taco sauce, soup, barbecue sauce and chili powder.\nstep 4: mix well.\nstep 5: put 1/4 cup of mixture on each wrap.\nstep 6: roll and place in 9 x 13-inch pan.\nstep 7: top with cheese.\nstep 8: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "almond, bell pepper, buttered bread crumb, celery, chicken breast, cream chicken soup, milk, noodles, pimento, salt, slivered almond",
+    "reference": "Title: Chicken Casserole\nStep 1: Cook noodles until tender, drain and place in 9 x 13-inch dish.\nStep 2: Mix soup, milk and salt; heat.\nStep 3: Add cheese and stir until melted.\nStep 4: Add remaining ingredients, except 1/3 cup almonds and bread crumbs.\nStep 5: Pour over noodles and then top with crumbs and nuts.\nStep 6: Bake at 350°, covered, for 10 minutes.\nStep 7: Then remove cover and bake for 20 minutes more.",
+    "hypothesis": "title: chicken-noodle casserole\nstep 1: combine all ingredients except bread crumbs.\nstep 2: pour into a greased 2-quart casserole.\nstep 3: top with bread crumbs.\nstep 4: bake at 350° for 25 minutes."
+  },
+  {
+    "ingredients": "milk, strawberry, sugar, tin evaporated milk",
+    "reference": "Title: Strawberry Mousse\nStep 1: Put all ingredients into a liquidiser and switch on!\nStep 2: When light and frothy, chill in fridge until ready to eat.",
+    "hypothesis": "title: strawberry ice cream\nstep 1: blend milk and sugar in blender.\nstep 2: add strawberries and blend.\nstep 3: pour into freezer container and freeze."
+  },
+  {
+    "ingredients": "american cheese, chicken breasts, boned, margarine, mushroom soup, with water, pepperidge farm stuffing mix, stuffing mix",
+    "reference": "Title: Chicken Casserole\nStep 1: Layer ingredients in casserole in order given.\nStep 2: Bake, uncovered, at 350° for 1 hour and 15 minutes.\nStep 3: Serve over pasta shells.",
+    "hypothesis": "title: chicken and stuffing casserole\nstep 1: cook chicken in water until tender.\nstep 2: remove from water and cut into bite size pieces.\nstep 3: cook stuffing mix according to package directions.\nstep 4: place in a greased casserole dish.\nstep 5: put chicken on top of stuffing.\nstep 6: mix soup and margarine together and pour over chicken.\nstep 7: top with cheese.\nstep 8: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "cheese, garlic, garlic salt, meat, ragu spaghetti sauce, spaghetti sauce, white bread",
+    "reference": "Title: Pizza Toast\nStep 1: Spread about 1 tablespoon sauce on toasted bread.\nStep 2: Sprinkle a little garlic salt, then top with slice of cheese.\nStep 3: Ready to eat cold or heat in microwave for 20 seconds.",
+    "hypothesis": "title: pizza burgers\nstep 1: brown meat.\nstep 2: drain.\nstep 3: add ragu sauce and garlic salt.\nstep 4: simmer.\nstep 5: in a large bowl, add bread and hamburger mixture.\nstep 6: mix.\nstep 7: put into large baking pan.\nstep 8: top with cheese.\nstep 9: bake at 350° for 15 minutes."
+  },
+  {
+    "ingredients": "chili powder, franks, onion, red sauce, salt, sugar, white vinegar",
+    "reference": "Title: Red Hot Dogs\nStep 1: Slice onions in a large saucepan.\nStep 2: Stir together vinegar, hot sauce, sugar, chili powder and salt.\nStep 3: Add franks and onions; bring to a boil.\nStep 4: Boil 3 minutes.\nStep 5: Cover and refrigerate 2 to 3 days before serving.\nStep 6: Makes about 64.",
+    "hypothesis": "title: barbecued franks\nstep 1: combine all ingredients except franks.\nstep 2: bring to a boil.\nstep 3: add franks and simmer for 10 minutes.\nstep 4: serve with hot dogs."
+  },
+  {
+    "ingredients": "butterfinger, butterfinger candy bar, chocolate cake, condensed milk, cream coconut, german chocolate cake mix, whip",
+    "reference": "Title: Special Chocolate Cake\nStep 1: Mix German chocolate cake mix as directed on box and bake in 9-inch x 13-inch pan.\nStep 2: Cool completely.\nStep 3: Punch holes in top of cake.\nStep 4: Pour 1 can condensed milk over cake.\nStep 5: Pour 1 can cream of coconut over cake.\nStep 6: Ice with small Cool Whip.\nStep 7: Crush Butterfingers and sprinkle on top.\nStep 8: Refrigerate.",
+    "hypothesis": "title: butterfinger cake\nstep 1: bake cake as directed on box.\nstep 2: while hot, poke holes in cake with a fork.\nstep 3: pour condensed milk over cake.\nstep 4: let cool.\nstep 5: add cool whip and coconut.\nstep 6: spread on top of cake.\nstep 7: refrigerate."
+  },
+  {
+    "ingredients": "almond flavoring, cornstarch, eggs, lemon flavoring, milk, nutmeg, raisin, rice, sugar, vanilla",
+    "reference": "Title: Creamy Rice Pudding\nStep 1: Preheat oven to 325°.\nStep 2: Beat eggs; add sugar and beat well. Add milk, cornstarch and flavorings.\nStep 3: Mix well.\nStep 4: Stir in rice, raisins and nutmeg to taste.\nStep 5: Pour in 2-quart baking dish. Sprinkle with additional nutmeg.\nStep 6: Set in pan of hot water.\nStep 7: Bake for 2 hours, until knife inserted comes out clean.\nStep 8: Stir several times while baking to prevent raisins and rice from settling to bottom.",
+    "hypothesis": "title: rice pudding\nstep 1: cook rice in milk until it boils.\nstep 2: add margarine, sugar, eggs, flavoring and raisins.\nstep 3: mix well.\nstep 4: cook 5 minutes.\nstep 5: add rice and stir.\nstep 6: put in a 9 x 13-inch pan.\nstep 7: sprinkle with nutmeg.\nstep 8: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "buttermilk, cinnamon, dat, eggs, flour, nuts, oil, pumpkin, self rising flour, soda, sugar, vanilla",
+    "reference": "Title: Pumpkin Cookies\nStep 1: Combine ingredients and drop by teaspoonfuls on cookie sheet. Bake at 375° for 10 to 12 minutes.",
+    "hypothesis": "title: pumpkin bread\nstep 1: mix dry ingredients.\nstep 2: add oil, eggs, pumpkin and buttermilk.\nstep 3: mix well.\nstep 4: add nuts and dates.\nstep 5: pour into 2 greased and floured loaf pans.\nstep 6: bake at 350° for 1 hour."
+  },
+  {
+    "ingredients": "baby gouda cheese, bread, corned beef, gouda cheese, horseradish, pumpernickel bread, rye, sour cream, sweet pickle relish",
+    "reference": "Title: Gouda Cheese Spread\nStep 1: Mix all ingredients together.\nStep 2: Return to the shell of baby Gouda.\nStep 3: Serve on bread.",
+    "hypothesis": "title: corned beef and gouda melt\nstep 1: in a small bowl, combine the sour cream, horseradish, and relish. spread 1/2 cup of the sour cream mixture on each slice of bread. top with a slice of gouda cheese and a slice of corned beef.\nstep 2: spread the remaining sour cream mixture on top of the corned beef. place the rye on a plate and microwave on high for 20 seconds or until the cheese is melted."
+  },
+  {
+    "ingredients": "butter, eggs, flour, milk, salt, self rising flour, sugar, water",
+    "reference": "Title: Eyam Tea Room'S Scones\nStep 1: If not self-rising flour, add 2 teaspoons baking powder.",
+    "hypothesis": "title: easy popovers\nstep 1: preheat oven to 450°.\nstep 2: combine flour, sugar and salt in a large bowl.\nstep 3: add eggs, milk and water.\nstep 4: beat with a wooden spoon until smooth.\nstep 5: grease a 12-cup muffin pan with butter.\nstep 6: fill muffin cups 3/4 full.\nstep 7: bake at 450° for 15 minutes.\nstep 8: reduce heat to 350° and bake 20 minutes longer or until golden brown.\nstep 9: remove from pan.\nstep 10: serve immediately.\nstep 11: makes 12 popovers."
+  },
+  {
+    "ingredients": "butterscotch morsel, cashew, nestle butterscotch morsel, nestle semi sweet chocolate morsel, noodles, semi sweet chocolate morsel",
+    "reference": "Title: Spider Christmas Cookies\nStep 1: Melt chocolate and butterscotch morsels in a double boiler until liquid. Gently fold in noodles and cashews.\nStep 2: Drop by the spoonful onto cookie sheet lined with waxed paper.\nStep 3: Refrigerate until solid.\nStep 4: Store in airtight container in refrigerator.",
+    "hypothesis": "title: chocolate haystacks\nstep 1: melt morsels in double boiler over hot water.\nstep 2: remove from heat and stir in noodles and cashews.\nstep 3: drop by teaspoon onto waxed paper.\nstep 4: let cool."
+  },
+  {
+    "ingredients": "best food mayonnaise, bread crumb, broccoli, chicken breast, cream chicken soup, curry powder, lemon juice, mayonnaise, sharp cheddar",
+    "reference": "Title: Chicken Casserole\nStep 1: Cook broccoli, drain.\nStep 2: Line in bottom of 13 x 9-inch pan. Place chicken on top of broccoli.\nStep 3: Combine mayonnaise, lemon juice and curry; mix well.\nStep 4: Pour over chicken.\nStep 5: Sprinkle on cheese and crumbs.\nStep 6: Bake at 350° for 25 to 30 minutes.",
+    "hypothesis": "title: chicken divan\nstep 1: cook broccoli until tender; drain.\nstep 2: place in bottom of greased 13 x 9-inch baking dish.\nstep 3: combine soup, mayonnaise, lemon juice and curry powder.\nstep 4: pour over broccoli.\nstep 5: sprinkle with cheese.\nstep 6: combine bread crumbs and butter.\nstep 7: sprinkle over cheese.\nstep 8: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "ham, melba white bread, parsley pimiento glaze, white bread",
+    "reference": "Title: Glazed Ham Hors D'Oeuvres\nStep 1: Divide ham evenly among toast slices.\nStep 2: Put on cake rack with jelly-roll pan underneath.\nStep 3: Spoon about 2 tablespoons glaze over each sandwich (glaze that runs into pan can be spooned up, melted and reused).\nStep 4: Chill until glaze is set, then, with kitchen shears dipped in water, cut each sandwich in 8 triangles.\nStep 5: Make 64 triangles, about 12 calories each.",
+    "hypothesis": "title: hot ham sandwiches\nstep 1: cut bread into 4 triangles.\nstep 2: spread each triangle with 1 teaspoon of the ham.\nstep 3: sprinkle with parsley.\nstep 4: roll up each triangle, jelly roll fashion.\nstep 5: place on ungreased cookie sheet.\nstep 6: bake at 350° for 15 minutes.\nstep 7: yields 4 dozen."
+  },
+  {
+    "ingredients": "cake, cream, peach half, whip",
+    "reference": "Title: Raw Eggs On Toast\nStep 1: On a slice of pound cake, put a scoop of whipped cream.\nStep 2: In center of whipped cream, put peach half.",
+    "hypothesis": "title: peach delight\nstep 1: slice pound cake into 1/2-inch slices.\nstep 2: place half of peach slices in bottom of dish.\nstep 3: spread with half of cool whip.\nstep 4: repeat layers.\nstep 5: top with cool whip.\nstep 6: chill."
+  },
+  {
+    "ingredients": "baking soda, brown sugar, corn, karo syrup, margarine, popped corn, salt, syrup, vanilla",
+    "reference": "Title: Caramel Corn\nStep 1: Heat the margarine, sugar and syrup in a heavy saucepan over medium heat.\nStep 2: Boil for 5 minutes. Remove from heat.\nStep 3: Add salt, vanilla and baking soda.\nStep 4: Pour over corn and bake at 250° for 1 hour.\nStep 5: Stir every 15 minutes.",
+    "hypothesis": "title: caramel popcorn\nstep 1: pop corn and set aside.\nstep 2: bring brown sugar, margarine, karo and salt to a boil.\nstep 3: boil for 5 minutes.\nstep 4: remove from heat and add baking soda and vanilla.\nstep 5: pour over popcorn and mix well.\nstep 6: place in large pan and bake at 250° for 1 hour, stirring every 15 minutes.\nstep 7: remove from oven and break apart."
+  },
+  {
+    "ingredients": "appl, celery, cherry, cranberry, marshmallow, miniature marshmallow, strawberry, sugar, water",
+    "reference": "Title: Cranberry Sauce\nStep 1: Cook cranberries, sugar and water until done.\nStep 2: While hot, add rest of ingredients, stirring now and then until cool.\nStep 3: Let set overnight.\nStep 4: Real good.",
+    "hypothesis": "title: cranberry salad\nstep 1: mix cranberries, apples, celery and sugar.\nstep 2: let stand overnight.\nstep 3: dissolve jello in hot water.\nstep 4: add cranberry mixture and marshmallows.\nstep 5: let set."
+  },
+  {
+    "ingredients": "mayonnaise, milk, onion, soy sauce, vinegar",
+    "reference": "Title: Vegetable Dip\nStep 1: Mix all ingredients well and chill.",
+    "hypothesis": "title: chinese dressing\nstep 1: mix and serve."
+  },
+  {
+    "ingredients": "cornstarch, cream cheese, eggs, milk, pastry shell, pecan, pineapple, pineapple in heavy syrup, salt, sugar, unbaked pastry shell, vanilla",
+    "reference": "Title: Pineapple \"Philly\" Pie\nStep 1: In saucepan, combine sugar and cornstarch. Gradually add pineapple. Cook, stirring constantly, until clear and thickened. Cool. Spread onto bottom of pastry shell.",
+    "hypothesis": "title: pineapple cream cheese pie\nstep 1: combine first 6 ingredients in a large saucepan.\nstep 2: cook over medium heat, stirring constantly, until mixture comes to a boil.\nstep 3: boil 1 minute.\nstep 4: cool completely.\nstep 5: pour into pastry shell.\nstep 6: combine next 3 ingredients in a small bowl.\nstep 7: beat until smooth.\nstep 8: stir in pecans.\nstep 9: pour over cream cheese layer.\nstep 10: bake at 350° for 35 to 40 minutes or until set.\nstep 11: chill at least 3 hours."
+  },
+  {
+    "ingredients": "garlic salt, mushrooms, mushroom soup, onions, cut in inch into, rice, round steak, vegetable oil, venison",
+    "reference": "Title: Simply Elegant Steak And Rice\nStep 1: Cut steak or venison into thin strips.\nStep 2: Brown meat in a large skillet in oil, using high heat.\nStep 3: Add onions and saute until tender and crisp.\nStep 4: Blend in soup and liquid from mushrooms.\nStep 5: Add garlic salt and pour over steak.\nStep 6: Reduce heat.\nStep 7: Cover and simmer for 1 hour or until steak is tender or cover and bake at 350° until tender.\nStep 8: Serve over rice.\nStep 9: Makes 6 servings.",
+    "hypothesis": "title: venison and rice casserole\nstep 1: brown meat in oil; add onions and cook until tender.\nstep 2: add mushrooms and soup; mix well.\nstep 3: add rice; mix well.\nstep 4: cover and bake at 350° for 1 hour.\nstep 5: serves 6."
+  },
+  {
+    "ingredients": "black walnuts, chocolate chip, egg whit, salt, sugar, vanilla",
+    "reference": "Title: Stay Up All Night Cookies\nStep 1: Preheat oven to 375°.\nStep 2: Beat egg whites until stiff.\nStep 3: Add sugar, vanilla and salt.\nStep 4: By hand mix in chocolate chips and black walnuts as desired.\nStep 5: Drop by spoonfuls on cookie sheet sprayed with Pam.\nStep 6: Turn off oven and put cookies in for 6 hours or overnight.",
+    "hypothesis": "title: forgotten cookies\nstep 1: preheat oven to 350°.\nstep 2: beat egg whites until foamy.\nstep 3: add salt and vanilla.\nstep 4: beat until soft peaks form.\nstep 5: add sugar and beat until stiff.\nstep 6: fold in nuts and chocolate chips.\nstep 7: drop by teaspoon on ungreased cookie sheet.\nstep 8: place in oven and turn off heat.\nstep 9: leave overnight."
+  },
+  {
+    "ingredients": "basil, black bean, carrots, celery, celery ribs, chicken broth, chili powder, cumin, garlic, onion, oregano, tabasco, tomato",
+    "reference": "Title: Black Bean Soup(Slow Cooker)\nStep 1: Combine all of the ingredients together in a slow cooker. Cover and cook on low for 9 to 10 hours.",
+    "hypothesis": "title: black bean soup\nstep 1: place all ingredients in a large soup pot and bring to a boil.\nstep 2: reduce heat and simmer for 30 minutes.\nstep 3: serve with shredded cheddar cheese."
+  },
+  {
+    "ingredients": "bacon, cauliflower, head cauliflower, head lettuce, onion",
+    "reference": "Title: Cauliflower Delight\nStep 1: Cut up lettuce.\nStep 2: Chop cauliflower and onion.\nStep 3: Fry bacon until crisp.\nStep 4: Crumble into bits.\nStep 5: Sprinkle over lettuce mixture.",
+    "hypothesis": "title: overnight salad\nstep 1: cut up lettuce, cauliflower and onion.\nstep 2: put in a large bowl.\nstep 3: add bacon and onion.\nstep 4: mix well.\nstep 5: spread over top of lettuce.\nstep 6: put in refrigerator overnight.\nstep 7: mix and serve."
+  },
+  {
+    "ingredients": "chicken breast, cornbread stuffing, cream chicken soup, margarine, mushroom soup",
+    "reference": "Title: Chicken Casserole\nStep 1: Simmer chicken breasts until tender. Save chicken broth.\nStep 2: Cool chicken and cut into large pieces.\nStep 3: Mix cornbread stuffing in melted margarine.\nStep 4: Put half of the stuffing into a large baking dish. Add chicken, then mushroom and chicken soups mixed with 1 cup broth and 1 cup water.\nStep 5: Pour over mixture and add remainder of crumbs on top. Bake at 350° until hot.",
+    "hypothesis": "title: chicken and dressing casserole\nstep 1: boil chicken until tender.\nstep 2: cool and remove from bone.\nstep 3: reserve 2 cups of broth.\nstep 4: cook and drain chicken.\nstep 5: cut into bite size pieces.\nstep 6: grease large casserole dish.\nstep 7: put in chicken.\nstep 8: cover with chicken.\nstep 9: mix soup and mushrooms.\nstep 10: pour over chicken.\nstep 11: melt margarine and mix with stuffing.\nstep 12: spread over chicken.\nstep 13: bake at 350° for 45 minutes."
+  },
+  {
+    "ingredients": "chocolate, flour, shortening, soda, sour milk, sq chocolate, sugar, vanilla, whipping cream",
+    "reference": "Title: Surprise Cakes\nStep 1: Sift\nStep 2: the\nStep 3: flour and sugar several times (4).\nStep 4: Then mix rest of ingredients together with flour.\nStep 5: Beat until smooth. Using cupcake\nStep 6: wrappers, fill cupcake pans 3/4 full.\nStep 7: Bake at 350°\nStep 8: for 20 minutes.\nStep 9: Cut hole in top of cupcake.\nStep 10: Clean the centers\nStep 11: out. Fill\nStep 12: with whipping\nStep 13: cream\nStep 14: and replace cover. Frost with chocolate frosting.",
+    "hypothesis": "title: sour milk chocolate cake\nstep 1: cream shortening and sugar; add flour and soda.\nstep 2: add sour milk and vanilla.\nstep 3: fold in whipped cream.\nstep 4: bake in 2 (9-inch) pans or one 13 x 9-inch pan at 350° for 30 to 35 minutes."
+  },
+  {
+    "ingredients": "butter, chicken breast, cream chicken soup, cream mushroom soup, margarine, stuffing mix",
+    "reference": "Title: Chicken Casserole\nStep 1: Cook chicken.\nStep 2: Remove from broth.\nStep 3: Strain broth, reserving 2 2/3 cups.\nStep 4: Bone chicken and cut in small pieces.\nStep 5: Combine chicken soup with 1/2 of broth; mix well.\nStep 6: Combine mushroom soup with remaining broth and mix well.\nStep 7: Combine stuffing mix and butter. Reserve 1/4 for garnish.\nStep 8: Spoon 1/2 of remaining stuffing into greased 13 x 9-inch pan.\nStep 9: Now layer chicken, soup mixture, chicken, mushroom soup mixture and remaining stuffing mixture. Cover and refrigerate overnight.\nStep 10: Remove casserole from refrigerator 15 minutes before baking.\nStep 11: Uncover and bake at 350° for 30 to 45 minutes.\nStep 12: Serves 8 to 10.",
+    "hypothesis": "title: chicken and dressing casserole\nstep 1: cook chicken; remove bones and cut into bite size pieces.\nstep 2: mix soup and sour cream together.\nstep 3: put chicken in casserole dish and pour soup mixture over it.\nstep 4: sprinkle stuffing mix over soup mixture.\nstep 5: melt butter and pour over stuffing mix.\nstep 6: bake at 350° for 30 minutes."
+  },
+  {
+    "ingredients": "cayenne pepper, chicken breast, cut into part, garlic cloves, ginger, ginger ginger, salt, teriyaki sauce",
+    "reference": "Title: Jerk Chicken\nStep 1: Preheat oven to 400°.\nStep 2: In a large bowl, combine teriyaki sauce, garlic, ginger, pepper and salt.\nStep 3: Add chicken; toss to mix well.\nStep 4: Lift chicken out of sauce and place in oiled baking dish, skin side down.\nStep 5: Bake for 45 minutes, turning once and basting frequently with remaining sauce until brown and crispy.\nStep 6: Can also be cooked on the grill.",
+    "hypothesis": "title: teriyaki chicken\nstep 1: mix teriyaki sauce, ginger, garlic, cayenne pepper, and salt together in a bowl.\nstep 2: place chicken in a large resealable plastic bag and pour in the teriyaki sauce mixture. seal the bag and turn to coat the chicken. marinate in the refrigerator for at least 1 hour.\nstep 3: preheat an outdoor grill for medium-high heat and lightly oil the grate.\nstep 4: remove chicken from the marinade and discard the marinade.\nstep 5: cook chicken in the preheated grill until no longer pink in the center and the juices run clear, about 30 minutes. an instant-read thermometer inserted into the center should read at least 165 degrees f (74 degrees c)."
+  },
+  {
+    "ingredients": "chicken breast, lipton soup mix, mushroom soup, raw rice, rice, water",
+    "reference": "Title: Chicken Casserole\nStep 1: Mix rice, onion soup mix, mushroom soup and water in dish. Place chicken on top of rice mixture.\nStep 2: Bake for 1 hour at 350°.",
+    "hypothesis": "title: chicken and rice\nstep 1: mix together and bake in 9 x 13-inch pan for 1 hour at 350°."
+  },
+  {
+    "ingredients": "almond, cauliflower, cream shrimp soup, parsley, sour cream",
+    "reference": "Title: Shrimply Delicious Cauliflower\nStep 1: Cook cauliflower in salted water until tender.\nStep 2: Drain.\nStep 3: Heat soup; stir in sour cream.\nStep 4: Do not boil.\nStep 5: Season to taste.\nStep 6: Place flowerets in dish; pour on sauce.\nStep 7: Sprinkle with almonds and parsley.\nStep 8: Serves 6 to 8.",
+    "hypothesis": "title: cauliflower with shrimp sauce\nstep 1: cook cauliflower until tender.\nstep 2: drain.\nstep 3: combine soup, sour cream and parsley.\nstep 4: mix well.\nstep 5: add cauliflower and shrimp.\nstep 6: heat through.\nstep 7: serve with rice."
+  },
+  {
+    "ingredients": "american cheese, beef bouillon, eggs, flour, green pepper, lean beef, lettuce, onion, pastry shell, processed american cheese, tomato, tomato sauce, unbaked pastry shell",
+    "reference": "Title: Cheeseburger Pie\nStep 1: Preheat oven to 425°.\nStep 2: Bake pie shell 8 minutes.\nStep 3: Remove from oven.\nStep 4: Reduce oven to 350°.\nStep 5: Cut 6 slices cheese into pieces.\nStep 6: In large skillet, brown meat; pour off fat.\nStep 7: Add tomato sauce, pepper, onion and bouillon.\nStep 8: Cook and stir until bouillon dissolves.\nStep 9: Remove from heat; stir in eggs, flour and cheese pieces.\nStep 10: Turn into prepared shell.\nStep 11: Bake 20 to 25 minutes. Arrange remaining cheese slices on top.\nStep 12: Return to oven for 3 minutes.\nStep 13: Garnish with tomato and lettuce, if desired.",
+    "hypothesis": "title: cheeseburger pie\nstep 1: heat oven to 425°.\nstep 2: cook and stir beef, onion and green pepper in large skillet until beef is brown and vegetables are tender; drain.\nstep 3: stir in tomato sauce, bouillon and flour.\nstep 4: heat to boiling, stirring constantly.\nstep 5: boil and stir 1 minute.\nstep 6: remove from heat.\nstep 7: stir in cheese until melted.\nstep 8: stir in eggs.\nstep 9: pour into pastry shell.\nstep 10: bake 25 minutes.\nstep 11: garnish with lettuce and tomato.\nstep 12: makes 6 servings."
+  },
+  {
+    "ingredients": "banana pepper, bell pepper, cheese, cut up cajun style smoked sausage, doz egg, eggs, light parkay, mexican cheese, onion, sausage, tomato, your choice",
+    "reference": "Title: Ron'S \"Spicy\" Scrambled Eggs\nStep 1: When stir-fry mixture is ready, stir in eggs (already beaten). Need to stir constantly.\nStep 2: When eggs are done, add Velveeta cheese.\nStep 3: Let cheese melt and then serve.",
+    "hypothesis": "title: sausage and pepper frittata\nstep 1: cut sausage into 1/2-inch pieces.\nstep 2: saute onion and pepper in small amount of margarine until soft.\nstep 3: add tomatoes and sausage; cook over medium heat until done.\nstep 4: beat eggs and add to mixture.\nstep 5: cook until eggs are set.\nstep 6: sprinkle with cheese and cover.\nstep 7: let set until cheese melts.\nstep 8: serves 4."
+  },
+  {
+    "ingredients": "baking soda, banana, eggs, flour, salt, shortening, sugar, walnut",
+    "reference": "Title: Banana-Nut Bread\nStep 1: Beat sugar, shortening and eggs.\nStep 2: Sift together and stir in dry ingredients.",
+    "hypothesis": "title: banana bread\nstep 1: cream shortening and sugar.\nstep 2: add eggs and mashed bananas.\nstep 3: sift dry ingredients together and add to mixture.\nstep 4: add nuts.\nstep 5: bake in loaf pan at 350° for 1 hour."
+  },
+  {
+    "ingredients": "broccoli, butter, cheese, cracker, flour, milk, ritz crackers, crumbled",
+    "reference": "Title: Broccoli Bake\nStep 1: Melt butter, add crumbs. Put in bottom of 9 x 12-inch dish (save 1/2 cup for topping).\nStep 2: Melt 4 tablespoons butter in skillet or pan, add flour and mix slowly, add milk, when thickened, add cheese.\nStep 3: Cook broccoli and drain.\nStep 4: Place in baking dish on top of crumbs.\nStep 5: Pour cheese mixture over top with leftover crumbs.\nStep 6: Bake at 450° for 12 to 15 minutes.\nStep 7: Sauce is also good on potatoes, asparagus and cauliflower.",
+    "hypothesis": "title: broccoli casserole\nstep 1: melt butter; stir in flour and milk.\nstep 2: cook until thick.\nstep 3: add cheese.\nstep 4: cook broccoli until tender.\nstep 5: add to sauce.\nstep 6: pour into greased casserole dish.\nstep 7: top with crushed ritz crackers.\nstep 8: bake at 350° for 30 minutes."
   }
 ]

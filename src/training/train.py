@@ -24,7 +24,8 @@ import sacrebleu, random
 # -------------------------
 # --- Checkpoint helpers ---
 def save_checkpoint(path: Path, *, model, optimizer=None, scaler=None,
-                    epoch: int = 0, step: int = 0, cfg: dict | None = None):
+                    epoch: int = 0, step: int = 0, optimizer_step: int = 0,
+                    cfg: dict | None = None):
     payload = {
         "model": model.state_dict(),
         "epoch": epoch,
@@ -259,10 +260,12 @@ def train(cfg):
     collate = lambda b: pad_collate(b, tok.pad_id)
     train_dl = DataLoader(train_ds, batch_size=cfg["data"]["train_batch_size"],
                           shuffle=True, num_workers=cfg["data"]["num_workers"],
-                          collate_fn=collate, pin_memory=torch.cuda.is_available())
+                          collate_fn=collate, pin_memory=torch.cuda.is_available(),
+                          persistent_workers=True, prefetch_factor=4)
     val_dl   = DataLoader(val_ds, batch_size=cfg["data"]["val_batch_size"],
                           shuffle=False, num_workers=cfg["data"]["num_workers"],
-                          collate_fn=collate, pin_memory=torch.cuda.is_available())
+                          collate_fn=collate, pin_memory=torch.cuda.is_available(),
+                          persistent_workers=True, prefetch_factor=4)
     print("train_ds.cached:", getattr(train_ds, "cached", False))
     print("val_ds.cached:", getattr(val_ds, "cached", False))
 
@@ -292,7 +295,7 @@ def train(cfg):
         betas=tuple(cfg["optim"]["betas"]),
         weight_decay=cfg["optim"]["weight_decay"],
     )
-    scaler = GradScaler(device="cuda", enabled=cfg["optim"]["mixed_precision"])
+    scaler = GradScaler(enabled=(cfg["optim"]["mixed_precision"] and device == "cuda"))
     loss_fn = nn.CrossEntropyLoss(ignore_index=-100)
 
     # --- Logging (TB + CSV) ---
@@ -332,11 +335,12 @@ def train(cfg):
     resume_path = cfg.get("resume_path")  # allow via config/override
     if resume_path and Path(resume_path).exists():
         print(f"Resuming from {resume_path}")
-        e, s = load_checkpoint(Path(resume_path), model=model, optimizer=opt, scaler=scaler,
-                            map_location=device)
+        e, s, opt_step = load_checkpoint(
+            Path(resume_path), model=model, optimizer=opt, scaler=scaler, map_location=device
+        )
         start_epoch = e
         global_step = s
-        optimizer_step = opt_st          
+        optimizer_step = opt_step          
         print(f"→ resumed at epoch={start_epoch}, global_step={global_step}, optimizer_step={optimizer_step}")
     
 
@@ -371,7 +375,7 @@ def train(cfg):
 
             with autocast(device_type="cuda", enabled=cfg["optim"]["mixed_precision"]):
                 logits = model(x)
-                loss = loss_fn(logits.view(-1, logits.size(-1)), y.reshape(-1))
+                loss = loss_fn(logits.transpose(1, 2), y)
                 loss = loss / accum  # normalize for accumulation
 
             scaler.scale(loss).backward()
@@ -420,9 +424,9 @@ def train(cfg):
                 x, y = x.to(device), y.to(device)
                 with autocast(device_type="cuda", enabled=cfg["optim"]["mixed_precision"]):
                     logits = model(x)
-                    loss = loss_fn(logits.view(-1, logits.size(-1)), y.reshape(-1))
-                val_loss += loss.item()
-                vpbar.set_postfix(vloss=f"{loss.item():.3f}")
+                    vloss  = loss_fn(logits.transpose(1, 2), y)
+                val_loss += vloss.item()
+                vpbar.set_postfix(vloss=f"{vloss.item():.3f}")
 
 
         avg_val = val_loss / max(1, len(val_dl))
@@ -457,16 +461,20 @@ def train(cfg):
         csv_f.flush()
 
         # Save "last"
-        save_checkpoint(ckpt_dir / "last_model.pt",
+        save_checkpoint(
+            ckpt_dir / "last_model.pt",
             model=model, optimizer=opt, scaler=scaler,
-            epoch=epoch+1, step=global_step, cfg=cfg)
+            epoch=epoch+1, step=global_step, optimizer_step=optimizer_step, cfg=cfg
+        )
 
         # Early stopping
         improved, stop = early.step(avg_val, model)
         if improved:
-                save_checkpoint(ckpt_dir / "best_model.pt",
-                                model=model, optimizer=opt, scaler=scaler,
-                                epoch=epoch+1, step=global_step, cfg=cfg)
+            save_checkpoint(
+                ckpt_dir / "best_model.pt",
+                model=model, optimizer=opt, scaler=scaler,
+                epoch=epoch+1, step=global_step, optimizer_step=optimizer_step, cfg=cfg
+            )
         
         # Optional: auto-backup to Drive if env set
         if drive_dir and ((epoch + 1) % backup_every == 0):

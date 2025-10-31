@@ -9,21 +9,21 @@ vocab_path: tokenizer/bpe.json   # must match the tokenizer used for training
 data:
   processed_dir: data/processed
   max_len: 256           
-  train_batch_size: 512
-  val_batch_size: 512
-  num_workers: 2
+  train_batch_size: 256
+  val_batch_size: 256
+  num_workers: 8
 
 model:
-  d_model: 256            
-  n_layers: 8
-  n_heads: 8
+  d_model: 768   
+  n_layers: 12
+  n_heads: 12
   max_len: 256           
   dropout: 0.1               
   use_rope: true          
   tie_weights: true
 
 optim:
-  lr: 0.001
+  lr: 0.0003
   weight_decay: 0.01
   betas: [0.9, 0.95]
   grad_clip: 1.0

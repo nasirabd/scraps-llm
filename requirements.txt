@@ -1,7 +1,9 @@
+bitsandbytes>=0.43.0
 gradio>=4.0.0
 torch>=2.3
 tokenizers>=0.15
 tqdm>=4.66
+onnxruntime>=1.19.0
 pyyaml
 rouge-score
 sacrebleu

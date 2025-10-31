@@ -17,9 +17,16 @@ def sample_continuation(model, tok, device, prompt: str,
                         max_new_tokens=160, temperature=0.7, top_k=50, top_p=0.9):
     """Lightweight sampler (BOS + prompt, no EOS in prompt). Returns decoded continuation only."""
     # encode prompt without specials; add BOS only
-    prompt_ids = tok.encode(prompt, add_special=False)
-    ids = torch.tensor([[tok.bos_id] + prompt_ids], dtype=torch.long, device=device)
+    enc = tok.encode(prompt, add_special=False)
+    if hasattr(enc, "input_ids"):
+        prompt_ids = list(enc.input_ids)
+    elif hasattr(enc, "ids"):
+        prompt_ids = list(enc.ids)
+    else:
+        prompt_ids = list(enc)  # already a list
 
+    ids = torch.tensor([[tok.bos_id] + prompt_ids], dtype=torch.long, device=device)
+    prompt_len = ids.size(1)  # track prompt length for continuation slicing
     for _ in range(max_new_tokens):
         with autocast(enabled=torch.cuda.is_available()):
             logits = model(ids)[:, -1, :]  # (1, V)
@@ -59,7 +66,7 @@ def sample_continuation(model, tok, device, prompt: str,
 
     # token-level slice to continuation
     all_ids = ids[0].tolist()
-    cont_ids = all_ids[len([tok.bos_id] + prompt_ids):]
+    cont_ids = all_ids[prompt_len:]
     hyp = tok.decode(cont_ids)
     # temporary cleanup if your tokenizer shows "Ġ" artifacts
     hyp = hyp.replace("Ġ", " ").strip()
