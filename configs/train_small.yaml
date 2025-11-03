@@ -27,7 +27,7 @@ optim:
   weight_decay: 0.01
   betas: [0.9, 0.95]
   grad_clip: 1.0
-  epochs: 3
+  epochs: 15
   warmup_steps: auto
   scheduler: cosine
   mixed_precision: true
