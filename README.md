@@ -9,81 +9,194 @@ Scraps-LLM is your AI kitchen companion. Give it a list of whatever’s hiding i
 ## 🛠 Under the Hood
 Scraps-LLM is an **autoregressive, decoder-only Transformer** built in **PyTorch** that generates recipes token-by-token from an ingredient list.  
 The project demonstrates:
-- **Custom Tokenizer Training** with Byte Pair Encoding (BPE)
-- **Causal Masking** for next-token prediction
-- **Evaluation** via BLEU and perplexity
-- **Dockerized Workflows** for reproducible training & inference
-- **Cloud Readiness** with optional AWS S3/ECR + Kubernetes deployment
-- **Large-Scale Preprocessing** with optional Apache Spark
+- 🍳 **Autoregressive Decoder-Only Transformer** (PyTorch)
+- 🔡 **Custom Byte-Pair Encoding (BPE) Tokenizer**
+- 🧠 **Causal Masking** for next-token prediction
+- 🧾 **BLEU & ROUGE Evaluation**
+- 🐳 **Dockerized Workflows** for reproducible inference/training
+- ☁️ **Cloud Ready:** ONNX export, Colab GPU, and Hugging Face Space demo
 
 Whether you’re here for the recipes or the architecture, Scraps-LLM serves up both.
 
 ---
 
-## 🚀 How to Run
+## 🧠 Model Overview
 
-### 1. Clone the repository
+| Category | Details |
+|-----------|----------|
+| **Architecture** | Decoder-only Transformer |
+| **Parameters** | ≈ 137M |
+| **Hidden Dim (d_model)** | 768 |
+| **Layers** | 12 |
+| **Heads** | 12 |
+| **Max Seq Len** | 256 |
+| **Dropout** | 0.1 |
+| **Use RoPE** | ✅ |
+| **Tie Weights** | ✅ |
+| **Framework** | PyTorch → ONNX |
+
+---
+
+## 📚 Dataset
+
+| Field | Details |
+|-------|----------|
+| **Source** | [RecipeNLG](https://recipenlg.cs.put.poznan.pl/) |
+| **Tokens Processed** | ~2M |
+| **Preprocessing** | Ingredient normalization, Unicode cleaning, de-duplication, lowercase, and BPE encoding |
+| **Vocabulary** | ~8K tokens |
+| **Special Tokens** | `<bos>`, `<eos>` |
+
+---
+
+## ⚙️ Training Configuration
+
+| Parameter | Value |
+|------------|--------|
+| **Optimizer** | AdamW |
+| **Learning Rate** | 3e-4 |
+| **Weight Decay** | 0.01 |
+| **Betas** | (0.9, 0.95) |
+| **Grad Clip** | 1.0 |
+| **Scheduler** | Cosine |
+| **Warmup Steps** | Auto |
+| **Mixed Precision** | ✅ (FP16) |
+| **Epochs** | 3 |
+| **Seed** | 42 |
+| **Device** | Colab Pro+ A100 GPU |
+| **Training Time** | ~4–5 hrs |
+
+---
+
+## 📈 Evaluation Results (Validation)
+
+| Metric | Score |
+|---------|-------|
+| **Perplexity** | ~7.1 |
+| **BLEU-1** | 37.1 |
+| **ROUGE-L F1** | 6.7 |
+
+---
+
+
+## 🚀 How to Run 
+
+### 1. Clone and install requirements:
 ```bash
-git clone https://github.com/<your-username>/scraps-llm.git
+git clone https://github.com/nasirabd/scraps-llm.git
 cd scraps-llm
+pip install -r requirements.txt
+Make sure Makefile is installed.
 ```
-### 2. Build Docker images
-Before building, ensure you have **Docker** and **Make** installed.
 
-Using Make (recommended):
-```bash
-make build-train   # training/preprocessing image
-make build-infer   # inference API image
-
-Without Make:
-```bash
-docker build -f docker/Dockerfile.train -t scraps/train .
-docker build -f docker/Dockerfile.infer -t scraps/infer .
-```
-### 3. Preprocess dataset:
+### 2. Preprocess dataset:
 ```bash
 make preprocess
 ```
-### 4. Train the model (Colab or local GPU):
+### 3. Local Training and Inference (Optional Tensorboard tracking):
+Training:
 ```bash
-python src/training/train.py
+make train
+make tb
+# resume from last checkpoint
+make resume
+# resume from best checkpoint
+make resume_best
 ```
-### 5. 🧪 Evaluation
+Inference:
+```bash
+make recipe
+# for prompt and recipe
+make full recipe
+```
+Inference with Gradio app:
+bash
+```
+make app
+```
 
+### 4. 🧪 Local Evaluation:
 Run ROUGE-L F1 and BLEU on val/test:
-
 ```bash
-# quick val pass (first 200 examples)
-make eval-val
-
-# full test set + save predictions CSV
-make eval-test EVAL_LIMIT=0
-
-### 5. Serve locally(Fast-API):
-Launch the API server:
-```bash
-make serve
-
-Test the health endpoint:
-```bash
-curl http://localhost:8080/health
+make eval-all
 ```
 
-### 6. Generate a Recipe:
-Send a POST request:
+### 5. Inference with Docker and Fast-API
+Before building, ensure you have **Docker** .
 ```bash
-curl -X POST http://localhost:8080/generate \
-  -H "Content-Type: application/json" \
-  -d '{"ingredients":"chicken, garlic, onion"}'
+make build-infer   # inference API image
+make run-infer
+# Quick health & sample curl (requires run-infer running)
+make api-health
+make api-curl
 ```
+### 6. Cloud Training and Inference:
+Train the model Collab pro:
+run scrap_collab.ipynb on collab
 
-### 7. Run a Gradio Web Demo locally
-```bash
-pip install gradio
-python src/app.py
-```
-
-## 🌐 Live Demo
-### Run a live Demo on Hugging Face Spaces:
+🌐 Live Demo on Hugging Face Free paces:
 Try Scraps-LLM in your browser — no installation needed:
+
+Option A: Use my Space
+👉https://huggingface.co/spaces/donribbs/scraps-llm-demo
+
+1. Go to [**Hugging Face → Spaces**](https://huggingface.co/spaces)
+2. Click **New Space**
+3. Set:
+   - **SDK:** `Gradio`
+   - **App File:** `app.py`
+   - **Visibility:** `Public`
+4. Commit your code & model artifacts:
+   - `export/scraps.onnx`
+   - `tokenizer/bpe.json`
+5. Hugging Face will automatically build and host your app 🎉
+
+## 🧮 Example Generation
+Input: 
+
+Ingredients: chicken, garlic, onion
+
+Output:
+
+title: delicious chicken
+- step 1: wash chicken and place in large pot.
+- step 2: cover with water and bring to a boil.
+- step 3: lower heat and simmer for 1 hour.
+- step 4: let chicken cool and debone.
+- step 5: place chicken back in pot and add garlic and onion.
+- step 6: let simmer for 30 minutes.
+- step 7: serve with rice.
+
+## 🧰 Tech Stack
+
+| Component | Technology |
+|------------|-------------|
+| **Framework** | PyTorch 2.x |
+| **Interface** | Gradio 4.x |
+| **Tokenizer** | Hugging Face Tokenizers |
+| **Export** | ONNX Runtime |
+| **Deployment** | Docker / Hugging Face Spaces |
+| **Training Platform** | Google Colab Pro+ (A100) |
+
+
+## Citation
+If you use Scraps-LLM in your research or projects, please cite:
+
+@software{Abdallah2025ScrapsLLM,
+  author = {Nasir Abdallah},
+  title  = {Scraps-LLM: A Recipe Generation Transformer},
+  year   = {2025},
+  url    = {https://huggingface.co/donribbs/scraps-llm-model}
+}
+
+## 🧾 License
+MIT License © Nasir Abdallah
+
+## 🔗 Links
+
+| Platform | Repository |
+|-----------|-------------|
+| **🤗 Hugging Face Model** | [donribbs/scraps-llm-model](https://huggingface.co/donribbs/scraps-llm-model) |
+| **🌐 Hugging Face Space (Demo)** | [donribbs/scraps-llm-demo](https://huggingface.co/spaces/donribbs/scraps-llm-demo) |
+| **💻 GitHub Source** | [nasirabd/scraps-llm](https://github.com/nasirabd/scraps-llm) |
 
