@@ -62,10 +62,13 @@ jobs:
           )
           print(f"✅ Downloaded checkpoint: {p}")
           PY
+          
+      - name: Ensure repo root on PYTHONPATH
+        run: echo "PYTHONPATH=${GITHUB_WORKSPACE}" >> $GITHUB_ENV
 
       - name: Export ONNX
         run: |
-          python export/export_onnx.py \
+          python -m export.export_onnx \
             --config configs/train_small.yaml \
             --ckpt model/checkpoints \
             --out export/scraps.onnx \
