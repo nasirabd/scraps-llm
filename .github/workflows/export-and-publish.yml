@@ -36,7 +36,7 @@ jobs:
             # Install CPU wheels to keep CI light
             pip install --index-url https://download.pytorch.org/whl/cpu torch==2.4.1
             # ONNX toolchain 
-            pip install onnx==1.16.2 onnxscript==0.1.41 onnxruntime==1.19.2
+            pip install onnx==1.16.2 
             # Your project deps
             pip install -r requirements.txt || true
             pip install huggingface_hub pyyaml
